@@ -11,7 +11,9 @@ Hi, I am an experienced Software Developer who can bring a diverse skill set and
 
 ## Career Interest
 
-I am proficient at designing and developing scalable systems and specializes in thinking outside the box to find unique solutions to difficult engineering problems. It is not the actual work but the challenging creative process that goes behind it which inspires me to think out of the box to do something new, something satisfactory!
+I am proficient at designing and developing scalable systems and specializes in thinking outside the box to find unique solutions to difficult engineering problems. 
+
+It is not the actual work but the challenging creative process that goes behind it which inspires me to think out of the box to do something new, something satisfactory!
 
 ## Timeline
 
