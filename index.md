@@ -2,40 +2,28 @@
 layout: default
 ---
 
+> To a great mind, nothing is little
+
 ## About Me
 
-<img class="profile-picture" src="sherlock.jpg">
-
-Hi! I am a junior year student of B.E. Computer Science at Birla Institute of Technology and Science, Pilani.
-
-This is a jekyll based resume template. You can find the full source code on [GitHub](https://github.com/bk2dcradle/researcher)
+<img class="profile-picture" src="https://media.licdn.com/dms/image/C5603AQE2bR5Dx55jgg/profile-displayphoto-shrink_200_200/0?e=1528387200&v=beta&t=5DzyTt4TzMSEHCb17KZLz16aA8wl1U_yUUn6GZEQaUc">
+Hi, I am an experienced Software Developer who can bring a diverse skill set and creative drive to software development.
 
 ## Research Interest
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus ipsum ac erat aliquam dapibus. Vestibulum vehicula placerat ex, a consectetur odio pharetra quis. Mauris id urna ante. Fusce pharetra diam ac nisi aliquet, vel egestas ex iaculis. Pellentesque laoreet cursus tellus sed pellentesque. Praesent a rhoncus elit. Nunc ipsum nisl, consequat sit amet pretium quis, gravida id ipsum.
+I am proficient at designing and developing scalable systems and specializes in thinking outside the box to find unique solutions to difficult engineering problems. It is not the actual work but the challenging creative process that goes behind it which inspires me to think out of the box to do something new, something satisfactory!i
 
-## Publications
+## Career
 
-1. F.Bar, J.Doe: Effects of having a placeholder of a name
-2. S.Holmes, J.Watson: Consequences of living with a sociopath in London
+Here is a brief timeline of my career till now:
 
-## Typography
 
-This is a [link](http://google.com). Something *italics* and something **bold**.
-
-Here is a table
-
-Year | Award | Category
+Duration | Comapany | Designation
 -----|-------|--------
-2014 | Emmy  | Won Outstanding Lead Actor in a miniseries or a movie
-2015 | BAFTA | Nominated for Best Leading Actor for Sherlock
-2014 | Satellite | Won Best Actor miniseries or television film
+May'17 - Present | Shuttl  | Senior Software Development Engineer (SDE-II)
+Oct'14 - May'17 | Adobe | Software Development Engineer
+Jun'14 - Oct'14 | Webyog, Inc. | Software Engineering Intern
 
-Here is a horizontal rule
-
----
-
-Here is a blockquote
 
 > To a great mind, nothing is little
 
