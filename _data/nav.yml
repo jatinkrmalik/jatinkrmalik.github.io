@@ -2,7 +2,7 @@
   link: "contact"
 
 - name: "Resume"
-  link: "resume.pdf"
+  link: "jatinkrmalik-resume"
 
-- name: "About"
-  link: "/researcher/"
+- name: "Blog"
+  link: "/blog/"
