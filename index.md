@@ -7,7 +7,7 @@ layout: default
 ## About Me
 
 <img class="profile-picture" src="https://media.licdn.com/dms/image/C5603AQE2bR5Dx55jgg/profile-displayphoto-shrink_200_200/0?e=1528387200&v=beta&t=5DzyTt4TzMSEHCb17KZLz16aA8wl1U_yUUn6GZEQaUc">
-Hi, I am an experienced Software Developer who can bring a diverse skill set and creative drive to software development.
+Hi, I am an experienced Software Developer who can bring a diverse skill set and creative drive to the tech team.
 
 ## Career Interest
 
