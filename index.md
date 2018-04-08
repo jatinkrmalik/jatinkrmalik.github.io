@@ -25,7 +25,8 @@ Oct'14 - May'17 | Adobe | Software Development Engineer
 Jun'14 - Oct'14 | Webyog, Inc. | Software Engineering Intern
 
 ## Add more stuff here
-<Random>
+
+Lorem ipsum
 
 ## References
 
