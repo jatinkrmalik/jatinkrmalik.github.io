@@ -3,24 +3,22 @@ layout: default
 is_contact: true
 ---
 
-* Email: [foo@xyz.com](mailto:foo@xyz.com)
+* Email: [jatinkrmalik@gmail.com](mailto:jatinkrmalik@gmail.com)
 
-* Phone: [+91-123123](tel:+91-123123)
-
----
-
-## Mailing Address
-
-> 221B, Baker Street
->
-> London
->
-> United Kingdom
+* Phone: [+91-9899562726](tel:+91-9899562726)
 
 ---
 
-## Social
+## Located at
 
-1. [Facebook](#)
-2. [Twitter](#)
-3. [Google+](#)
+> Gurugram, Haryana
+>
+> India
+
+---
+
+## Links
+
+1. [Github](www.github.com/jatinkrmalik)
+2. [Twitter](www.twitter.com/jatinkrmalik)
+3. [LinkedIn](www.linkedin.com/in/jatinkrmalik)
