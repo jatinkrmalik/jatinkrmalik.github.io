@@ -20,7 +20,7 @@ Here is a brief timeline of my career till now:
 
 Duration | Comapany | Designation
 -----|-------|--------
-May'17 - Present | Shuttl  | Senior Software Development Engineer (SDE-II)
+May'17 - Present | Shuttl  | Senior Software Development Engineer
 Oct'14 - May'17 | Adobe | Software Development Engineer
 Jun'14 - Oct'14 | Webyog, Inc. | Software Engineering Intern
 
