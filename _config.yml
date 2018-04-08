@@ -1,3 +1,4 @@
-theme: jekyll-theme-hacker
+# theme: jekyll-theme-hacker
+remote_theme: heiswayi/thinkspace
 title: Jatin K Malik | Engineering blog
 description: Life of a software developer. Summarized.
