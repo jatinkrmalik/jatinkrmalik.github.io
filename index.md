@@ -27,7 +27,6 @@ Oct'14 - May'17 | Adobe | Software Development Engineer
 Jun'14 - Oct'14 | Webyog, Inc. | Software Engineering Intern
 
 ### [> Shuttl (Super Highway Labs Pvt Ltd.)](http://shuttl.com)
-
 *May'17 - Present | Gurugram, India*
 
 >Working in **Innovation Team (R&D)** as a Senior Software Developer.
@@ -62,7 +61,6 @@ My work involved developing new features and enhancing existing features in AEM 
 **Technologies used:** Java, Javascript, Python, Sightly and AEM (formerly CQ)
 
 ### [> Webyog, Inc.](https://www.webyog.com/)
-
 *Jun'14 - Oct'14 | Bengaluru, India*
 
 > I worked in Webyog as a Software Engineering Intern.
