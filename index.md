@@ -28,9 +28,53 @@ Jun'14 - Oct'14 | Webyog, Inc. | Software Engineering Intern
 
 ### [> Shuttl (Super Highway Labs Pvt Ltd.)](http://shuttl.com)
 
-Lorem ipsum
+*May'17 - Present | Gurugram, India*
 
-## References
+>Working in **Innovation Team (R&D)** as a Senior Software Developer.
 
-* Foo Bar: Head of Department, Placeholder Names, Lorem
-* John Doe: Associate Professor, Department of Computer Science, Ipsum
+Being in a product based startup, I get to work on the bleeding edge of the Shuttl spectrum. It's a Full stack developer role which requires developing and designing each and every bit including hardware, front end, back end, design, databases, project management. 
+
+Here's a glimpse of my work here:
+
+* **S.A.F.E. by Shuttl:**
+I took the ownership of the project S.A.F.E. Shuttl and implemented an array of features from scratch like auto onboarding authentication via face detection and recognition, ShuttlTV - an innovative product to split the audio stream and play it over the earphones separate from the video stream and an always on Alcohol detector - so as to cut off the ignition if alcohol is detected and all of this powered by Raspberry Pi 3 + Arduino.
+Check the attached links for respective media coverage.
+
+    *Update:* Shuttl S.A.F.E won FICCI's "Road Safety Product & Solution" 2017 special jury award. 
+
+* **Network Optimization for route efficiency (Travelling Salesman Problem):**
+I helped design the network optimisation system from grounds up so as to be able to schedule the buses efficiently on the route map to minimize the wait time delta between trips and maximise the utilization of the whole system so as to increase revenue without adding any additional resources.
+
+**Technologies:** OpenCV, DLIB, Python, Flask, Raspberry Pi, Arduino, Javascript, Data analysis, Data mapping and visualisation
+
+### [> Adobe Systems Pvt Ltd.](https://www.adobe.com/in/)
+*Oct'14 - May'17 | Noida, India*
+
+> I worked in **Adobe Experience Manager(AEM) Team** of Adobe Marketing Cloud as a Software Developer.
+
+My work involved developing new features and enhancing existing features in AEM (full-stack) which were a part of product roadmap and requirements of partners and vendors.
+
+**Achievements:**
+* Successfully headed hands-on enablement workshop for partners in Singapore, Sydney & Tokyo.
+* Got rewarded Bonus RSUs twice for an exemplary performance.
+* Won Spot Award in Q4 2016 for developing a PoC to integrate AEM with a 3rd party financial product.
+
+**Technologies used:** Java, Javascript, Python, Sightly and AEM (formerly CQ)
+
+### [> Webyog, Inc.](https://www.webyog.com/)
+
+*Jun'14 - Oct'14 | Bengaluru, India*
+
+> I worked in Webyog as a Software Engineering Intern.
+
+My responsibility was to develop and execute test plans and design, manage, and document functional, regression, and stress tests to ensure the product works smoothly for all users.
+
+In short, break what a developer develops and help users when they are lost.
+
+**Achievements:**
+* I played a key role in transforming the manual testing process to fully automated one.
+* I created a full-fledged automation framework using Selenium web driver with Java and automated over 250 test cases which saved a lot of man hours to the team.
+* I was awarded with an opportunity to convert the Internship into a Full-time job.
+
+**Technologies used:** Python, Selenium, Javascript and HTML5/CSS3
+
