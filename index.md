@@ -76,7 +76,7 @@ In short, break what a developer develops and help users when they are lost.
 
 **Technologies used:** Python, Selenium, Javascript and HTML5/CSS3
 
-## Things I do ~for fun~ in my free-time
+## Things I do ~~for fun~~ in my free-time
 
 * Tinker with my Raspberry Pi and hacking some electronic projects.
 * Spin up VMs for almost every Linux disto, every weekend just to destroy it later.
@@ -87,4 +87,4 @@ In short, break what a developer develops and help users when they are lost.
 * Blog (once in a while..)
 * List goes on..
 
-## Update more stuff here...
+## ...Update more stuff here...
