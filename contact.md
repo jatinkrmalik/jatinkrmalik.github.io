@@ -19,6 +19,6 @@ is_contact: true
 
 ## Links
 
-1. [Github](www.github.com/jatinkrmalik)
-2. [Twitter](www.twitter.com/jatinkrmalik)
-3. [LinkedIn](www.linkedin.com/in/jatinkrmalik)
+1. [Github](http://github.com/jatinkrmalik)
+2. [Twitter](http://twitter.com/jatinkrmalik)
+3. [LinkedIn](http://linkedin.com/in/jatinkrmalik)
