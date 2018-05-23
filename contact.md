@@ -3,9 +3,9 @@ layout: default
 is_contact: true
 ---
 
-* Email: [jatinkrmalik@gmail.com](mailto:jatinkrmalik@gmail.com)
+* Email: jatinkrmalik(at)gmail(dot)com
 
-* Phone: [+91-9899562726](tel:+91-9899562726)
+* Phone: +91-Nine-Eight-Nine-Nine-Five-Six-Two-Seven-Two-Six
 
 ---
 
