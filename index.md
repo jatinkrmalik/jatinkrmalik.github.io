@@ -35,6 +35,19 @@ Being in a product based startup, I get to work on the bleeding edge of the Shut
 
 Here's a glimpse of my work here:
 
+* **Coupon Dispersal System:**
+Implemented CDS as a one stop ad-hoc coupon generation and distribution system which enabled us to ensure more growth across the company in multiple teams.
+ This was a result of problems identified largely around information asymmetry and lack of a central information system. The solution revolves around creating such a system where human intelligence is not required at the execution level. Some of the key highlights of the project are:
+    
+    * Multi-authentication model.
+    * Auto-application of coupons based on some criteria.
+    * Team level access control for each coupon campaign.
+    * Daily auto-report based on team and campaign level.
+    * Admin console to manage Agents and Coupons (CRUD).
+    * Enabled online campaigns with virtual agents. 
+    * User specific unique coupon generation to prevent fraud.
+    * Microservice architecture to enable ease of scaling. 
+
 * **S.A.F.E. by Shuttl:**
 I took the ownership of the project S.A.F.E. Shuttl and implemented an array of features from scratch like auto onboarding authentication via face detection and recognition, ShuttlTV - an innovative product to split the audio stream and play it over the earphones separate from the video stream and an always on Alcohol detector - so as to cut off the ignition if alcohol is detected and all of this powered by Raspberry Pi 3 + Arduino.
 Check the attached links for respective media coverage.
