@@ -39,7 +39,7 @@ Here's a glimpse of my work here:
 Implemented CDS as a one stop ad-hoc coupon generation and distribution system which enabled us to ensure more growth across the company in multiple teams.
  This was a result of problems identified largely around information asymmetry and lack of a central information system. The solution revolves around creating such a system where human intelligence is not required at the execution level. 
 
-Some of the key highlights of the project are:
+    Some of the key highlights of the project are:
     
     * Multi-authentication model.
     * Auto-application of coupons based on some criteria.
