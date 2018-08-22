@@ -22,16 +22,23 @@ Here is a brief timeline of my career till now:
 
 Duration | Comapany | Designation
 -----|-------|--------
-May'17 - Present | Shuttl  | Senior Software Development Engineer
+Jul'18 - Present | Synaptic.io | Senior Software Development Engineer
+May'17 - Jul'18 | Shuttl  | Senior Software Development Engineer
 Oct'14 - May'17 | Adobe | Software Development Engineer
 Jun'14 - Oct'14 | Webyog, Inc. | Software Engineering Intern
+
+###[> Synaptic.io](http://synaptic.io)
+*Jul'18 - Present | Gurugram, India*
+I am working in the core platform development team. 
+
+Synaptic is a Vy Capital backed early stage fintech startup, which helps investors gain meaning insights through data.
 
 ### [> Shuttl (Super Highway Labs Pvt Ltd.)](http://shuttl.com)
 *May'17 - Present | Gurugram, India*
 
->Working in **Innovation Team (R&D)** as a Senior Software Developer.
+>Worked in **Innovation Team (R&D)** as a Senior Software Developer.
 
-Being in a product based startup, I get to work on the bleeding edge of the Shuttl spectrum. It's a Full stack developer role which requires developing and designing each and every bit including hardware, front end, back end, design, databases, project management. 
+Being in a product based startup, I got to work on the bleeding edge of the Shuttl spectrum. It was primarily a Backend developer role which sometimes required developing and designing each and every bit including hardware, front end, back end, design, databases, project management. 
 
 Here's a glimpse of my work here:
 
