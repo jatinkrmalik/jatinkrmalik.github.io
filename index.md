@@ -35,7 +35,7 @@ Jun'14 - Oct'14 | Webyog, Inc. | Software Engineering Intern
 Synaptic is a Vy Capital backed early stage fintech startup, which helps investors gain meaning insights through data.
 
 ### [> Shuttl (Super Highway Labs Pvt Ltd.)](http://shuttl.com)
-*May'17 - Present | Gurugram, India*
+*May'17 - July'18 | Gurugram, India*
 
 >Worked in **Innovation Team (R&D)** as a Senior Software Developer.
 
