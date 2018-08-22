@@ -27,9 +27,10 @@ May'17 - Jul'18 | Shuttl  | Senior Software Development Engineer
 Oct'14 - May'17 | Adobe | Software Development Engineer
 Jun'14 - Oct'14 | Webyog, Inc. | Software Engineering Intern
 
-###[> Synaptic.io](http://synaptic.io)
+### [> Synaptic.io](http://synaptic.io)
 *Jul'18 - Present | Gurugram, India*
-I am working in the core platform development team. 
+
+> I am working in the core platform development team. 
 
 Synaptic is a Vy Capital backed early stage fintech startup, which helps investors gain meaning insights through data.
 
