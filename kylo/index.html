@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Found Kylo?</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f5f5f4; color: #1c1917; line-height: 1.5;
+  }
+  .card { max-width: 480px; margin: 0 auto; padding: 24px 20px 40px; background: #fff; min-height: 100vh; }
+  h1 { font-size: 28px; margin: 16px 0 8px; }
+  p { margin: 0 0 16px; color: #44403c; }
+  .photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; background: #e7e5e4; display: block; }
+  .details { margin: 16px 0; padding: 12px 16px; background: #f5f5f4; border-radius: 12px; }
+  .details div { padding: 4px 0; }
+  .btn {
+    display: block; text-align: center; text-decoration: none;
+    font-size: 18px; font-weight: 600; padding: 16px;
+    border-radius: 14px; margin: 12px 0; min-height: 48px;
+  }
+  .btn-call { background: #16a34a; color: #fff; }
+  .btn-text { background: #e7e5e4; color: #1c1917; }
+  .note { font-size: 14px; color: #57534e; margin-top: 16px; }
+  footer { margin-top: 24px; font-size: 13px; color: #a8a29e; text-align: center; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>You've found Kylo.</h1>
+  <p>Thanks for scanning his tag. He is a friendly dog, and his owner wants him back.</p>
+  <!-- Owner will add Kylo's photo as kylo.jpg -->
+  <img class="photo" src="kylo.jpg" alt="Kylo Ren">
+  <div class="details">
+    <div>Male, Golden Retriever mix.</div>
+    <div>About 85 pounds.</div>
+    <div>Microchip 982091064699716.</div>
+  </div>
+  <a class="btn btn-call" href="tel:+17738008636">Call his owner</a>
+  <a class="btn btn-text" href="sms:+17738008636?&amp;body=I%20found%20Kylo%20Ren">Text his owner</a>
+  <p class="note">If he will not come to you, please do not chase him. Call or text and stay nearby if you can.</p>
+  <footer>This page opens from the NFC tag on Kylo's collar.</footer>
+</div>
+</body>
+</html>
