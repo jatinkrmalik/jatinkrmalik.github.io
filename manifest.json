@@ -1,13 +1,25 @@
 {
-  "short_name": "jkm",
-  "name": "Jatin K Malik · Engineering notes",
+  "short_name": "@jatinkrmalik",
+  "name": "@jatinkrmalik",
   "icons": [
-    {"src": "/favicon.ico", "sizes": "64x64 32x32 24x24 16x16", "type": "image/x-icon"},
-    {"src": "/android-chrome-192x192.png", "type": "image/png", "sizes": "192x192"},
-    {"src": "/android-chrome-512x512.png", "type": "image/png", "sizes": "512x512"}
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/android-chrome-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    }
   ],
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
-  "theme_color": "#fbfaf7",
-  "background_color": "#fbfaf7"
+  "theme_color": "#030",
+  "background_color": "#ffffff"
 }
