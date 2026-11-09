@@ -1,0 +1,435 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-5hce7sga> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OpenCode Go + oh-my-openagent: The Complete Guide to SOTA Model Routing Without Hitting Limits! [Updated: September 2026] · Jatin K Malik</title><meta name="description" content="A tiered guide to routing OpenCode Go models across oh-my-openagent agents, with fallback chains and budgeting to avoid hitting rate and monthly limits."><meta name="author" content="Jatin Kumar Malik"><link rel="canonical" href="https://jatinkrmalik.com/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/"><meta name="generator" content="Astro v5.18.2"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Jatin K Malik" href="/rss.xml"><meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)"><meta property="og:site_name" content="Jatin K Malik"><meta property="og:type" content="article"><meta property="og:url" content="https://jatinkrmalik.com/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/"><meta property="og:title" content="OpenCode Go + oh-my-openagent: The Complete Guide to SOTA Model Routing Without Hitting Limits! [Updated: September 2026]"><meta property="og:description" content="A tiered guide to routing OpenCode Go models across oh-my-openagent agents, with fallback chains and budgeting to avoid hitting rate and monthly limits."><meta property="og:image" content="https://jatinkrmalik.com/images/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/1-vC3rDyOB5b4v9cM_Yn6HkQ.webp"><meta property="article:published_time" content="2026-05-04T00:00:00.000Z"><meta property="article:modified_time" content="2026-09-13T00:00:00.000Z"><meta property="article:author" content="Jatin Kumar Malik"><meta property="article:tag" content="ai"><meta property="article:tag" content="developer-tools"><meta property="article:tag" content="how-to"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@jatinkrmalik"><meta name="twitter:creator" content="@jatinkrmalik"><meta name="twitter:title" content="OpenCode Go + oh-my-openagent: The Complete Guide to SOTA Model Routing Without Hitting Limits! [Updated: September 2026]"><meta name="twitter:description" content="A tiered guide to routing OpenCode Go models across oh-my-openagent agents, with fallback chains and budgeting to avoid hitting rate and monthly limits."><meta name="twitter:image" content="https://jatinkrmalik.com/images/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/1-vC3rDyOB5b4v9cM_Yn6HkQ.webp"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenCode Go + oh-my-openagent: The Complete Guide to SOTA Model Routing Without Hitting Limits! [Updated: September 2026]","description":"A tiered guide to routing OpenCode Go models across oh-my-openagent agents, with fallback chains and budgeting to avoid hitting rate and monthly limits.","datePublished":"2026-05-04T00:00:00.000Z","dateModified":"2026-09-13T00:00:00.000Z","mainEntityOfPage":"https://jatinkrmalik.com/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/","url":"https://jatinkrmalik.com/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/","keywords":"ai, developer-tools, how-to","image":"https://jatinkrmalik.com/images/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/1-vC3rDyOB5b4v9cM_Yn6HkQ.webp","isBasedOn":"https://medium.com/@jatinkrmalik/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing-without-hitting-limits-49fdc8cb3417","author":{"@type":"Person","name":"Jatin Kumar Malik","url":"https://jatinkrmalik.com/about/"}}</script><script>
+  // Apply the saved theme before first paint to avoid a flash.
+  (() => {
+    try {
+      const t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch {}
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.H0TgHpCk.css">
+<style>.cover[data-astro-cid-e5kvktnr]{display:block;width:100%;height:100%;object-fit:cover;background:var(--bg-sunk)}.gen[data-astro-cid-e5kvktnr]{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:1rem 1.1rem;font-family:var(--font-mono);color:var(--g-ink);background:radial-gradient(circle at 85% 15%,color-mix(in srgb,var(--g-ink) 18%,transparent) 0 18%,transparent 19%),repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--g-ink) 7%,transparent) 14px 15px),var(--g-bg);overflow:hidden}.g-tag[data-astro-cid-e5kvktnr]{font-size:clamp(1rem,2.4vw,1.35rem);font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}.g-year[data-astro-cid-e5kvktnr]{font-size:.75rem;opacity:.75;align-self:flex-end}.gen[data-astro-cid-e5kvktnr][data-tone="0"]{--g-bg: #fde7d6;--g-ink: #9a3412}.gen[data-astro-cid-e5kvktnr][data-tone="1"]{--g-bg: #dcefe4;--g-ink: #166534}.gen[data-astro-cid-e5kvktnr][data-tone="2"]{--g-bg: #dde7fb;--g-ink: #1e40af}.gen[data-astro-cid-e5kvktnr][data-tone="3"]{--g-bg: #ede3fb;--g-ink: #6b21a8}.gen[data-astro-cid-e5kvktnr][data-tone="4"]{--g-bg: #f9f0cf;--g-ink: #854d0e}.gen[data-astro-cid-e5kvktnr][data-tone="5"]{--g-bg: #e3eef2;--g-ink: #155e75}:root[data-theme=dark] .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}}
+.card[data-astro-cid-iyiqi2so]{display:flex;flex-direction:column;min-width:0}.media[data-astro-cid-iyiqi2so]{display:block;aspect-ratio:16 / 9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--rule);background:var(--bg-sunk)}.media[data-astro-cid-iyiqi2so] .cover{transition:transform .4s ease}.card[data-astro-cid-iyiqi2so]:hover .media[data-astro-cid-iyiqi2so] .cover{transform:scale(1.03)}.text[data-astro-cid-iyiqi2so]{padding-top:.85rem}.meta[data-astro-cid-iyiqi2so]{display:flex;flex-wrap:wrap;gap:.2rem .7rem;margin:0;font-size:.72rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em}.tag[data-astro-cid-iyiqi2so]{color:var(--accent);font-weight:600}.title[data-astro-cid-iyiqi2so]{font-size:1.15rem;line-height:1.3;letter-spacing:-.015em;margin:.4rem 0 0;overflow-wrap:anywhere}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]{text-decoration:none}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]:hover{color:var(--accent)}.desc[data-astro-cid-iyiqi2so]{margin:.45rem 0 0;color:var(--ink-2);font-size:.93rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.featured[data-astro-cid-iyiqi2so]{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:2.25rem;align-items:center}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so]{aspect-ratio:auto;max-height:30rem}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] img.cover{height:auto;max-height:30rem;object-fit:contain}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] .gen{aspect-ratio:16 / 9}.featured[data-astro-cid-iyiqi2so] .text[data-astro-cid-iyiqi2so]{padding-top:0}.featured[data-astro-cid-iyiqi2so] .title[data-astro-cid-iyiqi2so]{font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.03em}.featured[data-astro-cid-iyiqi2so] .desc[data-astro-cid-iyiqi2so]{font-family:var(--font-serif);font-size:1.2rem;line-height:1.5;-webkit-line-clamp:4;line-clamp:4}@media(max-width:760px){.featured[data-astro-cid-iyiqi2so]{grid-template-columns:minmax(0,1fr);gap:1rem}}
+</style>
+<link rel="stylesheet" href="/_astro/about.C9axxvRH.css"></head> <body data-astro-cid-5hce7sga> <a class="skip" href="#main" data-astro-cid-5hce7sga>Skip to content</a> <header class="site-header" data-astro-cid-5hce7sga> <div class="wrap bar" data-astro-cid-5hce7sga> <a href="/" class="brand" aria-label="Jatin K Malik, home" data-astro-cid-5hce7sga> <span class="brand-mark" aria-hidden="true" data-astro-cid-5hce7sga>jkm</span> <span class="brand-name" data-astro-cid-5hce7sga>Jatin K Malik</span> </a> <nav aria-label="Main" data-astro-cid-5hce7sga> <a href="/blog/" aria-current="page" data-astro-cid-5hce7sga> All posts </a><a href="/tags/" data-astro-cid-5hce7sga> Topics </a><a href="/about/" data-astro-cid-5hce7sga> About </a> <a href="/rss.xml" class="icon-link" aria-label="RSS feed" title="RSS feed" data-astro-cid-5hce7sga> <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M5 3a16 16 0 0 1 16 16h-3A13 13 0 0 0 5 6zm0 6a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7zm2 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4" data-astro-cid-5hce7sga></path></svg> </a> <button class="icon-link theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" data-astro-cid-5hce7sga> <svg class="i-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><circle cx="12" cy="12" r="4.2" fill="currentColor" data-astro-cid-5hce7sga></circle><g stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-5hce7sga><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" data-astro-cid-5hce7sga></path></g></svg> <svg class="i-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1" data-astro-cid-5hce7sga></path></svg> </button> </nav> </div> </header> <main id="main" data-astro-cid-5hce7sga>  <article class="post" data-astro-cid-7jjqptxk> <header class="wrap post-head" data-astro-cid-7jjqptxk> <p class="meta mono" data-astro-cid-7jjqptxk> <a class="kicker" href="/tags/ai/" data-astro-cid-7jjqptxk>ai</a> <time datetime="2026-05-04" data-astro-cid-7jjqptxk>4 May 2026</time> <span data-astro-cid-7jjqptxk>10 min read</span>  </p> <h1 data-astro-cid-7jjqptxk>OpenCode Go + oh-my-openagent: The Complete Guide to SOTA Model Routing Without Hitting Limits! [Updated: September 2026]</h1> <p class="dek" data-astro-cid-7jjqptxk>A tiered guide to routing OpenCode Go models across oh-my-openagent agents, with fallback chains and budgeting to avoid hitting rate and monthly limits.</p> <a class="byline" href="/about/" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="28" height="28" data-astro-cid-7jjqptxk> <span data-astro-cid-7jjqptxk>Jatin Kumar Malik</span> </a> </header>  <div class="wrap body" data-astro-cid-7jjqptxk> <div class="prose" data-astro-cid-7jjqptxk> <blockquote>
+<p><strong>September 2026 update:</strong> If your August config still parks GPT 5.6 Luna on Hephaestus or DeepSeek V4 Pro on daily work, replace it. Both now sit on a $15 monthly envelope. Grok 4.5 is gone. GLM-5.3 is the new OmO GLM brain, and it is also $15/month, so GLM-5.2 remains the orchestrator you can actually run all day. And stop putting Qwen on Sisyphus.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>OpenCode Go now lists <strong>27 coding models</strong>: Kimi K3, GLM-5.3 / 5.3-Flash / 5.2, Qwen3.8 Max/Flash, Grok 4.6, GPT 5.6 Luna, DeepSeek V4 Pro / V4 Flash / V4.1 Flash, MiniMax M3, LongCat-2.0, plus the older volume lanes, for $10/month.</p>
+<p>Most subscribers still route everything through a single model. In August that emptied a 5-hour window. In September it can empty the month. Here’s how to use the catalog without doing that.</p>
+</blockquote>
+<hr>
+<h2 id="what-you-get-with-opencode-go-august-2026">What You Get with OpenCode Go (August 2026)</h2>
+<p><strong>For $10/month,</strong> the <a href="https://opencode.ai/docs/go/">official docs</a> list these models:</p>
+<p><img src="/images/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/1-Xlm032QS0zC-sWYF8ggrxw.webp" alt="Source: opencode.ai/docs/go, last checked Sep 12, 2026"></p>
+<p><em>Source: <a href="https://opencode.ai/docs/go/">opencode.ai/docs/go</a>, last checked Sep 12, 2026</em></p>
+<p><strong>Reference frontier models (for context):</strong></p>
+<ul>
+<li><strong>Claude Fable 5.1:</strong> 81.2% SWE-Pro</li>
+<li><strong>Claude Mythos 5:</strong> 80.3% SWE-Pro</li>
+<li><strong>Claude Fable 5</strong>: 80.0% SWE-Pro</li>
+<li><strong>Claude Opus 5:</strong> 79.2% SWE-Pro, 97.0% SWE-Verified</li>
+<li><strong>GPT-5.6 Sol</strong>: 64.6% SWE-Pro, ~96% SWE-Verified</li>
+<li><strong>GPT-5.6 Terra</strong>: 63.4% SWE-Pro</li>
+</ul>
+<p>On SWE-Bench Pro, <strong>Qwen3.8 Max</strong> at 67.7% is now the best published Go score I can find, ahead of <strong>Hy4</strong> preview (65.7%) and the old <strong>Grok 4.5</strong> number (64.7%). <strong>GLM-5.2</strong> is still 62.1%. <strong>Luna</strong> is still 62.7%. That is the <strong>OpenAI Terra</strong> band, not the <strong>Anthropic Fable</strong> band.</p>
+<p>SWE-Bench Verified is a different story than in August. <strong>Grok 4.6</strong> sits at 95.6%, <strong>GLM-5.3</strong> at 95.4%, <strong>DeepSeek V4 Pro</strong> (0813) at 96.4% on vals.ai. <strong>Claude Opus 5</strong> is 97.0%. The easy-ticket gap mostly closed. The hard-ticket gap did not. Fable 5.1 at 81.2% SWE-Pro is still about 13 points above the best Go model.</p>
+<blockquote>
+<p>For most production coding work, that is still the right trade-off, if you match the model family to the agent role and respect the monthly caps.</p>
+</blockquote>
+<h2 id="the-problem-the-15-cap-is-the-new-trap">The Problem: The $15 Cap Is the New Trap</h2>
+<p>OpenCode Go limits are still <strong>dollar-based</strong>. The 5-hour / weekly / monthly windows are 20% / 50% / 100% of <em>each model’s monthly dollar cap</em>, not a shared $12 / $30 / $60 for every model:</p>
+<ul>
+<li>$60 monthly models (GLM-5.2, MiniMax M3, MiMo-V2.5, GLM-5.3-Flash): <strong>$12</strong> / 5hr, <strong>$30</strong> weekly, <strong>$60</strong> monthly</li>
+<li>$30 monthly (V4 Flash, Qwen3.8 Flash, Qwen3.7 Max, Hy4): <strong>$6</strong> / 5hr, <strong>$15</strong> weekly</li>
+<li>$15 monthly (K3, GLM-5.3, Grok 4.6, Luna, Qwen3.8 Max, V4 Pro, V4.1 Flash, MiMo-V2.5-Pro): <strong>$3</strong> / 5hr, <strong>$7.50</strong> weekly</li>
+</ul>
+<p><img src="/images/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/1-w4GpvixaxyPXVX3mwDz6UA.png" alt=""></p>
+<p>A single agentic coding session burns 50–200 requests (one per tool call, file edit, shell command). Put the orchestrator on Kimi K3 (110 req/5hr) or GLM-5.3 (220 req/5hr) and you’ll hit the wall in one serious session.</p>
+<p>Luna is the one that fools people. It still shows 2,050 req/5hr. V4.1 Flash shows 6,500. Those look like volume. They’re $15/month. Luna can empty the month in one fat window. V4 Pro dropped from 3,450 req/5hr in August to 1,050, same $15 cap.</p>
+<p>If you put Sisyphus on Qwen3.8 Max “because 67.7% SWE-Pro,” you’ll also fight oh-my-openagent’s own guidance. Qwen is fine for many worker roles. It is not a maintained Sisyphus brain. OmO’s Capable profile is Claude Fable 5.1 → Claude Opus 5 → Kimi K3 → GLM-5.3. Qwen isn’t on that list.</p>
+<p>The fix: <strong>tiered routing + deep</strong> <strong><code>fallback_models</code></strong> <strong>chains</strong>, with orchestrators from the OmO-supported set. Treat every $15 model as scarce even when the 5-hour column looks fat.</p>
+<hr>
+<blockquote>
+<p>Sign up with: <a href="https://opencode.ai/go?ref=AYQ8245FDE">https://opencode.ai/go?ref=AYQ8245FDE</a> to get $5 off for your first month!</p>
+</blockquote>
+<hr>
+<h2 id="step-1-install-opencode--oh-my-open-agent">Step 1: Install OpenCode + Oh My Open Agent</h2>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>OpenCode 1.4.0+ (verify with <code>opencode --version</code>)</li>
+<li>Git, Node.js or Bun</li>
+<li>macOS, Linux, or WSL</li>
+</ul>
+<h2 id="install-opencode">Install <a href="https://opencode.ai/">OpenCode</a></h2>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">curl</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> -fsSL</span><span style="color:#032F62;--shiki-dark:#96D0FF"> https://opencode.ai/install</span><span style="color:#D73A49;--shiki-dark:#F47067"> |</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> bash</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">opencode</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> --version</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> </span></span></code></pre>
+<h2 id="install-oh-my-open-agent">Install <a href="https://github.com/code-yeongyu/oh-my-openagent">Oh My Open Agent</a></h2>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">bunx</span><span style="color:#032F62;--shiki-dark:#96D0FF"> oh-my-opencode</span><span style="color:#032F62;--shiki-dark:#96D0FF"> install</span></span></code></pre>
+<p>For non-interactive setup (LLM agents, CI):</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">bunx</span><span style="color:#032F62;--shiki-dark:#96D0FF"> oh-my-opencode</span><span style="color:#032F62;--shiki-dark:#96D0FF"> install</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> --no-tui</span><span style="color:#005CC5;--shiki-dark:#F47067"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">  --opencode-go=yes</span><span style="color:#005CC5;--shiki-dark:#F47067"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">  --opencode-zen=yes</span><span style="color:#005CC5;--shiki-dark:#F47067"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">  --claude=no</span><span style="color:#005CC5;--shiki-dark:#F47067"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">  --openai=no</span><span style="color:#005CC5;--shiki-dark:#F47067"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">  --gemini=no</span><span style="color:#005CC5;--shiki-dark:#F47067"> \</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">  --copilot=no</span></span></code></pre>
+<blockquote>
+<p><strong>FYI,</strong> OmO’s better stack is still <strong>OpenCode Go ($10) + a real OpenAI path</strong> if Hephaestus / <code>deep</code> / <code>ultrabrain</code> are daily drivers. The Deep work profile leads with GPT-6 Astra, then GPT-5.6 Sol. Luna is on Go, but it’s $15/month, so treat it as a burst.</p>
+<p>Pure Go is fine for Sisyphus / Atlas / Oracle / Explore / Librarian if you keep Sisyphus on GLM-5.2.</p>
+</blockquote>
+<h2 id="verify-installation">Verify Installation</h2>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">opencode</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> --version</span><span style="color:#6A737D;--shiki-dark:#768390">              # Should be 1.4.0+</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">bunx</span><span style="color:#032F62;--shiki-dark:#96D0FF"> oh-my-opencode</span><span style="color:#032F62;--shiki-dark:#96D0FF"> doctor</span><span style="color:#6A737D;--shiki-dark:#768390">      # Diagnostics check</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">opencode</span><span style="color:#032F62;--shiki-dark:#96D0FF"> models</span><span style="color:#6A737D;--shiki-dark:#768390">                 # List available models</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">opencode</span><span style="color:#032F62;--shiki-dark:#96D0FF"> auth</span><span style="color:#032F62;--shiki-dark:#96D0FF"> login</span><span style="color:#6A737D;--shiki-dark:#768390">             # Authenticate providers</span></span></code></pre>
+<p>In the TUI: <code>/connect</code> → OpenCode Go → paste key, then <code>/models</code>.</p>
+<hr>
+<h2 id="step-2-understand-the-agents">Step 2: Understand the Agents</h2>
+<p>Oh My OpenAgent still gives you specialized agents (Sisyphus, Hephaestus, Prometheus/Atlas, Oracle, Explore, Librarian, Metis, Momus, etc.). OMO 5 also routes work through categories (<code>architect</code>, <code>deep</code>, <code>quick</code>, <code>visual-engineering</code>, <code>ultrabrain</code>) and can pick the main session model with a <code>model_profile</code>. Each agent wants a different model family, and a different quota.</p>
+<h3 id="orchestrators--planners">Orchestrators &#x26; Planners</h3>
+<ul>
+<li><strong>Sisyphus:</strong> main orchestrator → <code>opencode-go/glm-5.2</code> primary. Ultrawork: Kimi K3, then GLM-5.3</li>
+<li><strong>Prometheus / Atlas:</strong> planning + execution conductor → GLM-5.2 / Kimi K2.7 Code</li>
+<li><strong>Oracle:</strong> architecture consultant → GLM-5.2 daily; escalate GLM-5.3 / Qwen3.8 Max / Grok 4.6</li>
+</ul>
+<h3 id="deep-workers">Deep Workers</h3>
+<ul>
+<li><strong>Hephaestus:</strong> GPT-native autonomous worker → prefer OpenAI Astra/Sol. Go daily: MiniMax M3. Burst: Luna</li>
+<li><strong>deep / ultrabrain:</strong> MiniMax M3 / Qwen3.8 Max / Grok 4.6 (scarce)</li>
+</ul>
+<h3 id="utility--search-agents">Utility &#x26; Search Agents</h3>
+<ul>
+<li><strong>Explore / Librarian:</strong> speed agents → MiMo-V2.5 / LongCat-2.0 / V4 Flash</li>
+<li><strong>quick / writing:</strong> GLM-5.3-Flash, Qwen3.8 Flash, MiMo-V2.5</li>
+</ul>
+<hr>
+<h2 id="step-3-the-tiered-model-architecture-sep-2026">Step 3: The Tiered Model Architecture (Sep 2026)</h2>
+<p><strong>The core principle:</strong> match model capability (and family fit) to task complexity. Don’t burn your best model on trivial tasks!</p>
+<p><img src="/images/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/1-OsReZR76Yn-R_DXfflhICQ.webp" alt="FYI, numbering is top to bottom Tier 0 → 1 → 2 → 3 (scarce → complex → standard → volume). Escalate up if stuck. Tier 4 stays specialized."></p>
+<p><em><strong>FYI,</strong> numbering is top to bottom <strong>Tier 0 → 1 → 2 → 3</strong> (scarce → complex → standard → volume). Escalate up if stuck. Tier 4 stays specialized.</em></p>
+<h2 id="tier-0--scarce-surgical-only-15-monthly">Tier 0 // Scarce (Surgical Only, $15 monthly)</h2>
+<p><strong>Models:</strong> Kimi K3 (110), Qwen3.8 Max (160), Grok 4.6 (169), GLM-5.3 (220), V4 Pro (1,050), Luna (2,050), MiMo-V2.5-Pro (3,250), V4.1 Flash (6,500)</p>
+<p><strong>Use for:</strong> Sisyphus ultrawork (K3, then GLM-5.3), Oracle spikes, Qwen3.8 Max as a hard worker (not Sisyphus), Luna bursts, then get off it.</p>
+<blockquote>
+<p><strong>Watch out</strong>: Luna and V4.1 Flash look like volume in the 5-hour column. They’re $15/month. One busy window can empty the envelope. V4 Pro is no longer the 3,450-req workhorse from August.</p>
+</blockquote>
+<h2 id="tier-1--complex-agentic-budgeted-mostly-60">Tier 1 // Complex Agentic (Budgeted, mostly $60)</h2>
+<p><strong>Models:</strong> GLM-5.2 (880, $60), GLM-5.1 (880, $60), Kimi K2.7 Code (1,350, $60), Kimi K2.6 (1,150, $60), Hy4 preview (1,350, $30), Qwen3.7 Max (170, $30)</p>
+<p><strong>Use for:</strong> Multi-file refactors, long-horizon runs, OmO orchestration primary (<strong>GLM-5.2</strong>), practical Kimi fallback (<strong>K2.7 Code</strong>).</p>
+<blockquote>
+<p><strong>NEW #1</strong>: <strong>GLM-5.3</strong> is the OmO Capable-profile GLM (95.4% SWE-Verified, 88.2% Terminal-Bench 2.1) but 220 req/5hr and $15/month. GLM-5.2 at 62.1% SWE-Pro and 880 req/5hr is the one you can run from 9 to 6.</p>
+</blockquote>
+<h2 id="tier-2--standard-engineering-balanced">Tier 2 // Standard Engineering (Balanced)</h2>
+<p><strong>Models:</strong> MiniMax M3 (3,200, $60), MiniMax M2.7 (3,400, $60), Qwen3.6 Plus (3,300, $60)</p>
+<p><strong>Use for:</strong> Feature implementation, terminal-heavy automation, Hephaestus-style deep category work on Go.</p>
+<blockquote>
+<p><strong>Hidden gem</strong>: <strong>MiniMax M3</strong> is the daily Hephaestus on a Go-only box. 59.0% SWE-Pro, 3,200 req/5hr, $60/month. That’s the slot Luna had in August.</p>
+</blockquote>
+<h2 id="tier-3--volume-workhorse-rarely-rate-limited">Tier 3 // Volume Workhorse (Rarely Rate-Limited)</h2>
+<p><strong>Models:</strong> MiMo-V2.5 (30,100, $60), LongCat-2.0 (11,400, $60), V4 Flash (13,000, $30), GLM-5.3-Flash (6,320, $60), Qwen3.8 Flash (5,400, $30), Hy3 / Qwen3.7 Plus (4,300, $60)</p>
+<p><strong>Use for:</strong> Explore / Librarian, small edits, quick tasks, <code>unspecified-low</code> (GLM-5.3-Flash, not Grok 4.6).</p>
+<blockquote>
+<p><strong>Hidden gem(s):</strong></p>
+<p><strong>GLM-5.3-Flash</strong> is a Claude-like volume model at 6,320 req/5hr and $60/month (84.3% Terminal-Bench 2.1).</p>
+<p><strong>MiMo-V2.5</strong> is the unlimited search agent. V4 Flash fell from 31,650 to 13,000 and is $30/month.</p>
+<p>Skip <strong>Muse Spark</strong> in the default config: 45,300 req/5hr, but Contributor-tier trains on prompts.</p>
+</blockquote>
+<h2 id="tier-4--specialized-capabilities">Tier 4 // Specialized Capabilities</h2>
+<p><strong>Models:</strong> Grok 4.6 (vision / agentic, $15), V4 Flash Vision Exp ($15), GLM-5.2 / 5.3 (planning), Qwen3.8 Max (hard worker)</p>
+<p><strong>Use for:</strong> Screenshot-to-code, GPT-shaped bursts on Luna, Prometheus planning on GLM. DeepSeek weekday peak (01:00–04:00 and 06:00–10:00 UTC) doubles V4 / V4.1 Flash / V4 Pro token cost; weekends are off-peak.</p>
+<hr>
+<h2 id="step-4-configure-rate-limit-resilience">Step 4: Configure Rate Limit Resilience</h2>
+<p>Enable <code>model_fallback</code> and set up fallback chains so rate limits don’t break your workflow:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">{</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">  "model_fallback"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">true</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">  "runtime_fallback"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "enabled"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">true</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "retry_on_errors"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">400</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">429</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">503</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">529</span><span style="color:#24292E;--shiki-dark:#ADBAC7">],</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "max_fallback_attempts"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">3</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "cooldown_seconds"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">60</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "timeout_seconds"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">30</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "notify_on_fallback"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">true</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">  }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">}</span></span></code></pre>
+<p>When a provider hits rate limits, it’s globally blacklisted for <code>cooldown_seconds</code>. All new sessions skip blacklisted providers until cooldown expires.</p>
+<p><img src="/images/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/1-L80mAk7r-DpgadJSIcMS_g.png" alt="429 on GLM-5.2 → Kimi K2.7 Code → GLM-5.3-Flash"></p>
+<p><em>429 on GLM-5.2 → Kimi K2.7 Code → GLM-5.3-Flash</em></p>
+<blockquote>
+<p><strong>FYI,</strong> if you also have Zen credits, enable <strong>Use balance</strong> in the console. Go can then use Zen balance after dollar limits instead of hard-blocking.</p>
+</blockquote>
+<hr>
+<h2 id="step-5-the-complete-configuration-sep-2026">Step 5: The Complete Configuration (Sep 2026)</h2>
+<p>Save this to <code>~/.omo/omo.jsonc</code>. OMO 5 migrates a leftover <code>~/.config/opencode/oh-my-openagent.json</code> once. After that only the <code>~/.omo</code> file is live.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">{</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">  "$schema"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/omo.schema.json"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">  "model_fallback"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">true</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">  "runtime_fallback"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "enabled"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">true</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "retry_on_errors"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">400</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">429</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">503</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">529</span><span style="color:#24292E;--shiki-dark:#ADBAC7">],</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "max_fallback_attempts"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">3</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "cooldown_seconds"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">60</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "timeout_seconds"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">30</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "notify_on_fallback"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">true</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">  },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">  "agents"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "sisyphus"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/glm-5.2"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/kimi-k2.7-code"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.1"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/kimi-k2.6"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ],</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "ultrawork"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">        "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/kimi-k3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">        "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">          "opencode-go/glm-5.3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">          "opencode-go/kimi-k2.7-code"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">          "opencode-go/grok-4.6"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "hephaestus"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/minimax-m3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/gpt-5.6-luna"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/deepseek-v4-flash"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "oracle"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/glm-5.2"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-max"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/grok-4.6"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "prometheus"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/glm-5.2"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/kimi-k2.7-code"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "explore"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/mimo-v2.5"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/longcat-2.0"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/deepseek-v4-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3-flash"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "librarian"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/mimo-v2.5"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/longcat-2.0"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/deepseek-v4-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/hy3"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "metis"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/qwen3.8-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.7-plus"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "momus"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/glm-5.3-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/kimi-k2.7-code"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "code-reviewer"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/glm-5.2"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/kimi-k2.7-code"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-flash"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">  },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">  "categories"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "architect"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/glm-5.2"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/grok-4.6"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "deep"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/minimax-m3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-max"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "quick"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/mimo-v2.5"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/longcat-2.0"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/deepseek-v4-flash"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "unspecified-low"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/glm-5.3-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/mimo-v2.5"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "unspecified-high"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/kimi-k2.7-code"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.2"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/minimax-m3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "writing"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/qwen3.8-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.7-plus"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "visual-engineering"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/grok-4.6"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/kimi-k3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-flash"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "ultrabrain"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/grok-4.6"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-max"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/kimi-k3"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">    "artistry"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "model"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"opencode-go/glm-5.2"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#8DDB8C">      "fallback_models"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: [</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/glm-5.3-flash"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        "opencode-go/qwen3.8-flash"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      ]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">  }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">}</span></span></code></pre>
+<p>src: <a href="https://gist.github.com/jatinkrmalik/e8ee48842c4c8502060f338fd5e398d3">https://gist.github.com/jatinkrmalik/e8ee48842c4c8502060f338fd5e398d3</a></p>
+<h2 id="configuration-breakdown">Configuration Breakdown</h2>
+<h3 id="sisyphus-main-orchestrator">Sisyphus (Main Orchestrator)</h3>
+<ul>
+<li><strong>Primary:</strong> <code>opencode-go/glm-5.2</code>, OmO-supported Claude-like orchestrator, 62.1% SWE-Pro, 880 req/5hr, $60/mo</li>
+<li><strong>Fallback:</strong> Kimi K2.7 Code (1,350, $60) → GLM-5.1 → Kimi K2.6</li>
+<li><strong>Ultrawork:</strong> Kimi K3 → GLM-5.3 → K2.7 Code → Grok 4.6 (all $15 except K2.7)</li>
+</ul>
+<h3 id="hephaestus-autonomous-deep-worker">Hephaestus (Autonomous Deep Worker)</h3>
+<ul>
+<li><strong>Primary on Go-only:</strong> <code>opencode-go/minimax-m3</code>, 59.0% SWE-Pro, 3,200 req/5hr, $60/mo</li>
+<li><strong>Fallback:</strong> Luna (GPT-shaped, $15) → Qwen3.8 Flash → V4 Flash</li>
+<li><strong>If you add OpenAI:</strong> pin Hephaestus to GPT-6 Astra or GPT-5.6 Sol</li>
+</ul>
+<h3 id="oracle">Oracle</h3>
+<ul>
+<li><strong>Primary:</strong> GLM-5.2 for consults you can afford</li>
+<li><strong>Escalate:</strong> GLM-5.3, Qwen3.8 Max, or Grok 4.6</li>
+</ul>
+<h3 id="explore--librarian">Explore / Librarian</h3>
+<ul>
+<li>Both stay on <code>mimo-v2.5</code> / <code>longcat-2.0</code> / V4 Flash</li>
+<li>Speed agents. Don’t waste K3, GLM-5.3, or Grok here.</li>
+</ul>
+<h3 id="categories-short">Categories (short)</h3>
+<ul>
+<li><strong>architect:</strong> GLM-5.2 → GLM-5.3 → Grok 4.6</li>
+<li><strong>deep:</strong> MiniMax M3 → Qwen3.8 Max → GLM-5.3</li>
+<li><strong>quick:</strong> MiMo-V2.5 → LongCat-2.0 → GLM-5.3-Flash → V4 Flash</li>
+<li><strong>unspecified-low:</strong> GLM-5.3-Flash → Qwen3.8 Flash → MiMo-V2.5 (overrides OmO’s Grok default)</li>
+<li><strong>unspecified-high:</strong> K2.7 Code → GLM-5.2 → MiniMax M3 → GLM-5.3</li>
+<li><strong>writing / artistry:</strong> Qwen3.8 Flash / GLM-5.2 → GLM-5.3-Flash</li>
+<li><strong>ultrabrain / visual-engineering:</strong> Grok 4.6 first, then K3 / GLM-5.3 / Qwen3.8 Max</li>
+</ul>
+<hr>
+<h2 id="step-6-rate-limit-budgeting">Step 6: Rate Limit Budgeting</h2>
+<h3 id="per-5-hour-window-with-monthly-cap-quick-map">Per 5-Hour Window, with monthly cap (quick map)</h3>
+<p><img src="/images/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/1-HcRL_4Db2SYmIVXkr75uDQ.png" alt=""></p>
+<blockquote>
+<p><strong>Rule of thumb:</strong> If a task will take more than ~100 requests, start on MiMo-V2.5 / GLM-5.3-Flash / Qwen3.8 Flash. Escalate to MiniMax M3 or K2.7 Code for standard work. Reserve GLM-5.2 for orchestration. Spend K3 / GLM-5.3 / Grok 4.6 / Luna like espresso shots, not drip coffee.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Sign up with: <a href="https://opencode.ai/go?ref=AYQ8245FDE">https://opencode.ai/go?ref=AYQ8245FDE</a> to get $5 off for your first month!</p>
+</blockquote>
+<hr>
+<h2 id="step-7-the-quality-trade-offs">Step 7: The Quality Trade-Offs</h2>
+<p>Without Copilot / Claude Max / OpenAI Sol, you’re on a pure OpenCode Go stack. Stronger than August (GLM-5.3, Grok 4.6, Qwen3.8 Max). Also easier to empty, because several of those sit on $15 monthly caps.</p>
+<h2 id="where-you-win">Where You Win ✔</h2>
+<ul>
+<li><strong>Cost:</strong> $10/month vs $50–200 in stacked Anthropic + OpenAI API bills</li>
+<li><strong>Model diversity:</strong> 27 Go models, up from 17 in August</li>
+<li><strong>SWE-Bench Verified:</strong> Grok 4.6 (95.6%), GLM-5.3 (95.4%), V4 Pro 0813 (96.4%) sit next to Opus 5 (97.0%) and Sol (~96%)</li>
+<li><strong>SWE-Bench Pro vs OpenAI:</strong> Qwen3.8 Max (67.7%) beats Sol (64.6%) on the published Pro board. Luna (62.7%) and GLM-5.2 (62.1%) sit with Terra (63.4%)</li>
+<li><strong>Orchestration:</strong> Kimi K3 / GLM-5.3 / GLM-5.2 are OmO-supported Sisyphus brains. 5.2 has the $60 cap</li>
+<li><strong>LiveCodeBench:</strong> V4 Pro still leads (~93.5%). Use it as a burst</li>
+<li><strong>Rate limits:</strong> MiMo-V2.5 (30,100, $60) for search. GLM-5.3-Flash (6,320, $60) for volume GLM</li>
+<li><strong>Zen balance fallback:</strong> optional soft landing after dollar limits</li>
+</ul>
+<h2 id="where-you-compromise">Where You Compromise !?</h2>
+<ul>
+<li><strong>Anthropic Pro gap:</strong> Fable 5.1 / Mythos / Fable / Opus sit at 79–81% SWE-Pro. Best Go score is 67.7% and 160 req/5hr</li>
+<li><strong>$15 models with fat 5-hour numbers:</strong> Luna, V4 Pro, V4.1 Flash, MiMo-V2.5-Pro. August daily-driver configs will empty the month</li>
+<li><strong>Hephaestus without Astra/Sol:</strong> MiniMax M3 is the honest Go daily. OmO still prefers GPT-6 Astra / GPT-5.6 Sol</li>
+<li><strong>Qwen-as-orchestrator temptation:</strong> 67.7% SWE-Pro ≠ Sisyphus fit. Resist it</li>
+<li><strong>Privacy:</strong> Grok 4.6 and Luna retain data 30 days. Muse Spark Contributor trains on prompts. Most open models list 0-day retention. DeepSeek ZDR on Go is valid through September 30, 2026, renewed monthly</li>
+</ul>
+<blockquote>
+<p><strong>Verdict:</strong> Against Sol/Terra, Go looks excellent for the money. Against Fable 5.1, expect more iterations on the hardest architecture work.</p>
+<p>For most day-to-day coding, a GLM-5.2-led Go stack with MiniMax M3 / GLM-5.3-Flash / MiMo-V2.5 underneath is the right default. Add OpenAI Astra/Sol if Hephaestus is a daily driver. Add Claude only if you need that top SWE-Pro band.</p>
+</blockquote>
+<hr>
+<h2 id="step-8-validate-your-setup">Step 8: Validate Your Setup</h2>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># 1. Check effective model resolution</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">bunx</span><span style="color:#032F62;--shiki-dark:#96D0FF"> oh-my-opencode</span><span style="color:#032F62;--shiki-dark:#96D0FF"> doctor</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> --verbose</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># 2. Refresh model capabilities cache</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">bunx</span><span style="color:#032F62;--shiki-dark:#96D0FF"> oh-my-opencode</span><span style="color:#032F62;--shiki-dark:#96D0FF"> refresh-model-capabilities</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># 3. Start a test session</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">cd</span><span style="color:#032F62;--shiki-dark:#96D0FF"> your-project</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">opencode</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># 4. Confirm Sisyphus resolved to glm-5.2 (or kimi-k3 / glm-5.3 in ultrawork)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># 5. Confirm the live file is ~/.omo/omo.jsonc</span></span></code></pre>
+<hr>
+<h2 id="key-principles-september-2026">Key Principles (September 2026)</h2>
+<p><img src="/images/blog/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing/1-vC3rDyOB5b4v9cM_Yn6HkQ.webp" alt=""></p>
+<ol>
+<li><strong>Don’t route everything through one model.</strong> $15 models are scarce. GLM-5.2 is the sustainable orchestrator. MiMo-V2.5 / GLM-5.3-Flash take volume.</li>
+<li><strong>Read the monthly column, not just req/5hr.</strong> Luna at 2,050 looks like a daily driver. It’s $15/month.</li>
+<li><strong>Don’t put Qwen/MiniMax/DeepSeek/MiMo on Sisyphus.</strong> OmO maintainers explicitly warn against it.</li>
+<li><strong>Don’t “upgrade” utility agents.</strong> Explore/Librarian want MiMo-V2.5, not K3.</li>
+<li><strong>Use</strong> <strong><code>fallback_models</code></strong> <strong>everywhere.</strong> Chains should be 3-4 deep, with a $60 model at the bottom.</li>
+<li><strong>Keep concurrency conservative</strong> on $15 models. Start at 1–2 parallel tasks.</li>
+<li><strong>GLM-5.2 is your default Sisyphus/Oracle on Go.</strong> GLM-5.3 is ultrawork. Grok 4.6 is scarce frontier. MiniMax M3 is daily Hephaestus.</li>
+</ol>
+<hr>
+<h2 id="resources-for-you-to-read">Resources for you to read:</h2>
+<ul>
+<li>OpenCode Go Docs: <a href="https://opencode.ai/docs/go/">https://opencode.ai/docs/go/</a></li>
+<li>Go models API: <a href="https://opencode.ai/zen/go/v1/models">https://opencode.ai/zen/go/v1/models</a></li>
+<li>Oh My Open Agent GitHub: <a href="https://github.com/code-yeongyu/oh-my-openagent">https://github.com/code-yeongyu/oh-my-openagent</a></li>
+<li>Oh My Open Agent Docs: <a href="https://ohmyopenagent.com/en/docs">https://ohmyopenagent.com/en/docs</a></li>
+<li>Agent-Model Matching: <a href="https://github.com/code-yeongyu/oh-my-openagent/blob/dev/docs/guide/agent-model-matching.md">agent-model-matching.md</a></li>
+<li>Config Schema: <a href="https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json">oh-my-opencode.schema.json</a></li>
+</ul> </div> <footer class="post-foot" data-astro-cid-7jjqptxk> <div class="tags" data-astro-cid-7jjqptxk> <a class="chip" href="/tags/ai/" data-astro-cid-7jjqptxk>#ai</a><a class="chip" href="/tags/developer-tools/" data-astro-cid-7jjqptxk>#developer-tools</a><a class="chip" href="/tags/how-to/" data-astro-cid-7jjqptxk>#how-to</a> </div> <p class="origin" data-astro-cid-7jjqptxk>
+First published on Medium, May 2026.
+<a href="https://medium.com/@jatinkrmalik/opencode-go-oh-my-openagent-the-complete-guide-to-sota-model-routing-without-hitting-limits-49fdc8cb3417" rel="nofollow noopener" data-astro-cid-7jjqptxk>Original ↗</a>  </p> <div class="author" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="56" height="56" loading="lazy" data-astro-cid-7jjqptxk> <div data-astro-cid-7jjqptxk> <p class="a-name" data-astro-cid-7jjqptxk><a href="/about/" data-astro-cid-7jjqptxk>Jatin Kumar Malik</a></p> <p class="a-bio" data-astro-cid-7jjqptxk>Principal Software Engineer at Atlassian, architecting distributed systems and building A2A AI platforms. Previously scaled platforms at Uber and shipped products at Adobe.</p> </div> </div> </footer> <div class="comments" id="comments" data-astro-cid-7jjqptxk> <section class="archived" aria-labelledby="archived-h" data-astro-cid-cos4dswv><h2 id="archived-h" data-astro-cid-cos4dswv>2 comments<span class="from" data-astro-cid-cos4dswv>from Medium</span></h2><p class="note" data-astro-cid-cos4dswv>Carried over from the original post and read-only. Add a new comment below.</p><ol class="thread" data-astro-cid-cos4dswv><li data-astro-cid-cos4dswv><article class="comment" data-astro-cid-ugaat6ep> <header data-astro-cid-ugaat6ep> <span class="avatar" aria-hidden="true" data-astro-cid-ugaat6ep>M</span> <span class="name" data-astro-cid-ugaat6ep>Mohammad abu baker</span>  <time class="mono" datetime="2026-06-15T15:30:05.000Z" data-astro-cid-ugaat6ep>15 Jun 2026</time> </header> <div class="text" data-astro-cid-ugaat6ep> <p data-astro-cid-ugaat6ep>Hi Jatin,</p><p data-astro-cid-ugaat6ep>First, thank you for this article. It&#39;s genuinely one of the most practical guides I&#39;ve found on OpenCode Go. The tiered routing strategy and the configuration template are incredibly helpful.</p><p data-astro-cid-ugaat6ep>I&#39;ve set everything up and it&#39;s working well. But I have a few questions about practical day-to-day usage, specifically for Flutter development. Would love your insights.</p><p data-astro-cid-ugaat6ep>Question 1: The 5 visible agents vs. the sub-agents</p><p data-astro-cid-ugaat6ep>In OpenCode, I can only see 5 primary agents to switch between: Sisyphus, Hephaestus, Prometheus, Atlas, and Oracle.</p><p data-astro-cid-ugaat6ep>But your config also defines explore, librarian, sisyphus-junior, code-reviewer, and multimodal-looker.</p><p data-astro-cid-ugaat6ep>How do I actually invoke these sub-agents? Should I use /explore commands, @mentions, or does Sisyphus call them automatically based on the task? I tried /explore and it didn&#39;t work in my version.</p><p data-astro-cid-ugaat6ep>Question 2: Does the system automatically route simple tasks to cheap models?</p><p data-astro-cid-ugaat6ep>This is my biggest confusion.</p><p data-astro-cid-ugaat6ep>If I&#39;m using Sisyphus (not sisyphus-junior) and I ask:</p><p data-astro-cid-ugaat6ep>Case A: &quot;Find all Text widgets in my Flutter project&quot; (simple search)</p><p data-astro-cid-ugaat6ep>Case B: &quot;Implement a complete authentication system with BLoC&quot; (complex task)</p><p data-astro-cid-ugaat6ep>Will Sisyphus automatically recognize Case A as low-complexity and route it to deepseek-v4-flash through the quick or unspecified-low categories?</p><p data-astro-cid-ugaat6ep>Or do I need to manually switch to explore or sisyphus-junior for simple tasks to avoid burning expensive model quota?</p><p data-astro-cid-ugaat6ep>In other words: is the quick category automatically triggered by task complexity, or is it only triggered when I explicitly say &quot;use category=quick&quot;?</p><p data-astro-cid-ugaat6ep>Question 3: How do I use the multimodal model?</p><p data-astro-cid-ugaat6ep>Your config includes multimodal-looker with mimo-v2-omni for vision tasks.</p><p data-astro-cid-ugaat6ep>How do I actually use this in practice? Do I:</p><p data-astro-cid-ugaat6ep>Switch to a specific agent?</p><p data-astro-cid-ugaat6ep>Just paste an image in the chat?</p><p data-astro-cid-ugaat6ep>Use a special command?</p><p data-astro-cid-ugaat6ep>For example, I want to say: &quot;Here&#39;s a screenshot of a design, turn this into Flutter code.&quot; What&#39;s the exact workflow?</p><p data-astro-cid-ugaat6ep>Question 4: For a Flutter project specifically, any agent tuning suggestions?</p><p data-astro-cid-ugaat6ep>I&#39;m building Flutter apps (Dart, Riverpod/BLoC, Firebase). Are there any adjustments you&#39;d recommend to your config for Flutter specifically?</p><p data-astro-cid-ugaat6ep>For example:</p><p data-astro-cid-ugaat6ep>Should metis or momus (review agents) use different models for Dart-specific analysis?</p><p data-astro-cid-ugaat6ep>Any concurrency settings I should adjust for Flutter&#39;s code generation (build_runner, etc.)?</p><p data-astro-cid-ugaat6ep>Question 5: How do I verify which model was actually used for a request?</p><p data-astro-cid-ugaat6ep>Is there a log file or a command I can run to see:</p><p data-astro-cid-ugaat6ep>Which model handled my last request?</p><p data-astro-cid-ugaat6ep>Which fallback chain was triggered (if any)?</p><p data-astro-cid-ugaat6ep>This would help me understand if I&#39;m using the tiers correctly.</p><p data-astro-cid-ugaat6ep>Question 6: What&#39;s your personal workflow?</p><p data-astro-cid-ugaat6ep>If you were building a Flutter app for 8 hours a day, what would your daily agent workflow look like?</p><p data-astro-cid-ugaat6ep>For example:</p><p data-astro-cid-ugaat6ep>Morning: start with oracle to plan?</p><p data-astro-cid-ugaat6ep>Then sisyphus-junior for simple fixes?</p><p data-astro-cid-ugaat6ep>Then hephaestus for complex features?</p><p data-astro-cid-ugaat6ep>End of day: atlas for cleanup?</p><p data-astro-cid-ugaat6ep>I&#39;d love to see your actual routine.</p><p data-astro-cid-ugaat6ep>Question 7: Can I override the model temporarily without editing the config?</p><p data-astro-cid-ugaat6ep>Sometimes I know a task is simple but Sisyphus might treat it as complex. Is there a way to say:</p><p data-astro-cid-ugaat6ep>*&quot;Use deepseek-v4-flash for just this one request&quot;*</p><p data-astro-cid-ugaat6ep>without switching agents or editing the JSON file?</p><p data-astro-cid-ugaat6ep>Question 8: One person in the comments said...</p><p data-astro-cid-ugaat6ep>Someone told me that &quot;oh-my-openagent doesn&#39;t automatically route based on complexity, only based on the agent&#39;s primary model.&quot;</p><p data-astro-cid-ugaat6ep>But your config has categories like quick, unspecified-low, unspecified-high, and deep which seem designed for exactly that.</p><p data-astro-cid-ugaat6ep>Can you clarify: Does Sisyphus automatically use the quick category for simple tasks, or do those categories only apply when explicitly called?</p><p data-astro-cid-ugaat6ep>Final note</p><p data-astro-cid-ugaat6ep>Thanks again for the article. The quality-to-cost analysis (85-95% of frontier quality at 10-20x lower cost) is what convinced me to try this. Your config saved me hours of trial and error.</p><p data-astro-cid-ugaat6ep>Looking forward to your answers!</p><p data-astro-cid-ugaat6ep>— A Flutter developer trying to stay within limits</p> </div> </article>  </li><li data-astro-cid-cos4dswv><article class="comment" data-astro-cid-ugaat6ep> <header data-astro-cid-ugaat6ep> <span class="avatar" aria-hidden="true" data-astro-cid-ugaat6ep>D</span> <span class="name" data-astro-cid-ugaat6ep>Dursun S.Ahmet</span>  <time class="mono" datetime="2026-10-15T00:12:35.000Z" data-astro-cid-ugaat6ep>15 Oct 2026</time> </header> <div class="text" data-astro-cid-ugaat6ep> <p data-astro-cid-ugaat6ep>This is a very detailed and comprehensive explanation.</p><p data-astro-cid-ugaat6ep>Using models from the free tier for sub-agents—such as those for summarization or titling—does not negatively impact the quality of the output. In fact, it is possible to double your free usage limit by maintaining subscriptions for both &quot;OpenCode Go&quot; and &quot;Command Code Go&quot; (or &quot;Goat&quot;).</p><p data-astro-cid-ugaat6ep>However, manually editing the configuration file in such scenarios can often be quite cumbersome.</p><p data-astro-cid-ugaat6ep>We have developed an extension that allows you to manage this process via a local web interface:</p><p data-astro-cid-ugaat6ep>&quot;https://github.com/sertdisk/OpenCode-Model-Router&quot;</p><p data-astro-cid-ugaat6ep>I would love to hear your thoughts on it.ts.</p> </div> </article>  </li></ol></section><script type="module">document.querySelectorAll(".archived .show-all").forEach(e=>e.addEventListener("click",()=>{e.closest(".archived")?.querySelectorAll("[data-more]").forEach(l=>l.hidden=!1),e.remove()}));</script>  </div> </div> <section class="wrap more" aria-labelledby="more-h" data-astro-cid-7jjqptxk> <h2 id="more-h" data-astro-cid-7jjqptxk>Keep reading</h2> <div class="grid" data-astro-cid-7jjqptxk> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/how-i-built-a-privacy-first-offline-speech-to-text-tool-that-i-use/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/how-i-built-a-privacy-first-offline-speech-to-text-tool-that-i-use/1-8Hn5As_98PTBS56etFa3Eg.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>linux</span> <time datetime="2026-02-06" data-astro-cid-iyiqi2so>Feb 2026</time> <span data-astro-cid-iyiqi2so>6 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/how-i-built-a-privacy-first-offline-speech-to-text-tool-that-i-use/" data-astro-cid-iyiqi2so>How I Built a Privacy-First Offline Speech-to-Text Tool That I Use Every Single Day</a></h3> <p class="desc" data-astro-cid-iyiqi2so>Introducing Vocalinux, an open-source, 100% offline voice dictation tool for Linux using Whisper or VOSK, with its architecture, features and install guide.</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/coding-on-the-go-my-full-stack-dev-environment-lives-in-my-phone-now/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/coding-on-the-go-my-full-stack-dev-environment-lives-in-my-phone-now/1-KPFGgHld7qxLkG0EIusETA.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>android</span> <time datetime="2026-09-15" data-astro-cid-iyiqi2so>Sept 2026</time> <span data-astro-cid-iyiqi2so>12 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/coding-on-the-go-my-full-stack-dev-environment-lives-in-my-phone-now/" data-astro-cid-iyiqi2so>Coding on the Go: My Full-Stack Dev Environment Lives in My Phone Now</a></h3> <p class="desc" data-astro-cid-iyiqi2so>I used to think I needed a laptop. Then I dropped a phone into a lapdock, and now I ship code from hotel TVs.</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/i-let-an-ai-agent-debug-my-foldables-battery-over-adb-here-s-the/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/i-let-an-ai-agent-debug-my-foldables-battery-over-adb-here-s-the/1-IVqCRiaetDKF7w17CIrcWg.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>android</span> <time datetime="2026-10-27" data-astro-cid-iyiqi2so>Oct 2026</time> <span data-astro-cid-iyiqi2so>12 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/i-let-an-ai-agent-debug-my-foldables-battery-over-adb-here-s-the/" data-astro-cid-iyiqi2so>I Let an AI Agent Debug My Foldable’s Battery Over ADB. Here’s the Playbook It Followed.</a></h3> <p class="desc" data-astro-cid-iyiqi2so>60 MB of diagnostics, six weeks of battery history, and a surprise: the “bloat” from restoring my old phone wasn’t the problem.</p> </div> </article>  </div> </section> </article>  </main> <footer class="site-footer" data-astro-cid-5hce7sga> <div class="wrap foot" data-astro-cid-5hce7sga> <p data-astro-cid-5hce7sga>
+© 2026 Jatin Kumar Malik
+<span class="sep" data-astro-cid-5hce7sga>·</span> <a href="/rss.xml" data-astro-cid-5hce7sga>RSS</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://github.com/jatinkrmalik/jatinkrmalik.com" data-astro-cid-5hce7sga>Source</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://j47.in" data-astro-cid-5hce7sga>j47.in</a> </p> </div> </footer> <script type="module">const c=document.querySelector(".theme-toggle");c?.addEventListener("click",()=>{const e=document.documentElement,t=(e.dataset.theme??(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))==="dark"?"light":"dark";e.dataset.theme=t;try{localStorage.setItem("theme",t)}catch{}});</script> </body> </html>  

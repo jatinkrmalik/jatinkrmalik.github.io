@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-5hce7sga> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Back from Dead | Troubleshoot slow page loads &amp; 503 errors of WordPress blog · Jatin K Malik</title><meta name="description" content="How a slow, 503-throwing WordPress blog on GoDaddy shared hosting was traced to a bloated Jetpack postmeta table, and fixed by cleaning up the database."><meta name="author" content="Jatin Kumar Malik"><link rel="canonical" href="https://jatinkrmalik.com/blog/troubleshoot-slow-wordpress-blog-godaddy-503-error/"><meta name="generator" content="Astro v5.18.2"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Jatin K Malik" href="/rss.xml"><meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)"><meta property="og:site_name" content="Jatin K Malik"><meta property="og:type" content="article"><meta property="og:url" content="https://jatinkrmalik.com/blog/troubleshoot-slow-wordpress-blog-godaddy-503-error/"><meta property="og:title" content="Back from Dead | Troubleshoot slow page loads &#38; 503 errors of WordPress blog"><meta property="og:description" content="How a slow, 503-throwing WordPress blog on GoDaddy shared hosting was traced to a bloated Jetpack postmeta table, and fixed by cleaning up the database."><meta property="og:image" content="https://jatinkrmalik.com/images/blog/troubleshoot-slow-wordpress-blog-godaddy-503-error/WP-troubleshooting.jpg"><meta property="article:published_time" content="2018-08-28T00:00:00.000Z"><meta property="article:modified_time" content="2018-09-13T00:00:00.000Z"><meta property="article:author" content="Jatin Kumar Malik"><meta property="article:tag" content="how-to"><meta property="article:tag" content="software-engineering"><meta property="article:tag" content="internet"><meta property="article:tag" content="personal"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@jatinkrmalik"><meta name="twitter:creator" content="@jatinkrmalik"><meta name="twitter:title" content="Back from Dead | Troubleshoot slow page loads &#38; 503 errors of WordPress blog"><meta name="twitter:description" content="How a slow, 503-throwing WordPress blog on GoDaddy shared hosting was traced to a bloated Jetpack postmeta table, and fixed by cleaning up the database."><meta name="twitter:image" content="https://jatinkrmalik.com/images/blog/troubleshoot-slow-wordpress-blog-godaddy-503-error/WP-troubleshooting.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Back from Dead | Troubleshoot slow page loads & 503 errors of WordPress blog","description":"How a slow, 503-throwing WordPress blog on GoDaddy shared hosting was traced to a bloated Jetpack postmeta table, and fixed by cleaning up the database.","datePublished":"2018-08-28T00:00:00.000Z","dateModified":"2018-09-13T00:00:00.000Z","mainEntityOfPage":"https://jatinkrmalik.com/blog/troubleshoot-slow-wordpress-blog-godaddy-503-error/","url":"https://jatinkrmalik.com/blog/troubleshoot-slow-wordpress-blog-godaddy-503-error/","keywords":"how-to, software-engineering, internet, personal","image":"https://jatinkrmalik.com/images/blog/troubleshoot-slow-wordpress-blog-godaddy-503-error/WP-troubleshooting.jpg","isBasedOn":"https://bitsnapper.com/troubleshoot-slow-wordpress-blog-godaddy-503-error/","author":{"@type":"Person","name":"Jatin Kumar Malik","url":"https://jatinkrmalik.com/about/"}}</script><script>
+  // Apply the saved theme before first paint to avoid a flash.
+  (() => {
+    try {
+      const t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch {}
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.H0TgHpCk.css">
+<style>.cover[data-astro-cid-e5kvktnr]{display:block;width:100%;height:100%;object-fit:cover;background:var(--bg-sunk)}.gen[data-astro-cid-e5kvktnr]{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:1rem 1.1rem;font-family:var(--font-mono);color:var(--g-ink);background:radial-gradient(circle at 85% 15%,color-mix(in srgb,var(--g-ink) 18%,transparent) 0 18%,transparent 19%),repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--g-ink) 7%,transparent) 14px 15px),var(--g-bg);overflow:hidden}.g-tag[data-astro-cid-e5kvktnr]{font-size:clamp(1rem,2.4vw,1.35rem);font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}.g-year[data-astro-cid-e5kvktnr]{font-size:.75rem;opacity:.75;align-self:flex-end}.gen[data-astro-cid-e5kvktnr][data-tone="0"]{--g-bg: #fde7d6;--g-ink: #9a3412}.gen[data-astro-cid-e5kvktnr][data-tone="1"]{--g-bg: #dcefe4;--g-ink: #166534}.gen[data-astro-cid-e5kvktnr][data-tone="2"]{--g-bg: #dde7fb;--g-ink: #1e40af}.gen[data-astro-cid-e5kvktnr][data-tone="3"]{--g-bg: #ede3fb;--g-ink: #6b21a8}.gen[data-astro-cid-e5kvktnr][data-tone="4"]{--g-bg: #f9f0cf;--g-ink: #854d0e}.gen[data-astro-cid-e5kvktnr][data-tone="5"]{--g-bg: #e3eef2;--g-ink: #155e75}:root[data-theme=dark] .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}}
+.card[data-astro-cid-iyiqi2so]{display:flex;flex-direction:column;min-width:0}.media[data-astro-cid-iyiqi2so]{display:block;aspect-ratio:16 / 9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--rule);background:var(--bg-sunk)}.media[data-astro-cid-iyiqi2so] .cover{transition:transform .4s ease}.card[data-astro-cid-iyiqi2so]:hover .media[data-astro-cid-iyiqi2so] .cover{transform:scale(1.03)}.text[data-astro-cid-iyiqi2so]{padding-top:.85rem}.meta[data-astro-cid-iyiqi2so]{display:flex;flex-wrap:wrap;gap:.2rem .7rem;margin:0;font-size:.72rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em}.tag[data-astro-cid-iyiqi2so]{color:var(--accent);font-weight:600}.title[data-astro-cid-iyiqi2so]{font-size:1.15rem;line-height:1.3;letter-spacing:-.015em;margin:.4rem 0 0;overflow-wrap:anywhere}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]{text-decoration:none}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]:hover{color:var(--accent)}.desc[data-astro-cid-iyiqi2so]{margin:.45rem 0 0;color:var(--ink-2);font-size:.93rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.featured[data-astro-cid-iyiqi2so]{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:2.25rem;align-items:center}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so]{aspect-ratio:auto;max-height:30rem}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] img.cover{height:auto;max-height:30rem;object-fit:contain}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] .gen{aspect-ratio:16 / 9}.featured[data-astro-cid-iyiqi2so] .text[data-astro-cid-iyiqi2so]{padding-top:0}.featured[data-astro-cid-iyiqi2so] .title[data-astro-cid-iyiqi2so]{font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.03em}.featured[data-astro-cid-iyiqi2so] .desc[data-astro-cid-iyiqi2so]{font-family:var(--font-serif);font-size:1.2rem;line-height:1.5;-webkit-line-clamp:4;line-clamp:4}@media(max-width:760px){.featured[data-astro-cid-iyiqi2so]{grid-template-columns:minmax(0,1fr);gap:1rem}}
+</style>
+<link rel="stylesheet" href="/_astro/about.C9axxvRH.css"></head> <body data-astro-cid-5hce7sga> <a class="skip" href="#main" data-astro-cid-5hce7sga>Skip to content</a> <header class="site-header" data-astro-cid-5hce7sga> <div class="wrap bar" data-astro-cid-5hce7sga> <a href="/" class="brand" aria-label="Jatin K Malik, home" data-astro-cid-5hce7sga> <span class="brand-mark" aria-hidden="true" data-astro-cid-5hce7sga>jkm</span> <span class="brand-name" data-astro-cid-5hce7sga>Jatin K Malik</span> </a> <nav aria-label="Main" data-astro-cid-5hce7sga> <a href="/blog/" aria-current="page" data-astro-cid-5hce7sga> All posts </a><a href="/tags/" data-astro-cid-5hce7sga> Topics </a><a href="/about/" data-astro-cid-5hce7sga> About </a> <a href="/rss.xml" class="icon-link" aria-label="RSS feed" title="RSS feed" data-astro-cid-5hce7sga> <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M5 3a16 16 0 0 1 16 16h-3A13 13 0 0 0 5 6zm0 6a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7zm2 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4" data-astro-cid-5hce7sga></path></svg> </a> <button class="icon-link theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" data-astro-cid-5hce7sga> <svg class="i-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><circle cx="12" cy="12" r="4.2" fill="currentColor" data-astro-cid-5hce7sga></circle><g stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-5hce7sga><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" data-astro-cid-5hce7sga></path></g></svg> <svg class="i-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1" data-astro-cid-5hce7sga></path></svg> </button> </nav> </div> </header> <main id="main" data-astro-cid-5hce7sga>  <article class="post" data-astro-cid-7jjqptxk> <header class="wrap post-head" data-astro-cid-7jjqptxk> <p class="meta mono" data-astro-cid-7jjqptxk> <a class="kicker" href="/tags/how-to/" data-astro-cid-7jjqptxk>how-to</a> <time datetime="2018-08-28" data-astro-cid-7jjqptxk>28 August 2018</time> <span data-astro-cid-7jjqptxk>16 min read</span>  </p> <h1 data-astro-cid-7jjqptxk>Back from Dead | Troubleshoot slow page loads &amp; 503 errors of WordPress blog</h1> <p class="dek" data-astro-cid-7jjqptxk>How a slow, 503-throwing WordPress blog on GoDaddy shared hosting was traced to a bloated Jetpack postmeta table, and fixed by cleaning up the database.</p> <a class="byline" href="/about/" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="28" height="28" data-astro-cid-7jjqptxk> <span data-astro-cid-7jjqptxk>Jatin Kumar Malik</span> </a> </header> <figure class="hero" data-astro-cid-7jjqptxk> <img src="/images/blog/troubleshoot-slow-wordpress-blog-godaddy-503-error/WP-troubleshooting.jpg" alt="" loading="eager" decoding="async" fetchpriority="high" data-astro-cid-7jjqptxk> </figure> <div class="wrap body" data-astro-cid-7jjqptxk> <div class="prose" data-astro-cid-7jjqptxk> <blockquote>
+<p><strong>TL;DR: Read logs, delete useless shit, keep the DB clean.</strong></p>
+</blockquote>
+<h3 id="-warning-a-long-read">*** Warning: A long read! ***</h3>
+<p>Oh well, I feel like a n00b while typing this but that’s how things roll. I am not sure if I have any regular readers left, as to have regular readers one needs to be a regular author, which I am clearly not. <em>(Yes, I wish to change.)</em></p>
+<p>Still, if you go back and stalk this blog, you will notice that post frequency for 2018 has been abysmal at it’s best. But yes, there is a reason an interesting story behind the same. A story which might teach you a thing or two about hosting WordPress on your own hosting. It has certainly taught me much.</p>
+<hr>
+<p>So, it all started back in January when I started noticing poor loading performance of the site. Being a self-shared hosted instance, I chalked it up to poor bandwidth or bad optimisation by Team GoDaddy (not much positive about them). Soon I started getting 503 error randomly on the home page, so it was time to investigate stuff…</p>
+<h2 id="initial-findings">Initial findings</h2>
+<p>I logged into GoDaddy account and went into my hosting status page. Immediately I was greeted with an orange banner(link here) stating I am reaching the resource limit and I need to upgrade my hosting plan soon to keep up the smooth operations. I scoffed mildly to their marketing tactics and opened the boot to look under the hood.</p>
+<p>I opened the CPanel and took a glance over at the system panel on the left. To my amazement, almost all of the parameters were either terminal red or warning orange. I looked up the labels to understand the meaning of these indicators.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Red is usually my favourite colour</em></p>
+<p>Well, clearly, I was a bit surprised as I have an experience of running WordPress since 2006-ish and I have had run pretty complexly themed blogs on my potato local computer (2006 PC, yeah!) using XAMMP on Windows.</p>
+<blockquote>
+<p>If you are a backend guy and read this line above now (in 2018), you will probably cringe harder than you do on Nicki Minaz songs. Everything about that line is WRONG (2006, PC, XAMMP).</p>
+</blockquote>
+<p>Anyway, I had a fond memory of WordPress stack being super efficient and decent at handling a mere 100+ blog posts with ~15 plugins. Especially when I was not even posting posts regularly and traffic was on a decline.</p>
+<h4 id="something-was-wrong-here"><strong>Something was wrong here.</strong></h4>
+<p>I called up GoDaddy <del>tech</del> sales support and patiently explained my problem to him only to get his sales pitch - “<em>Sar, I can see the upgrade banner in your account, so can you. Please give money, we give you moar resourcez. Oaky?</em>”. Hmm, probably not that brash but you get the gist. I (mildly irritated) requested him to escalate my call to his supervisor or somebody from <em><strong>real</strong></em> tech support.</p>
+<p>Well, they kinda did. A girl (I am NOT a sexist) picked up the call and I swear to the odin that she was not able to understand anything about wp-config and the 503 error and asked me if I have cleared my browser cache. I politely asked her to transfer the call to her supervisor.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>…</em></p>
+<p>This time a rather mature sounding guy picked up the call and ask my problem. Folks, I was already 3 levels deep and 20 minutes on the call. I still explained to him my problem. He opened his admin console, got to my box and disabled all plugins (important) and my custom theme.</p>
+<p>The site seemed to breathe for a while and we were able to access the same. He told me plainly that <a href="https://www.foregroundweb.com/wordpress-hosting/">this is a classic case</a> of resource overutilization and I need to upgrade my hosting from the basic starter plan to at least their Delux combo something plan. I made the rookie’s mistake of asking the cost for the same as he immediately said he will just transfer my call to his sales representative. <em><strong>facepalm</strong></em> I held up the connection before they could plug me another level deep.</p>
+<blockquote>
+<p>I deep down knew that I need to investigate this myself before throwing moolah on the table.</p>
+</blockquote>
+<h2 id="lazy-boi-excuses-part---i">Lazy boi excuses; Part - I</h2>
+<p>This was February 2018. I kept my weekend free and planned to drill down into my GoDaddy shared hosting server to find the resource problem. I was sure about some bug leaking memory or some infinite loop sucking out my CPU burst cycles. I planned to replicate the setup on AWS t2.micro free instance and made an account on the same. It does require a credit card on the file before letting to fire up ec2 instances. My AMEX CC had some problem as it debits the verification money but still said pending for 48 hours. Fair enough, I thought I will start in 2 days…</p>
+<p>But suddenly (a software engineer way of shedding happy tears!), I got a huge project to work on from scratch at my last job @ Shuttl. <em>(Yeah, I have switched career, yet again)</em>. The project name rhymed with XMS. I was pretty excited to build a Python Django project from scratch along with my <em>2 talented senior teammates</em>. I was happy that I will get to learn a ton and will deploy a whole project live AND…both of <em>my 2 talented senior teammates</em> left before even the completion of the first milestone of the project. Yep, just left. And I was struck with a lot of <em>legacy code</em> to work on, with a very little idea about the framework. I had a good experience with Flask framework but Django had some things implemented differently.</p>
+<p>I slogged at work and the good part was that I was able to understand most of the code and got pretty good at Django,  implemented a ton of APIs and built a basic dashboard UI.  Anyway, that sucked next 2 months of my life and I completely forgot about this blog, the 503 issue and meanwhile it kept getting worse as it started opening occasionally and kept throwing 503 errors for the most part.</p>
+<h2 id="lazy-boi-excuses-part---ii">Lazy boi excuses; Part - II</h2>
+<p>Nah, let’s move ahead. I have shared too much personal stuff anyway. :P</p>
+<h2 id="lets-start-fresh-scrap-all-shit">Let’s start fresh? Scrap all shit.</h2>
+<p>It was around May 2018  and I got some interns and a junior to help me with new projects that our product team was pumping out PRDs out at an amazing rate. I was working non-stop on same but still a window of personal time opened up. Meanwhile, we migrated our code repositories to Github from Gitlab and I got to know about the concept of <a href="https://pages.github.com/">gh-pages</a>.</p>
+<blockquote>
+<p>Github pages - A neat nifty project by Github which allows you to host stuff from your repo as simple websites or blogs. <strong>For free!</strong></p>
+</blockquote>
+<p>This sounded like a sweet chime to my ears as I was tired of the non-existent support from GoDaddy and their incompetent tech team (free-tier at least). I started formulating a plan to nuke bitsnapper altogether and start from scratch and make a simple <a href="https://www.martinfowler.com/">Martin Fowler-esque blog.</a></p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Clean, simple and nerdy.</em></p>
+<p>So, I created a simple site blog on <a href="http://jatinkrmalik.github.io/">jatinkrmalik.github.io</a> and even posted some posts (maybe 1). But due to lack of much formatting options and ability to customise stuff, was a bummer.</p>
+<blockquote>
+<p>I lost interest in Github pages faster than America did in Trump.</p>
+</blockquote>
+<p><strong>AND</strong> soon I resigned from Shuttl and left in July due to [redacted] reasons.</p>
+<h2 id="a-new-beginning-aws-way">A new beginning, AWS way?!</h2>
+<p>In late July, I joined a very early stage startup called <a href="http://synaptic.io/">Synaptic.io</a> after what felt like a swyamwar of offer letters. (<strong>okay, no <a href="https://www.urbandictionary.com/define.php?term=Bragging">bragging</a></strong>). I was impressed by the product and size of the team which you could count on one hand. It felt lucrative to get into core team, build something great and have a chance to witness growth from the inside.</p>
+<p>Anyway, Synaptic being a data-heavy company, we use a lot of third party services and tools for automated deployment to staging, prod etc. Naturally, AWS is the backbone of our deployment infra. I got a new AWS account both for staging and prod, so I started reading about the same and got to know about <a href="https://bitnami.com/stack/wordpress/cloud/aws">Bitnami WordPress AMI</a> which comes preloaded with the WordPress stack goodies and one can deploy with a click. It was time to reactivate my AWS account and fire this up.</p>
+<h2 id="a-few-weeks-ago">A few weeks ago.</h2>
+<p>At the start of August 2018, I was finally able to authenticate my AWS account by punching a new credit card. I fired up a bitnami WordPress instance and did a setup for a standard WordPress installation. Now all I had to do was just back up stuff from GoDaddy servers and restore here.</p>
+<blockquote>
+<p>Sounds easy right?</p>
+<p><strong>EXCEPT.</strong></p>
+<p><strong>IT.</strong></p>
+<p><strong>WAS.</strong></p>
+<p><strong>NOT</strong>.</p>
+</blockquote>
+<p>I logged into my good old CPanel, got the FTP creds, loaded FileZilla and started the transfer. The ETA was in the north of double-digit hours as the website’s public_html folder was somewhere around 1.5 GB which is understandable as I have a lot of media files and videos. Fair enough. But this again was going to take a lot of time as the problem with transferring a folder is that each micro-size file (&#x3C;100 kb) takes mere milliseconds to download but takes it’s own sweet time to write on the local disk when downloading from the internet. The obvious way was to pack the public_html folder into a zip file and then transfer.</p>
+<p>I did an SSH into the box and ran the command <code>zip -rv public_html.zip public_html/</code> to zip the directory, but one thing which I forgot was that even while zipping a directory, I will hit the same problem of the zip program manually iterating over all the files (including microsized one) and will take a lot of time to try to compress each one. I left it for 20 minutes only to find it only 10% through my all files. Improvement? Sure but I am not a very patient man.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Why is this so slow? Oh, wait.</em></p>
+<p>I looked into the log (thanks to -v…verbose), and found out that I had a lot of files in my <code>public_html</code> folder in my xcloner plugin directory due to some failed attempts to take site backup from a plugin. I found more such folders of some plugins which have no active role in powering up this blog.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Checking the size of files in the plugins directory.</em></p>
+<p>So, I deleted those folders in <code>public_html/wp-content/plugins</code> and tried running the <code>zip</code> command again. It was still slow and I gave up in a few minutes.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Clean up.</em></p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Zip them em!</em></p>
+<p>I google about wrapping files in a zip without compressing much and got to learn about levels of compression in zip utility which goes from 1-9 with 1 being least compression and 9 being the highest degree of compression while it defaults to 6. So, I tried again this time with but<code>zip -1rv public_html.zip public_html/</code> soon realized the iteration over gazzilion files take more time than compression logic for the CPU.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Just wrapping.</em></p>
+<p>I read more and found out that creating a tarball w/o compression is faster than zip utility, so it was time to try that and maybe let it complete in its own sweet time. So, I fired up the command: <code>tar -caf public.tar public_html</code> and left it running.</p>
+<p><em>Not sure if it ever completed…</em></p>
+<p>Then I logged into phpMyAdmin (a web app to manage MySQL instance) to take a backup of my bitsnapper WordPress DB. I simply clicked on export and the downloaded file was of size 48 MBs which was odd as in UI it was showing a DB size of 1.2 GB. I knew SQL backup can compress some data but of this magnitude? WTF. I opened the SQL file in VS code and obviously, the file was incomplete and had some HTML gibberish at the end which on inspection was the HTML for phpMyAdmin. Weird?</p>
+<p>I tried exporting the DB once again from the UI and this time the size of the <code>backup.sql</code> file was 256 MBs. I felt this was appropriate but my instinct did a right click and opened in my editor once again. Surely enough the file was still incomplete with that gibberish. Fair to say, the backup from phpMyAdmin was corrupted.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>top</em></p>
+<p>I did an ssh into my hosting box using the creds in my GoDaddy account and tried everything from checking the output of system commands like:<code>top, ps -ef, free</code> but the box is nicely sandboxed by GoDaddy to avoid any unauthorised access. I even tried to do a privilege escalation with intention of gaining more control over my hosting account and maybe restart <code>mysqld</code> but all in vain.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>ps</em></p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>sudo?</em></p>
+<p>I knew about taking direct DB backups from the shell using <code>mysqldump -h&#x3C;host> -u&#x3C;user> -p&#x3C;password> &#x3C;database_name> > db_backup.sql</code> so it was time to try that. I ran the command and tailed the backup SQL file with <code>tail -f db_backup.sql</code> to look into its content as it populated. It started exporting DB nicely and as I started feeling badass and went to grab a cup of coffee, the terminal presented me with the error message:</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>man mysqldump</em></p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>First attempt.</em></p>
+<p>I googled about the problem and it had something to do with the max_alllowed_packet variable of MySQL. The only two ways to change that was either my editing <code>/etc/my.cnf</code> file (which I was sure I didn’t have <code>sudo</code> access to) or run <code>SET GLOBAL max_allowed_packet=1073741824;</code> query in the MySQL console.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Admin? No? Sorry.</em></p>
+<p>Yeah, both of them didn’t work. Obviously. You need respective system admin user access for both.</p>
+<p>The roadblock was getting stupidly irritating, and I had to get the backup.  I googled more and someone suggested to pass the max_allowed_packet variable with the <code>mysqldump</code> command as.<code>--max-allowed-packet=1073741824</code> Tried that too, didn’t work.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>With —max_allowed_packet</em></p>
+<p>I was tired and had to sleep, so I terminated my ec2 instance and slept.</p>
+<h2 id="today">TODAY.</h2>
+<p>Today I was feeling motivated and planned to look into the problem from another angle.</p>
+<p>Instead of using the WordPress AMI, I decided to create the whole setup from scratch. I launched an instance of ec2 with Amazon Linux AMI. The aim was to understand if this is really GoDaddy messing with me or is it some fault in my database which is leading to the whole shebang.</p>
+<blockquote>
+<p>I <a href="https://www.wpexplorer.com/migrating-wordpress-website/">used this post</a> as guidance to set up everything from grounds up.</p>
+</blockquote>
+<p>I logged in again to my GoDaddy account to be greeted by the orange banner urging me to upgrade. I felt weak and was just about to click upgrade and throw some dough to get the easy way out. But no, that’s against the hacker mentality I work with.</p>
+<p>So, I opened the CPanel, phpMyAdmin and tried taking a backup again. It again downloaded a 250-something MB file with gibberish at the end. I manually removed the last part of the file and uploaded it to my ec2 instance via <code>scp</code> and imported it into my remote MySQL instance.</p>
+<p>After uploading the public_html files, importing SQL backup and configuring wp-config.php file with DB host and creds, I restarted both httpd (Apache server) and MySQL (DB server) and opened <a href="http://ec2-instance-url:80">http://ec2-instance-url:80</a> and to my partial euphoria, it did load up my header and footer for bitsnapper but no posts were visible.</p>
+<blockquote>
+<p>Hmm… something was missing.</p>
+</blockquote>
+<p>I looked into the tables on phpMyAdmin and my MySQL server on the ec2 instance and duh, my wp_xxx_posts table and wp_xxx_postsmeta was missing. Yeah! So, the problem was that my DB size has such large that Godaddy shared hosting limited bandwidth was not allowing me to take a backup of the whole DB. Clearly, I had to fix this.</p>
+<p>I wrote a custom python script to take a backup of the bitsnapper DB table-by-table to avoid hitting the max_allowed_packet limit as observed last week but the same error <code>mysqldump: Error 2013: Lost connection to MySQL server during query when dumping table wp_xxx_postmeta</code>  kept popping up.</p>
+<p>I started my intense googling session once again and queried along the line of  ‘<em>how to backup</em> DB <em>from</em> GoDaddy <em>shared hosting</em>’ and ‘GoDaddy <em>+ shared hosting +</em> mysqldump <em>+ error 2013</em>’ and somehow by a fluke, I landed on the Backup section of my …drumroll?… CPanel! <em>facepalm</em></p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Facepalm moment!</em></p>
+<p>It had everything I was trying to do above with a flick of a click. I stopped all my previous efforts and download the full website backup which had both public_html folder and DB backup SQL. The whole archive was still 2.5 GB which was huge for a small blog like this.</p>
+<p>Anyway, I did a <code>scp</code> to my ec2 instance and tried to replace the files in <code>/var/www/html</code> with <code>public_html/</code> and restored mysql backup via <code>mysql -u&#x3C;user> -p&#x3C;password> &#x3C;database_name> &#x3C; db_backup.sql</code> and this time it worked without an error. I restarted my mysql and apache http server by <code>service mysql restart; serivce httpd restart;</code> and tried to load <code>http://&#x3C;ec2-public-ip-addr>:80</code> and presto! the whole site loads up.</p>
+<p>The euphoria this time also lasted for a short burst as within 2-3 reloads the replicated site again started throwing up the same 503 error and my shell session chocked up.</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>503! Not again.</em></p>
+<p>I fired up a new terminal and tried SSHing into the box but the box just became unresponsive. I went to the AWS admin console to check my ec2 instance monitoring for the machine parameters and observed a similar pattern as with the CPanel (left panel) parameter console.  It was all red and orange once again.</p>
+<blockquote>
+<p>Clearly, GoDaddy’s hosting wasn’t the <em><strong>only</strong></em> culprit.</p>
+</blockquote>
+<h2 id="real-it-support--self-troubleshooting">Real IT support == Self-troubleshooting!</h2>
+<p>It was then when I decided to shed my fear of peeping into the DB tables as it was a gone cause anyway and I still had <a href="/blog/back-to-basics-rant-against-godaddy-comeback/">a partial backup from last year when I migrated the blog from WordPress managed hosting to conventional shared hosting box.</a></p>
+<p>Boys, it was time to run some queries. The first thing I did was to login to the phpMyAdmin and look up the tables, schema and properties. I was assured that the problem is with the DB size and that’s the reason for slow queries which is chocking up the CPU burst time.</p>
+<p>I looked into tables and found table wp_xxx_postmeta to be around 950 MB in size with just 11000 records. This immediately fired up alarms in my head as I have worked with multi-million row DBs during my stint in Adobe &#x26; Shuttl and the table size was mostly in the range of few MBs only. A rough back of the note calculation stated a median size of 100 kb per record in this table which was weird because when I looked up the schema for the same, it just was storing 4 records i.e. <code>meta_id, post_id, meta_key, meta_value.</code></p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>Hey DB, you cray?</em></p>
+<p>It was time to prod this table and understand the data inside it. I fired up a simple query:</p>
+<p><code>SELECT meta_key, count(*) FROM 'wp_s4w671g0kp_postmeta' GROUP by meta_key order by count(*) desc;</code></p>
+<p>Lo behold, the result was a bit surprising as till now I was thinking that this table might contain post revisions or metadata only but the query result was something like this:</p>
+<table>
+<thead>
+<tr>
+<th><strong>meta_key</strong></th>
+<th><strong>count(*)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>_total_views</strong></td>
+<td>1895</td>
+</tr>
+<tr>
+<td><strong>_view_ip_list</strong></td>
+<td>1892</td>
+</tr>
+<tr>
+<td><strong>_jetpack_related_posts_cache</strong></td>
+<td>1206</td>
+</tr>
+<tr>
+<td><strong>_wp_attached_file</strong></td>
+<td>1144</td>
+</tr>
+<tr>
+<td><strong>_wp_attachment_metadata</strong></td>
+<td>1101</td>
+</tr>
+<tr>
+<td><strong>wp-smpro-smush-data</strong></td>
+<td>1069</td>
+</tr>
+<tr>
+<td><strong>_wp_attachment_image_alt</strong></td>
+<td>903</td>
+</tr>
+<tr>
+<td><strong>_edit_lock</strong></td>
+<td>155</td>
+</tr>
+<tr>
+<td><strong>_edit_last</strong></td>
+<td>140</td>
+</tr>
+<tr>
+<td><strong>_yoast_wpseo_focuskw</strong></td>
+<td>118</td>
+</tr>
+<tr>
+<td><strong>_yoast_wpseo_linkdex</strong></td>
+<td>118</td>
+</tr>
+<tr>
+<td><strong>_thumbnail_id</strong></td>
+<td>116</td>
+</tr>
+<tr>
+<td><strong>_yoast_wpseo_metadesc</strong></td>
+<td>114</td>
+</tr>
+<tr>
+<td><strong>_publicize_twitter_user</strong></td>
+<td>107</td>
+</tr>
+<tr>
+<td><strong>_wpas_done_all</strong></td>
+<td>103</td>
+</tr>
+<tr>
+<td><strong>_total_likes</strong></td>
+<td>77</td>
+</tr>
+<tr>
+<td><strong>_like_ip_list</strong></td>
+<td>77</td>
+</tr>
+<tr>
+<td><strong>_wpas_skip_3914702</strong></td>
+<td>75</td>
+</tr>
+<tr>
+<td><strong>_wpas_skip_11104850</strong></td>
+<td>72</td>
+</tr>
+<tr>
+<td><strong>_yoast_wpseo_title</strong></td>
+<td>56</td>
+</tr>
+<tr>
+<td><strong>_wp_attachment_backup_sizes</strong></td>
+<td>40</td>
+</tr>
+<tr>
+<td><strong>_yoast_wpseo_focuskw_text_input</strong></td>
+<td>38</td>
+</tr>
+<tr>
+<td><strong>_wp_old_slug</strong></td>
+<td>35</td>
+</tr>
+<tr>
+<td><strong>essb_hideplusone</strong></td>
+<td>29</td>
+</tr>
+<tr>
+<td><strong>essb_hidevk</strong></td>
+<td>29</td>
+</tr>
+</tbody>
+</table>
+<p>Do you see it? There are some 1800+ records for <strong>_view_ip_list, _total_views,  _jetpack_related_posts_cache</strong> which is basically nothing but records originated from WordPress own homegrown popular plugin - <a href="https://jetpack.com/"><strong>Jetpack</strong></a>. I googled a bit about safety delete for these records, didn’t find anything,  took a leap of faith and executed:</p>
+<p><code>Delete from FROM 'wp_xxx_postmeta' WHERE meta_key = '_view_ip_list';</code></p>
+<p><code>Delete from FROM 'wp_xxx_postmeta' WHERE meta_key = '_total_views';</code></p>
+<p><code>Delete from FROM 'wp_xxx_postmeta' WHERE meta_key = '_jetpack_related_posts_cache';</code></p>
+<p>It deleted some 4,000 records out of 11,000 records it had and look what happened when I refreshed phpMyAdmin?</p>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>All cleaned up!</em></p>
+<p>Yus! My wp_xxx_postmeta table size dropped from 900-something MBs to 6.3 MBs by just deleting ~4,000 records. What sick joke is that? My total DB size dropped to 25 MBs from ~1.2 GBs, probably due to the cascade effect of foreign key constraints of the records I deleted.</p>
+<h2 id="result">Result?</h2>
+<p>My website was a breeze once again. The load time went down considerably, probably because of faster DB queries and even the system monitoring parameters on the CPanel went down from Red/Orange to Green. I did some load testing by executing multiple curl requests to my home page via terminal, and the server was not breaking<br>
+any sweat.</p>
+<blockquote>
+<p>Look at that RAM usage!  <strong>WHAT</strong>? Remember when I talked about running WordPress stack on my 2006 PC with some 128 MB of memory? Yeah!</p>
+</blockquote>
+<p><span class="img-missing">Image no longer available</span><br>
+<em>So fast much wow!</em></p>
+<h1 id="win">WIN!</h1>
+<hr>
+<h2 id="lessons">Lessons?</h2>
+<ul>
+<li>Troubleshooting Godaddy is a long-term thing. You can either get into the shit and fix it yourself or you can start throwing cash on the screen until you escalate to their core tech team which I guess is <strong>probably never</strong> for shared hosting plans. They might have a great support for dedicated servers though.</li>
+<li>AWS is a f##king amazing piece of tech. If you know how to harden servers, by all means, just drop these legacy hosting providers and go for your own setup. It’s probably cheaper, faster and more VFM. A simple t2.micro instance will cost &#x3C; ₹700/month. (Maybe more, sigh world economy!).</li>
+<li>Sometimes, <em>being a smartass is not good</em>. Most of the times, however, it keeps you safe.</li>
+<li>Always check logs. -_-</li>
+</ul> </div> <footer class="post-foot" data-astro-cid-7jjqptxk> <div class="tags" data-astro-cid-7jjqptxk> <a class="chip" href="/tags/how-to/" data-astro-cid-7jjqptxk>#how-to</a><a class="chip" href="/tags/software-engineering/" data-astro-cid-7jjqptxk>#software-engineering</a><a class="chip" href="/tags/internet/" data-astro-cid-7jjqptxk>#internet</a><a class="chip" href="/tags/personal/" data-astro-cid-7jjqptxk>#personal</a> </div> <p class="origin" data-astro-cid-7jjqptxk>
+First published on BitSnapper, August 2018.
+<a href="https://bitsnapper.com/troubleshoot-slow-wordpress-blog-godaddy-503-error/" rel="nofollow noopener" data-astro-cid-7jjqptxk>Original ↗</a>  </p> <div class="author" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="56" height="56" loading="lazy" data-astro-cid-7jjqptxk> <div data-astro-cid-7jjqptxk> <p class="a-name" data-astro-cid-7jjqptxk><a href="/about/" data-astro-cid-7jjqptxk>Jatin Kumar Malik</a></p> <p class="a-bio" data-astro-cid-7jjqptxk>Principal Software Engineer at Atlassian, architecting distributed systems and building A2A AI platforms. Previously scaled platforms at Uber and shipped products at Adobe.</p> </div> </div> </footer> <div class="comments" id="comments" data-astro-cid-7jjqptxk> <script type="module">document.querySelectorAll(".archived .show-all").forEach(e=>e.addEventListener("click",()=>{e.closest(".archived")?.querySelectorAll("[data-more]").forEach(l=>l.hidden=!1),e.remove()}));</script>  </div> </div> <section class="wrap more" aria-labelledby="more-h" data-astro-cid-7jjqptxk> <h2 id="more-h" data-astro-cid-7jjqptxk>Keep reading</h2> <div class="grid" data-astro-cid-7jjqptxk> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/post-0-why-tech/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/post-0-why-tech/windows95pc.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>personal</span> <time datetime="2018-04-15" data-astro-cid-iyiqi2so>Apr 2018</time> <span data-astro-cid-iyiqi2so>7 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/post-0-why-tech/" data-astro-cid-iyiqi2so>Post[0] = &quot;why tech?&quot;</a></h3> <p class="desc" data-astro-cid-iyiqi2so>I always talk about how I am a huge nerd when it comes to tech. So, what better way to start my engineering blog than talking about &quot;why tech?&quot;.</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/back-to-basics-rant-against-godaddy-comeback/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/back-to-basics-rant-against-godaddy-comeback/back-to-the-basics-cover-bitsnapper.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>personal</span> <time datetime="2017-05-02" data-astro-cid-iyiqi2so>May 2017</time> <span data-astro-cid-iyiqi2so>5 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/back-to-basics-rant-against-godaddy-comeback/" data-astro-cid-iyiqi2so>Back to the basics + rant against Godaddy! [Comeback]</a></h3> <p class="desc" data-astro-cid-iyiqi2so>Rant about GoDadday&#39;s hosting transitions + detailed stuff I had to do to restore BitSnapper. To infinity… and beyond!</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/unblock-blocked-sites-in-office-college/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/unblock-blocked-sites-in-office-college/5-cool-ways-to-surf-blocked-sites-in-your-office-college-india-cover.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>internet</span> <time datetime="2016-07-03" data-astro-cid-iyiqi2so>Jul 2016</time> <span data-astro-cid-iyiqi2so>3 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/unblock-blocked-sites-in-office-college/" data-astro-cid-iyiqi2so>5 cool ways to surf blocked sites in your office/college</a></h3> <p class="desc" data-astro-cid-iyiqi2so>One click process to unblock banned sites in Chrome, Windows, Android, and iPhone. Now you can watch youtube, download torrents without getting noticed.</p> </div> </article>  </div> </section> </article>  </main> <footer class="site-footer" data-astro-cid-5hce7sga> <div class="wrap foot" data-astro-cid-5hce7sga> <p data-astro-cid-5hce7sga>
+© 2026 Jatin Kumar Malik
+<span class="sep" data-astro-cid-5hce7sga>·</span> <a href="/rss.xml" data-astro-cid-5hce7sga>RSS</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://github.com/jatinkrmalik/jatinkrmalik.com" data-astro-cid-5hce7sga>Source</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://j47.in" data-astro-cid-5hce7sga>j47.in</a> </p> </div> </footer> <script type="module">const c=document.querySelector(".theme-toggle");c?.addEventListener("click",()=>{const e=document.documentElement,t=(e.dataset.theme??(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))==="dark"?"light":"dark";e.dataset.theme=t;try{localStorage.setItem("theme",t)}catch{}});</script> </body> </html>  

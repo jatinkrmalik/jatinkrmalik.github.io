@@ -1,0 +1,703 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-5hce7sga> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[Day 5] If You Give A Seed A Fertilizer// Advent of Code 2023 (Python) · Jatin K Malik</title><meta name="description" content="You take the boat and find the gardener right where you were told he would be: managing a giant “garden” that looks more to you like a farm."><meta name="author" content="Jatin Kumar Malik"><link rel="canonical" href="https://jatinkrmalik.com/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/"><meta name="generator" content="Astro v5.18.2"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Jatin K Malik" href="/rss.xml"><meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)"><meta property="og:site_name" content="Jatin K Malik"><meta property="og:type" content="article"><meta property="og:url" content="https://jatinkrmalik.com/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/"><meta property="og:title" content="[Day 5] If You Give A Seed A Fertilizer// Advent of Code 2023 (Python)"><meta property="og:description" content="You take the boat and find the gardener right where you were told he would be: managing a giant “garden” that looks more to you like a farm."><meta property="og:image" content="https://jatinkrmalik.com/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/0-7CxW81AraoeLTPFf.jpg"><meta property="article:published_time" content="2023-12-06T00:00:00.000Z"><meta property="article:modified_time" content="2023-12-10T00:00:00.000Z"><meta property="article:author" content="Jatin Kumar Malik"><meta property="article:tag" content="advent-of-code"><meta property="article:tag" content="python"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@jatinkrmalik"><meta name="twitter:creator" content="@jatinkrmalik"><meta name="twitter:title" content="[Day 5] If You Give A Seed A Fertilizer// Advent of Code 2023 (Python)"><meta name="twitter:description" content="You take the boat and find the gardener right where you were told he would be: managing a giant “garden” that looks more to you like a farm."><meta name="twitter:image" content="https://jatinkrmalik.com/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/0-7CxW81AraoeLTPFf.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"[Day 5] If You Give A Seed A Fertilizer// Advent of Code 2023 (Python)","description":"You take the boat and find the gardener right where you were told he would be: managing a giant “garden” that looks more to you like a farm.","datePublished":"2023-12-06T00:00:00.000Z","dateModified":"2023-12-10T00:00:00.000Z","mainEntityOfPage":"https://jatinkrmalik.com/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/","url":"https://jatinkrmalik.com/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/","keywords":"advent-of-code, python","image":"https://jatinkrmalik.com/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/0-7CxW81AraoeLTPFf.jpg","isBasedOn":"https://medium.com/@jatinkrmalik/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python-b77999534492","author":{"@type":"Person","name":"Jatin Kumar Malik","url":"https://jatinkrmalik.com/about/"}}</script><script>
+  // Apply the saved theme before first paint to avoid a flash.
+  (() => {
+    try {
+      const t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch {}
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.H0TgHpCk.css">
+<style>.cover[data-astro-cid-e5kvktnr]{display:block;width:100%;height:100%;object-fit:cover;background:var(--bg-sunk)}.gen[data-astro-cid-e5kvktnr]{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:1rem 1.1rem;font-family:var(--font-mono);color:var(--g-ink);background:radial-gradient(circle at 85% 15%,color-mix(in srgb,var(--g-ink) 18%,transparent) 0 18%,transparent 19%),repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--g-ink) 7%,transparent) 14px 15px),var(--g-bg);overflow:hidden}.g-tag[data-astro-cid-e5kvktnr]{font-size:clamp(1rem,2.4vw,1.35rem);font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}.g-year[data-astro-cid-e5kvktnr]{font-size:.75rem;opacity:.75;align-self:flex-end}.gen[data-astro-cid-e5kvktnr][data-tone="0"]{--g-bg: #fde7d6;--g-ink: #9a3412}.gen[data-astro-cid-e5kvktnr][data-tone="1"]{--g-bg: #dcefe4;--g-ink: #166534}.gen[data-astro-cid-e5kvktnr][data-tone="2"]{--g-bg: #dde7fb;--g-ink: #1e40af}.gen[data-astro-cid-e5kvktnr][data-tone="3"]{--g-bg: #ede3fb;--g-ink: #6b21a8}.gen[data-astro-cid-e5kvktnr][data-tone="4"]{--g-bg: #f9f0cf;--g-ink: #854d0e}.gen[data-astro-cid-e5kvktnr][data-tone="5"]{--g-bg: #e3eef2;--g-ink: #155e75}:root[data-theme=dark] .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}}
+.card[data-astro-cid-iyiqi2so]{display:flex;flex-direction:column;min-width:0}.media[data-astro-cid-iyiqi2so]{display:block;aspect-ratio:16 / 9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--rule);background:var(--bg-sunk)}.media[data-astro-cid-iyiqi2so] .cover{transition:transform .4s ease}.card[data-astro-cid-iyiqi2so]:hover .media[data-astro-cid-iyiqi2so] .cover{transform:scale(1.03)}.text[data-astro-cid-iyiqi2so]{padding-top:.85rem}.meta[data-astro-cid-iyiqi2so]{display:flex;flex-wrap:wrap;gap:.2rem .7rem;margin:0;font-size:.72rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em}.tag[data-astro-cid-iyiqi2so]{color:var(--accent);font-weight:600}.title[data-astro-cid-iyiqi2so]{font-size:1.15rem;line-height:1.3;letter-spacing:-.015em;margin:.4rem 0 0;overflow-wrap:anywhere}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]{text-decoration:none}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]:hover{color:var(--accent)}.desc[data-astro-cid-iyiqi2so]{margin:.45rem 0 0;color:var(--ink-2);font-size:.93rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.featured[data-astro-cid-iyiqi2so]{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:2.25rem;align-items:center}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so]{aspect-ratio:auto;max-height:30rem}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] img.cover{height:auto;max-height:30rem;object-fit:contain}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] .gen{aspect-ratio:16 / 9}.featured[data-astro-cid-iyiqi2so] .text[data-astro-cid-iyiqi2so]{padding-top:0}.featured[data-astro-cid-iyiqi2so] .title[data-astro-cid-iyiqi2so]{font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.03em}.featured[data-astro-cid-iyiqi2so] .desc[data-astro-cid-iyiqi2so]{font-family:var(--font-serif);font-size:1.2rem;line-height:1.5;-webkit-line-clamp:4;line-clamp:4}@media(max-width:760px){.featured[data-astro-cid-iyiqi2so]{grid-template-columns:minmax(0,1fr);gap:1rem}}
+</style>
+<link rel="stylesheet" href="/_astro/about.C9axxvRH.css"></head> <body data-astro-cid-5hce7sga> <a class="skip" href="#main" data-astro-cid-5hce7sga>Skip to content</a> <header class="site-header" data-astro-cid-5hce7sga> <div class="wrap bar" data-astro-cid-5hce7sga> <a href="/" class="brand" aria-label="Jatin K Malik, home" data-astro-cid-5hce7sga> <span class="brand-mark" aria-hidden="true" data-astro-cid-5hce7sga>jkm</span> <span class="brand-name" data-astro-cid-5hce7sga>Jatin K Malik</span> </a> <nav aria-label="Main" data-astro-cid-5hce7sga> <a href="/blog/" aria-current="page" data-astro-cid-5hce7sga> All posts </a><a href="/tags/" data-astro-cid-5hce7sga> Topics </a><a href="/about/" data-astro-cid-5hce7sga> About </a> <a href="/rss.xml" class="icon-link" aria-label="RSS feed" title="RSS feed" data-astro-cid-5hce7sga> <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M5 3a16 16 0 0 1 16 16h-3A13 13 0 0 0 5 6zm0 6a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7zm2 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4" data-astro-cid-5hce7sga></path></svg> </a> <button class="icon-link theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" data-astro-cid-5hce7sga> <svg class="i-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><circle cx="12" cy="12" r="4.2" fill="currentColor" data-astro-cid-5hce7sga></circle><g stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-5hce7sga><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" data-astro-cid-5hce7sga></path></g></svg> <svg class="i-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1" data-astro-cid-5hce7sga></path></svg> </button> </nav> </div> </header> <main id="main" data-astro-cid-5hce7sga>  <article class="post" data-astro-cid-7jjqptxk> <header class="wrap post-head" data-astro-cid-7jjqptxk> <p class="meta mono" data-astro-cid-7jjqptxk> <a class="kicker" href="/tags/advent-of-code/" data-astro-cid-7jjqptxk>advent-of-code</a> <time datetime="2023-12-06" data-astro-cid-7jjqptxk>6 December 2023</time> <span data-astro-cid-7jjqptxk>13 min read</span>  </p> <h1 data-astro-cid-7jjqptxk>[Day 5] If You Give A Seed A Fertilizer// Advent of Code 2023 (Python)</h1> <p class="dek" data-astro-cid-7jjqptxk>You take the boat and find the gardener right where you were told he would be: managing a giant “garden” that looks more to you like a farm.</p> <a class="byline" href="/about/" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="28" height="28" data-astro-cid-7jjqptxk> <span data-astro-cid-7jjqptxk>Jatin Kumar Malik</span> </a> </header>  <div class="wrap body" data-astro-cid-7jjqptxk> <div class="prose" data-astro-cid-7jjqptxk> <p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/0-7CxW81AraoeLTPFf.jpg" alt="If You Give A Seed A Fertilizer (via DALL-E 3)"></p>
+<p><em>If You Give A Seed A Fertilizer (via DALL-E 3)</em></p>
+<blockquote>
+<p><strong><a href="https://adventofcode.com/2023/day/5">Advent of Code</a></strong><br>
+You take the boat and find the gardener right where you were told he would be: managing a giant “garden” that looks…adventofcode.com</p>
+</blockquote>
+<hr>
+<h2 id="part-one">Part One</h2>
+<blockquote>
+<p>You take the boat and find the gardener right where you were told he would be: managing a giant “garden” that looks more to you like a farm.</p>
+<p>“A water source? Island Island is the water source!” You point out that Snow Island isn’t receiving any water.</p>
+<p>“Oh, we had to stop the water because we ran out of sand to <a href="https://en.wikipedia.org/wiki/Sand_filter">filter</a> it with! Can’t make snow with dirty water. Don’t worry, I’m sure we’ll get more sand soon; we only turned off the water a few days… weeks… oh no.” His face sinks into a look of horrified realization.</p>
+<p>“I’ve been so busy making sure everyone here has food that I completely forgot to check why we stopped getting more sand! There’s a ferry leaving soon that is headed over in that direction — it’s much faster than your boat. Could you please go check it out?”</p>
+<p>You barely have time to agree to this request when he brings up another. “While you wait for the ferry, maybe you can help us with our food production problem. The latest Island Island <a href="https://en.wikipedia.org/wiki/Almanac">Almanac</a> just arrived and we’re having trouble making sense of it.”</p>
+<p>The almanac (your puzzle input) lists all of the seeds that need to be planted. It also lists what type of soil to use with each kind of seed, what type of fertilizer to use with each kind of soil, what type of water to use with each kind of fertilizer, and so on. Every type of seed, soil, fertilizer and so on is identified with a number, but numbers are reused by each category — that is, soil <code>123</code> and fertilizer <code>123</code> aren’t necessarily related to each other.</p>
+<p>For example:</p>
+<p>seeds: 79 14 55 13</p>
+<p>seed-to-soil map:<br>
+50 98 2<br>
+52 50 48</p>
+<p>soil-to-fertilizer map:<br>
+0 15 37<br>
+37 52 2<br>
+39 0 15</p>
+<p>fertilizer-to-water map:<br>
+49 53 8<br>
+0 11 42<br>
+42 0 7<br>
+57 7 4</p>
+<p>water-to-light map:<br>
+88 18 7<br>
+18 25 70</p>
+<p>light-to-temperature map:<br>
+45 77 23<br>
+81 45 19<br>
+68 64 13</p>
+<p>temperature-to-humidity map:<br>
+0 69 1<br>
+1 0 69</p>
+<p>humidity-to-location map:<br>
+60 56 37<br>
+56 93 4</p>
+<p>The almanac starts by listing which seeds need to be planted: seeds <code>79</code>, <code>14</code>, <code>55</code>, and <code>13</code>.</p>
+<p>The rest of the almanac contains a list of maps which describe how to convert numbers from a source category into numbers in a destination category. That is, the section that starts with <code>seed-to-soil map:</code> describes how to convert a seed number (the source) to a soil number (the destination). This lets the gardener and his team know which soil to use with which seeds, which water to use with which fertilizer, and so on.</p>
+<p>Rather than list every source number and its corresponding destination number one by one, the maps describe entire ranges of numbers that can be converted. Each line within a map contains three numbers: the destination range start, the source range start, and the range length.</p>
+<p>Consider again the example <code>seed-to-soil map</code>:</p>
+<p>50 98 2<br>
+52 50 48</p>
+<p>The first line has a destination range start of <code>50</code>, a source range start of <code>98</code>, and a range length of <code>2</code>. This line means that the source range starts at <code>98</code> and contains two values: <code>98</code> and <code>99</code>. The destination range is the same length, but it starts at <code>50</code>, so its two values are <code>50</code> and <code>51</code>. With this information, you know that seed number <code>98</code> corresponds to soil number <code>50</code> and that seed number <code>99</code> corresponds to soil number <code>51</code>.</p>
+<p>The second line means that the source range starts at <code>50</code> and contains <code>48</code>values: <code>50</code>, <code>51</code>, …, <code>96</code>, <code>97</code>. This corresponds to a destination range starting at <code>52</code> and also containing <code>48</code> values: <code>52</code>, <code>53</code>, …, <code>98</code>, <code>99</code>. So, seed number <code>53</code> corresponds to soil number <code>55</code>.</p>
+<p>Any source numbers that aren’t mapped correspond to the same destination number. So, seed number <code>10</code> corresponds to soil number <code>10</code>.</p>
+<p>So, the entire list of seed numbers and their corresponding soil numbers looks like this:</p>
+<p>seed soil<br>
+0 0<br>
+1 1<br>
+… …<br>
+48 48<br>
+49 49<br>
+50 52<br>
+51 53<br>
+… …<br>
+96 98<br>
+97 99<br>
+98 50<br>
+99 51</p>
+<p>With this map, you can look up the soil number required for each initial seed number:</p>
+<p>Seed number <code>79</code> corresponds to soil number <code>81</code>.</p>
+<p>Seed number <code>14</code> corresponds to soil number <code>14</code>.</p>
+<p>Seed number <code>55</code> corresponds to soil number <code>57</code>.</p>
+<p>Seed number <code>13</code> corresponds to soil number <code>13</code>.</p>
+<p>The gardener and his team want to get started as soon as possible, so they’d like to know the closest location that needs a seed. Using these maps, find the lowest location number that corresponds to any of the initial seeds. To do this, you’ll need to convert each seed number through other categories until you can find its corresponding location number. In this example, the corresponding types are:</p>
+<p>Seed <code>79</code>, soil <code>81</code>, fertilizer <code>81</code>, water <code>81</code>, light <code>74</code>, temperature <code>78</code>, humidity <code>78</code>, location <code>82</code>.</p>
+<p>Seed <code>14</code>, soil <code>14</code>, fertilizer <code>53</code>, water <code>49</code>, light <code>42</code>, temperature <code>42</code>, humidity <code>43</code>, location <code>43</code>.</p>
+<p>Seed <code>55</code>, soil <code>57</code>, fertilizer <code>57</code>, water <code>53</code>, light <code>46</code>, temperature <code>82</code>, humidity <code>82</code>, location <code>86</code>.</p>
+<p>Seed <code>13</code>, soil <code>13</code>, fertilizer <code>52</code>, water <code>41</code>, light <code>34</code>, temperature <code>34</code>, humidity <code>35</code>, location <code>35</code>.</p>
+<p>So, the lowest location number in this example is <code>35</code>.</p>
+<p>What is the lowest location number that corresponds to any of the initial seed numbers?</p>
+</blockquote>
+<hr>
+<p>Phew! That was a big read! But often bigger problems have the most trivial solutions.</p>
+<p>💭 On a closer observation, we can clearly make out that this is the standard <code>map of map of map...</code> problem where you ned to traverse across multiple maps almost in a pipe <code>|</code> like fashion where:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">location </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> map1[map2[map3[map4[map5[map6[seed]]]]]]</span></span></code></pre>
+<p>where <code>map1...N</code> are being built in realtime while parsing the puzzle input!</p>
+<p>So, as always, let’s first write a test case as given in the question, so we can start to structure our code and validate that with base case:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> test_find_lowest_location_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF"> """seeds: 79 14 55 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">seed-to-soil map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">50 98 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">52 50 48</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">soil-to-fertilizer map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 15 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">37 52 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">39 0 15</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">fertilizer-to-water map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">49 53 8</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 11 42</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">42 0 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">57 7 4</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">water-to-light map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">88 18 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">18 25 70</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">light-to-temperature map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">45 77 23</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">81 45 19</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">68 64 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">temperature-to-humidity map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 69 1</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">1 0 69</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">humidity-to-location map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">60 56 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">56 93 4</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">"""</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    answer </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> find_lowest_location_number(almanac)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    assert</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> answer </span><span style="color:#D73A49;--shiki-dark:#F47067">==</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 35</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#D73A49;--shiki-dark:#F47067">f</span><span style="color:#032F62;--shiki-dark:#96D0FF">"Tst failed: Expected 35, got </span><span style="color:#005CC5;--shiki-dark:#F47067">{</span><span style="color:#24292E;--shiki-dark:#ADBAC7">answer</span><span style="color:#005CC5;--shiki-dark:#F47067">}</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"All tests passed succesfully!"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span></code></pre>
+<p>Now, it’s time to whip out a quick terminal to do some string operations, and as with the case with last few challenges, it seems like our good’ol friend <code>split()</code> will have to once again do some heavy lifting!</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-zHSloRI5ib9vrYIgMUouQg.webp" alt=""></p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-EcEBgetQPcMFPHg5BzdgQQ.webp" alt=""></p>
+<blockquote>
+<p>💡 Might be good to start looking into regex <code>re</code> for these usecases as well, but since the puzzle input is predictable and well structured, we can get away by using methods like <code>data.split("\n\n")[0].split(":")[0]</code>. In real life aka production code, this will not fly, but then again, the amount of such hacky code I have seen in production, only if I had ₹1 for every time, I would be a rich person!</p>
+</blockquote>
+<p>Once, we know how we can parse the input, let’s try to implement our <code>find_lowest_location_number()</code> function. I can envision based on experience that our map building logic can be common here as we need to generate a <code>dict</code> based on <code>destination, source, range_length</code> as shared in base test case above!</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-sn-T_MSVIVqqXCYi6_cjSw.png" alt=""></p>
+<blockquote>
+<p>💡 We don’t really need to worry about any source numbers that aren’t mapped, as we can just assume <code>source == destination</code> which becomes quite trivial in python with <code>dict.get(key, default_value)</code> where default value will just be the <code>key</code> itself.</p>
+</blockquote>
+<p>So, I was able to write a simple loop which will basically call each and every map chained to one another and will store the final <code>location</code> in <code>seed_location_map</code> and from there we could just return <code>min(seed_location_map.values())</code> for the answers.</p>
+<blockquote>
+<p><strong>💡 Edge case:</strong> We need to ensure that we maintain the order of maps as we are parsing the input, as if we mess up the order, the pipe <code>|</code> approach as we discussed above wouldn’t work. I am using a <code>collections.deque</code> object to ensure we reach from seed to the <em><strong>seed-to-soil > soil-to-fertilizer > fertilizer-to-water > water-to-light > light-to-temperature > temperature-to-humidity > humidity-to-location</strong></em> location.</p>
+</blockquote>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-ORhKafWup2eS74lCESJeqg.webp" alt=""></p>
+<p>So, with a lot of hit and trial and basically after living in the debugger, we can see that we are able to build our <code>queue_of_dicts</code> properly, where it is maintaining the correct order of dicts as parsed! (Hint: keeping a track of <code>dict_name</code> in <code>queue_of_dicts</code> does help a lot here).</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># --- Day 5: If You Give A Seed A Fertilizer ---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">## --- Part One ---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">from</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> collections </span><span style="color:#D73A49;--shiki-dark:#F47067">import</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> deque</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> dict_builder</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(raw_map):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    raw_map </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> raw_map.strip(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#005CC5;--shiki-dark:#F47067">\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    dict_name, mappings </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> raw_map.split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">':'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    dict_name </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> dict_name.split()[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    mappings </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> mappings.strip(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#005CC5;--shiki-dark:#F47067">\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">).split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#005CC5;--shiki-dark:#F47067">\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    dict_data </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> row </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> mappings:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        dest, src, range_length </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> [</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(num) </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> num </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> row.split()]</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> i </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> range</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(range_length):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            dict_data[src</span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7">i] </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> dest</span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7">i</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    </span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> dict_name, dict_data</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> find_lowest_location_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(almanac):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> almanac.split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#005CC5;--shiki-dark:#F47067">\n\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">    # extract out seeds? assuming it's always first in the puzzle input</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    seeds </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> [</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(seed) </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seed </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> almanac[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">].split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">":"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">].strip().split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">" "</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)] </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    queue_of_dicts </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> deque() </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> raw_map </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> almanac[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:]:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        tmp_name, tmp_data </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> dict_builder(raw_map)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        queue_of_dicts.append((tmp_name, tmp_data))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">    # print(queue_of_dicts)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    seed_location_map </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {}</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seed </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seeds:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        final_val </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seed</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> _, tmp_map </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> queue_of_dicts:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            final_val </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> tmp_map.get(final_val, final_val) </span><span style="color:#6A737D;--shiki-dark:#768390"># update if found, else keep it same as key</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        seed_location_map[seed]</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7">final_val</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"Seed location map:"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, seed_location_map)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    return</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> min</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(seed_location_map.values())</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> part_1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    with</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> open</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"day_5/input.txt"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#032F62;--shiki-dark:#96D0FF">"r"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">) </span><span style="color:#D73A49;--shiki-dark:#F47067">as</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f.read()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    answer </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> find_lowest_location_number(almanac)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"Lowest location number:"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, answer)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> test_find_lowest_location_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF"> """seeds: 79 14 55 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">seed-to-soil map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">50 98 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">52 50 48</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">soil-to-fertilizer map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 15 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">37 52 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">39 0 15</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">fertilizer-to-water map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">49 53 8</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 11 42</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">42 0 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">57 7 4</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">water-to-light map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">88 18 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">18 25 70</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">light-to-temperature map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">45 77 23</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">81 45 19</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">68 64 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">temperature-to-humidity map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 69 1</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">1 0 69</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">humidity-to-location map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">60 56 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">56 93 4</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">"""</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    answer </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> find_lowest_location_number(almanac)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    assert</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> answer </span><span style="color:#D73A49;--shiki-dark:#F47067">==</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 35</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#D73A49;--shiki-dark:#F47067">f</span><span style="color:#032F62;--shiki-dark:#96D0FF">"Tst failed: Expected 35, got </span><span style="color:#005CC5;--shiki-dark:#F47067">{</span><span style="color:#24292E;--shiki-dark:#ADBAC7">answer</span><span style="color:#005CC5;--shiki-dark:#F47067">}</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"All tests passed succesfully!"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">if</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __name__</span><span style="color:#D73A49;--shiki-dark:#F47067"> ==</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "__main__"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    test_find_lowest_location_number()</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">❯</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/.pyenv/versions/3.11.0rc2/bin/python</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/github/advent-of-code-2023/day_5/if_you_give_a_seed_a_fertilizer.py</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">Seed</span><span style="color:#032F62;--shiki-dark:#96D0FF"> location</span><span style="color:#032F62;--shiki-dark:#96D0FF"> map:</span><span style="color:#032F62;--shiki-dark:#96D0FF"> {79:</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 82,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 14:</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 43,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 55:</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 86,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 13:</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 35</span><span style="color:#032F62;--shiki-dark:#96D0FF">}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">All</span><span style="color:#032F62;--shiki-dark:#96D0FF"> tests</span><span style="color:#032F62;--shiki-dark:#96D0FF"> passed</span><span style="color:#032F62;--shiki-dark:#96D0FF"> succesfully!</span></span></code></pre>
+<p>Let’s load up the <a href="https://adventofcode.com/2023/day/5/input">puzzle input</a>…</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-GXnFPBBKWXRCiZ0fxpIcLw.png" alt=""></p>
+<p>And let’s run it against our function here!</p>
+<p>Well….after 1 minute we were still waiting for it to finish…</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-NFXyZBOLEra-m1F82eRA4Q.webp" alt="Look at that CPU% 📈"></p>
+<p><em>Look at that CPU% 📈</em></p>
+<p>And after 2 minutes of processing on my 10 core M1 Macbook, I was sure this is not really close to being optimal to solve it and… ‼️</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-gN_eP6K__OJnwXvLbjLeEw.png" alt="And we hit the motherload!"></p>
+<p><em>And we hit the motherload!</em></p>
+<p>So, let’s quit the program using <code>Ctrl+C</code> to break! Let’s see why?</p>
+<p>If we observe the puzzle input v/s base test case, it will evident what is the bottleneck:</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-mRLTuVRz1j6azMoRO6LIuA.png" alt="A chunk of puzzle input"></p>
+<p><em>A chunk of puzzle input</em></p>
+<p>The numbers are just <strong>too damn high ⏫</strong>, and our approach of building full blown hashmaps (despite optimising for missing numbers in map by just returning the key, see 💡 above) using <code>dict_builder()</code> seems to waste a lot of CPU cycles especially when we see that the number of seeds are just 20!</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>seeds: 950527520 85181200 546703948 123777711 63627802 279111951 1141059215 246466925 1655973293 98210926 3948361820 92804510 2424412143 247735408 4140139679 82572647 2009732824 325159757 3575518161 370114248</span></span></code></pre>
+<p>Surely, there should be a way for us to avoid all of the preprocessing and just do it on demand?</p>
+<blockquote>
+<p>💡 Instead of creating a complete mapping for each step, we can write a function that, given a number and a map range, computes the corresponding number <strong>dynamically</strong>. This way, we avoid holding large maps in memory!</p>
+</blockquote>
+<p>In this updated code, <code>find_mapped_number</code> function dynamically calculates the mapped number for a given input number and a <em><strong>single</strong></em> mapping range.</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-UBw7ecAhnhc5JfTywDaesg.png" alt=""></p>
+<p>It works by iterating through a list of mapping rules and, for each rule, checks if the given number falls within the specified source range. If it does, the function calculates the mapped number by adding the difference between the given number and the source range start to the destination range start.</p>
+<p>This function is used within <code>find_lowest_location_number</code> to process each seed number through the series of mappings <strong>without storing</strong> the entire range of mappings in memory. This should resolve the memory issue and allow the program to handle large input data efficiently 🤞</p>
+<p>Our base test case is working as intended!</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">❯</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/.pyenv/versions/3.11.0rc2/bin/python</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/github/advent-of-code-2023/day_5/if_you_give_a_seed_a_fertilizer.py</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">All</span><span style="color:#032F62;--shiki-dark:#96D0FF"> tests</span><span style="color:#032F62;--shiki-dark:#96D0FF"> passed</span><span style="color:#032F62;--shiki-dark:#96D0FF"> succesfully!</span></span></code></pre>
+<p>Let’s try to run this again for <code>input.txt</code> and let’s see how quick it is, this time?</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">[Running] python3 </span><span style="color:#032F62;--shiki-dark:#96D0FF">"/Users/jmalik/github/advent-of-code-2023/day_5/if_you_give_a_seed_a_fertilizer.py"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">The</span><span style="color:#032F62;--shiki-dark:#96D0FF"> lowest</span><span style="color:#032F62;--shiki-dark:#96D0FF"> location</span><span style="color:#032F62;--shiki-dark:#96D0FF"> number</span><span style="color:#032F62;--shiki-dark:#96D0FF"> is:</span><span style="color:#032F62;--shiki-dark:#96D0FF"> xxxxxx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">[Done] exited with code</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF">0</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 0.05</span><span style="color:#032F62;--shiki-dark:#96D0FF"> seconds</span></span></code></pre>
+<p>Got the answer in <code>0.05</code> seconds! Isn’t that crazy how we were struggling with <code>OutOfMemoryError</code> just a while back, and with a small change, we are able to solve the same problem in just <code>0.05</code> seconds!</p>
+<blockquote>
+<p>💭 Kids, this is why DSA is very important! You can save so much $$$ in production code wrt your compute and data cost if you write your code efficiently!</p>
+</blockquote>
+<p>Let’s put our answer into the box and…</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-ROLY3QzeaWA3yYy9vCO7JA.png" alt="🎉🎉"></p>
+<p><em>🎉🎉</em></p>
+<p>Here’s our pythonic code till now! Encapsulating the logic within a class allows better organization and readability!</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># --- Day 5: If You Give A Seed A Fertilizer ---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">class</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> AlmanacProcessor</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __init__</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, almanac):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> almanac</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.mappings </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">._parse_input(almanac)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> find_lowest_location_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Finds the lowest location number based on the almanac's rules."""</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        seed_locations </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {}</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seed </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            current_number </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seed</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">            for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> map_data </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.mappings:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">                current_number </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">._find_mapped_number(current_number, map_data)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            seed_locations[seed] </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> current_number  </span><span style="color:#6A737D;--shiki-dark:#768390"># location of seed in last map</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> min</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(seed_locations.values())</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> _parse_input</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, input_data):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Parses the input data into seeds and mappings."""</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        sections </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> input_data.strip().split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#005CC5;--shiki-dark:#F47067">\n\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        seeds </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> list</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">map</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, sections[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">].split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">': '</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">].split()))</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        mappings </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> [section.split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">':</span><span style="color:#005CC5;--shiki-dark:#F47067">\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">].split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#005CC5;--shiki-dark:#F47067">\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">) </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> section </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> sections[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:]]</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seeds, mappings</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> _find_mapped_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, number, map_data):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Finds the corresponding mapped number based on the mapping rules."""</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> line </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> map_data:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">            if</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> line.strip():</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">                dest_start, src_start, length </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> map</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, line.split())</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">                if</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> number </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> length:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">                    return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> dest_start </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> (number </span><span style="color:#D73A49;--shiki-dark:#F47067">-</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> number</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> part_1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    with</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> open</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"day_5/input.txt"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#032F62;--shiki-dark:#96D0FF">"r"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">) </span><span style="color:#D73A49;--shiki-dark:#F47067">as</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f.read()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    processor </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> AlmanacProcessor(almanac)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    lowest_location </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> processor.find_lowest_location_number()</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"The lowest location number is:"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, lowest_location)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> test_find_lowest_location_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF"> """seeds: 79 14 55 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">seed-to-soil map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">50 98 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">52 50 48</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">soil-to-fertilizer map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 15 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">37 52 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">39 0 15</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">fertilizer-to-water map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">49 53 8</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 11 42</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">42 0 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">57 7 4</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">water-to-light map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">88 18 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">18 25 70</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">light-to-temperature map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">45 77 23</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">81 45 19</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">68 64 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">temperature-to-humidity map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 69 1</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">1 0 69</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">humidity-to-location map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">60 56 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">56 93 4</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">"""</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    processor </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> AlmanacProcessor(almanac)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    lowest_location </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> processor.find_lowest_location_number()</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    assert</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> lowest_location </span><span style="color:#D73A49;--shiki-dark:#F47067">==</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 35</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#D73A49;--shiki-dark:#F47067">f</span><span style="color:#032F62;--shiki-dark:#96D0FF">"Tst failed: Expected 35, got </span><span style="color:#005CC5;--shiki-dark:#F47067">{</span><span style="color:#24292E;--shiki-dark:#ADBAC7">lowest_location</span><span style="color:#005CC5;--shiki-dark:#F47067">}</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"All tests passed succesfully!"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">if</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __name__</span><span style="color:#D73A49;--shiki-dark:#F47067"> ==</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "__main__"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">    # Uncomment the line below to run the test</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">    # test_find_lowest_location_number()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    part_1()</span></span></code></pre>
+<hr>
+<h2 id="part-two">Part Two</h2>
+<blockquote>
+<p>Everyone will starve if you only plant such a small number of seeds. Re-reading the almanac, it looks like the <code>seeds:</code> line actually describes ranges of seed numbers.</p>
+<p>The values on the initial <code>seeds:</code> line come in pairs. Within each pair, the first value is the start of the range and the second value is the length of the range. So, in the first line of the example above:</p>
+<p>seeds: 79 14 55 13</p>
+<p>This line describes two ranges of seed numbers to be planted in the garden. The first range starts with seed number <code>79</code> and contains <code>14</code> values: <code>79</code>, <code>80</code>, …, <code>91</code>, <code>92</code>. The second range starts with seed number <code>55</code> and contains <code>13</code>values: <code>55</code>, <code>56</code>, …, <code>66</code>, <code>67</code>.</p>
+<p>Now, rather than considering four seed numbers, you need to consider a total of 27 seed numbers.</p>
+<p>In the above example, the lowest location number can be obtained from seed number <code>82</code>, which corresponds to soil <code>84</code>, fertilizer <code>84</code>, water <code>84</code>, light <code>77</code>, temperature <code>45</code>, humidity <code>46</code>, and location <code>46</code>. So, the lowest location number is <code>46</code>.</p>
+<p>Consider all of the initial seed numbers listed in the ranges on the first line of the almanac. What is the lowest location number that corresponds to any of the initial seed numbers?</p>
+</blockquote>
+<hr>
+<p>So, reading the Part Two of the problem…</p>
+<blockquote>
+<p>💭 It’s evident that we have more number of seeds that we initially thought and it will require us to implement as similar range logic for <code>seeds</code> as we did for the <code>mappings</code>.</p>
+</blockquote>
+<p>Let’s play a bit in <code>ipython3</code> do build the logic to expand seeds:</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-LS93mX_Guqu8HjWtcwjdyA.png" alt=""></p>
+<p>And now let’s update our code to generate out seeds list correctly:</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-T9OrqwAQqqjPjC0OZHgvDA.png" alt=""></p>
+<p>And it seems like base test case is working as we get: <code>46</code> as the answer.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">[</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF">Running</span><span style="color:#24292E;--shiki-dark:#ADBAC7">] python3 "/Users/jmalik/github/</span><span style="color:#22863A;--shiki-dark:#8DDB8C">advent-of-code-2023</span><span style="color:#24292E;--shiki-dark:#ADBAC7">/day_5/if_you_give_a_seed_a_fertilizer.py"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">All tests passed succesfully!</span></span></code></pre>
+<p>Here’s our code:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># --- Day 5: If You Give A Seed A Fertilizer ---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">class</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> AlmanacProcessor</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __init__</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, almanac):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> almanac</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.mappings </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">._parse_input(almanac)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> find_lowest_location_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Finds the lowest location number based on the almanac's rules."""</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        seed_locations </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {}</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seed </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            current_number </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seed</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">            for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> map_data </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.mappings:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">                current_number </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">._find_mapped_number(current_number, map_data)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            seed_locations[seed] </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> current_number  </span><span style="color:#6A737D;--shiki-dark:#768390"># location of seed in last map</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> min</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(seed_locations.values())</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> _parse_input</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, input_data):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Parses the input data into seeds and mappings."""</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        sections </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> input_data.strip().split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#005CC5;--shiki-dark:#F47067">\n\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # part One assumes seeds to be given as a list of integers</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # seeds = list(map(int, sections[0].split(': ')[1].split()))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # part Two explains seeds to be given as a list of ranges as a pair</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        seed_ranges </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> sections[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">].split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">': '</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">].split()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        seeds </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">._generate_seed_list(seed_ranges)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        mappings </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> [section.split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">':</span><span style="color:#005CC5;--shiki-dark:#F47067">\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">].split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#005CC5;--shiki-dark:#F47067">\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">) </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> section </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> sections[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:]]</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seeds, mappings</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> _generate_seed_list</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, seed_ranges):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Generates a list of seeds based on the ranges provided in pairs"""</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        seeds </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> []</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> i </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> range</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">len</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(seed_ranges), </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">2</span><span style="color:#24292E;--shiki-dark:#ADBAC7">):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            start </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(seed_ranges[i])</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            length </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(seed_ranges[i </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">])</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            seeds.extend(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">range</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(start, start </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> length))</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> seeds</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> _find_mapped_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, number, map_data):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Finds the corresponding mapped number based on the mapping rules."""</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> line </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> map_data:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">            if</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> line.strip():</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">                dest_start, src_start, length </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> map</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, line.split())</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">                if</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> number </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> length:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">                    return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> dest_start </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> (number </span><span style="color:#D73A49;--shiki-dark:#F47067">-</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> number</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> main</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    with</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> open</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"day_5/input.txt"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#032F62;--shiki-dark:#96D0FF">"r"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">) </span><span style="color:#D73A49;--shiki-dark:#F47067">as</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f.read()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    processor </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> AlmanacProcessor(almanac)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    lowest_location </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> processor.find_lowest_location_number()</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"The lowest location number is:"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, lowest_location)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> test_find_lowest_location_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF"> """seeds: 79 14 55 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">seed-to-soil map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">50 98 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">52 50 48</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">soil-to-fertilizer map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 15 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">37 52 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">39 0 15</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">fertilizer-to-water map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">49 53 8</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 11 42</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">42 0 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">57 7 4</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">water-to-light map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">88 18 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">18 25 70</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">light-to-temperature map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">45 77 23</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">81 45 19</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">68 64 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">temperature-to-humidity map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 69 1</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">1 0 69</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">humidity-to-location map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">60 56 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">56 93 4</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">"""</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    processor </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> AlmanacProcessor(almanac)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    lowest_location </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> processor.find_lowest_location_number()</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">    # assert lowest_location == 35, f"Tst failed: Expected 35, got {lowest_location}" # As per part 1 logic for seeds</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    assert</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> lowest_location </span><span style="color:#D73A49;--shiki-dark:#F47067">==</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 46</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#D73A49;--shiki-dark:#F47067">f</span><span style="color:#032F62;--shiki-dark:#96D0FF">"Tst failed: Expected 35, got </span><span style="color:#005CC5;--shiki-dark:#F47067">{</span><span style="color:#24292E;--shiki-dark:#ADBAC7">lowest_location</span><span style="color:#005CC5;--shiki-dark:#F47067">}</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#6A737D;--shiki-dark:#768390"> # As per part 2 logic for seeds</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"All tests passed succesfully!"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">if</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __name__</span><span style="color:#D73A49;--shiki-dark:#F47067"> ==</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "__main__"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">    # Uncomment the line below to run the test</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    test_find_lowest_location_number()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    main()</span></span></code></pre>
+<p>Let’s run for <code>input.txt</code> I don’t have a good feeling about this as the number of <code>seeds</code> is now too damn high!</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-UmLa-6wHh8GGaEe6Qhvfww.webp" alt="Yep, process running from 1:58 mins 😅"></p>
+<p><em>Yep, process running from 1:58 mins 😅</em></p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-NXprV96sipCnfItYesg4Tg.webp" alt="Lost my patience after waiting for 4:22 minutes!"></p>
+<p><em>Lost my patience after waiting for 4:22 minutes!</em></p>
+<p>Let’s exit it and take another look at the bottleneck now. Clearly, it’s the insanely high number of seeds in the puzzle input:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>seeds: 950527520 85181200 546703948 123777711 63627802 279111951 1141059215 246466925 1655973293 98210926 3948361820 92804510 2424412143 247735408 4140139679 82572647 2009732824 325159757 3575518161 370114248</span></span></code></pre>
+<p>which basically translates to the huge numbers of seeds we need as per:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">seed_start, till_range</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">950527520</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">85181200</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> </span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">546703948</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">123777711</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">63627802</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">279111951</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">1141059215</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">246466925</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">1655973293</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">98210926</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">3948361820</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">92804510</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">2424412143</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">247735408</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">4140139679</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">82572647</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">2009732824</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">325159757</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">3575518161</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">370114248</span></span></code></pre>
+<blockquote>
+<p>💡 One of the bottlenecks I can see is where I am trying to store <code>seed_locations</code> dict for all seeds and then later running a <code>min(seed_locations.values())</code> to get the lowest location. Maybe we can just keep the minimum value and compare on each iteration within the loop?!</p>
+</blockquote>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-0JP3l62J2O5er3P0PQTnZg.png" alt="This should save some time?"></p>
+<p><em>This should save some time?</em></p>
+<p>Let’s run it again? 🤞</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-L_Gry1OTb9zpqpclnC1aaA.webp" alt="Well, not much help!"></p>
+<p><em>Well, not much help!</em></p>
+<p>I think we need to deep dive further into reducing our reliance on memory and computation and try to reduce the number of calculations somehow! 🤔</p>
+<blockquote>
+<p>💡 We need to optimise our mapping to preprocess into a dict and avoid generating all seeds and storing them in memory, instead we can just do everything on the fly? We can take a seed, go through the maps to find the location and just check as per <code>lowest_location = min(lowest_location, current_number)</code> to continously update the lowerst location.</p>
+<p>That should help a lot in fixing the performance of this code!</p>
+</blockquote>
+<p><strong>NOPE!</strong></p>
+<blockquote>
+<p>💡I also wondered if there is any overlap in seed numbers leading to duplicate calculation and hence ended up using excel to just create seed number ranges available to us:</p>
+</blockquote>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">   6,36,27,802 to   34,27,39,753</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">  54,67,03,948 to   67,04,81,659</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">  95,05,27,520 to 1,03,57,08,720</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">1,14,10,59,215 to 1,38,75,26,140</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">1,65,59,73,293 to 1,75,41,84,219</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">2,33,48,92,581 to 2,33,48,92,581</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">2,42,44,12,143 to 2,67,21,47,551</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">3,57,55,18,161 to 3,94,56,32,409</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">3,94,83,61,820 to 4,04,11,66,330</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">4,14,01,39,679 to 4,22,27,12,326</span></span></code></pre>
+<p>Turns out there is no overlap. So, keeping a track of <code>processed_seeds</code> will also not help! 🤦‍♂️</p>
+<blockquote>
+<p>I think now the only solution I can think off is to <strong>parallelize</strong> the seed -> location lookup and just find the lowest seed in each range and then compare at the end?</p>
+</blockquote>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>❯ /Users/jmalik/.pyenv/versions/3.11.0rc2/bin/python /Users/jmalik/github/advent-of-code-2023/day_5/if_you_give_a_seed_a_fertilizer.py</span></span>
+<span class="line"><span>Starting a thread for seed range: 950527520 1035708720</span></span>
+<span class="line"><span>Starting a thread for seed range: 546703948 670481659</span></span>
+<span class="line"><span>Starting a thread for seed range: 63627802 342739753</span></span>
+<span class="line"><span>Starting a thread for seed range: 1141059215 1387526140</span></span>
+<span class="line"><span>Starting a thread for seed range: 1655973293 1754184219</span></span>
+<span class="line"><span>Starting a thread for seed range: 3948361820 4041166330</span></span>
+<span class="line"><span>Starting a thread for seed range: 2424412143 2672147551</span></span>
+<span class="line"><span>Starting a thread for seed range: 4140139679 4222712326</span></span>
+<span class="line"><span>Starting a thread for seed range: 2009732824 2334892581</span></span>
+<span class="line"><span>Starting a thread for seed range: 3575518161 3945632409</span></span></code></pre>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-Uv5d69YuvIm6BU4ddsqmHA.webp" alt="It did spawn 10 proccesss, 1 for each range but.."></p>
+<p><em>It did spawn 10 proccesss, 1 for each range but..</em></p>
+<p>I think we need MOAR processes! Need to divide and conquer further!</p>
+<p>Let’s do some subprocesses in batches of 1000?</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-qrDgbgq3J-FGKf4ZZmlohg.webp" alt=""></p>
+<p>Wait! I am making it too complex!! While <strong>I did get the correct answer</strong> from brute force in <code>34 minutes</code> while my laptop ran 🔥, there has to be a simpler way!</p>
+<blockquote>
+<p><strong>Let’s go back to drawing board!</strong></p>
+<p>💡 The essence of part 2 solution lies in handling of the mappings as ranges instead of individual values which are well over in ~4Bn+.</p>
+</blockquote>
+<p>During the conversion process, we can iterate over each mapping, determining the <strong>intersection</strong> between the current value ranges (starting with seeds) and the conversion ranges specified in the (subsequent) maps.</p>
+<p>If a mapping applies to a particular range, we can transform it accordingly; otherwise, the range remains unchanged.</p>
+<blockquote>
+<p>💡 This approach efficiently reduces the computational load by avoiding the need to process each individual value, instead working with batches of values encapsulated within ranges.</p>
+</blockquote>
+<p>After processing all the mappings, we can get a final set of location ranges, post which we can find the lowest possible location number by selecting the <strong>minimum lower bound from these final location ranges</strong>.</p>
+<p>Here’s the final code:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># --- Day 5: If You Give A Seed A Fertilizer ---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># --- Part Two ---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">class</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> AlmanacProcessor</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __init__</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, almanac):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> []</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.maps </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> []</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">._parse_input(almanac)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> _parse_input</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, almanac):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Parses the input sections into seeds and maps."""</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.sections </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> [block.splitlines() </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> block </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> almanac.strip().split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#005CC5;--shiki-dark:#F47067">\n\n</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)]</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> [</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(i) </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> i </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.sections[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">][</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">].split()[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:]]</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.maps </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> [[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">list</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">map</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, line.split())) </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> line </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> block[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:]] </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> block </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.sections[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:]]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> process_maps</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Processes each map to convert the ranges according to the almanac."""</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # this will store the lower and upper bounds of each range</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        values </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> [(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds[i], </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds[i] </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds[i </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">]) </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> i </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> range</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">len</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.seeds), </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">2</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)] </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        for</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> map</span><span style="color:#D73A49;--shiki-dark:#F47067"> in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.maps:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            next_map </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> []</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">            for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> dest_start, src_start, length </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> map</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">                next_range </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> []</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">                for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> val_low, val_high </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> values:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">                    sorted_bounds </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> sorted</span><span style="color:#24292E;--shiki-dark:#ADBAC7">([val_low, val_high, src_start, src_start </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> length])</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">                    for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> low, high </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> zip</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(sorted_bounds, sorted_bounds[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:]):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">                        if</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> val_low </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> low </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> high </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> val_high:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">                            if</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> low </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> high </span><span style="color:#D73A49;--shiki-dark:#F47067">&#x3C;=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> length:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">                                next_map.append((low </span><span style="color:#D73A49;--shiki-dark:#F47067">-</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> dest_start, high </span><span style="color:#D73A49;--shiki-dark:#F47067">-</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> src_start </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> dest_start))</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">                            else</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">                                next_range.append((low, high))</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">                values </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> next_range</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">            values </span><span style="color:#D73A49;--shiki-dark:#F47067">+=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> next_map</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> values</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> find_minimum_location</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, values):</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">        """Finds the minimum location value."""</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> min</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(low </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> low, high </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> values)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> test_find_lowest_location_number</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF"> """seeds: 79 14 55 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">seed-to-soil map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">50 98 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">52 50 48</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">soil-to-fertilizer map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 15 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">37 52 2</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">39 0 15</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">fertilizer-to-water map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">49 53 8</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 11 42</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">42 0 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">57 7 4</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">water-to-light map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">88 18 7</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">18 25 70</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">light-to-temperature map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">45 77 23</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">81 45 19</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">68 64 13</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">temperature-to-humidity map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">0 69 1</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">1 0 69</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">humidity-to-location map:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">60 56 37</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">56 93 4</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#96D0FF">"""</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    processor </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> AlmanacProcessor(almanac)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    values </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> processor.process_maps()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    lowest_location </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> processor.find_minimum_location(values)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    assert</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> lowest_location </span><span style="color:#D73A49;--shiki-dark:#F47067">==</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 46</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#D73A49;--shiki-dark:#F47067">f</span><span style="color:#032F62;--shiki-dark:#96D0FF">"Tst failed: Expected 35, got </span><span style="color:#005CC5;--shiki-dark:#F47067">{</span><span style="color:#24292E;--shiki-dark:#ADBAC7">lowest_location</span><span style="color:#005CC5;--shiki-dark:#F47067">}</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#6A737D;--shiki-dark:#768390"> # As per part 2 logic for seeds</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"All tests passed succesfully!"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> main</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    with</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> open</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"day_5/input.txt"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#032F62;--shiki-dark:#96D0FF">"r"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">) </span><span style="color:#D73A49;--shiki-dark:#F47067">as</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        almanac </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f.read()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    processor </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> AlmanacProcessor(almanac)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    values </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> processor.process_maps()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    min_location </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> processor.find_minimum_location(values)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#D73A49;--shiki-dark:#F47067">f</span><span style="color:#032F62;--shiki-dark:#96D0FF">"Minimum location number: </span><span style="color:#005CC5;--shiki-dark:#F47067">{</span><span style="color:#24292E;--shiki-dark:#ADBAC7">min_location</span><span style="color:#005CC5;--shiki-dark:#F47067">}</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">if</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __name__</span><span style="color:#D73A49;--shiki-dark:#F47067"> ==</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "__main__"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    test_find_lowest_location_number()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    main()</span></span></code></pre>
+<p>Let’s run this one! 🤞</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[Running] python3 "/Users/jmalik/github/advent-of-code-2023/day_5/if_you_give_a_seed_a_fertilizer_take2.py"</span></span>
+<span class="line"><span>All tests passed succesfully!</span></span>
+<span class="line"><span>Minimum location number: xxxxxx</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[Done] exited with code=0 in 0.06 seconds</span></span></code></pre>
+<p>And we get an answer in just <code>0.06 seconds</code> a much much faster result than <code>34 minutes</code> of brutal brute force! 🧐</p>
+<p>Let’s input that in our answer box and…</p>
+<p><img src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/1-X0QJzrVm1ZFs_1VoYX7Pdg.png" alt="🥁"></p>
+<p><em>🥁</em></p>
+<hr>
+<p>This one was just pure madness, I absolutely loved it! 🙌</p>
+<p>On to the next one!</p>
+<hr>
+<p>p.s: I am deliberating not adding answers here so you can actually spend some time trying to understand how we solved the problem!</p>
+<p>Feel free to checkout code on my Github repo and try to set it up and run on your machine 👇</p>
+<blockquote>
+<p><strong><a href="https://github.com/jatinkrmalik/advent-of-code-2023">GitHub - jatinkrmalik/advent-of-code-2023: Advent of Code is an Advent calendar of small…</a></strong><br>
+Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can…github.com</p>
+</blockquote> </div> <footer class="post-foot" data-astro-cid-7jjqptxk> <div class="tags" data-astro-cid-7jjqptxk> <a class="chip" href="/tags/advent-of-code/" data-astro-cid-7jjqptxk>#advent-of-code</a><a class="chip" href="/tags/python/" data-astro-cid-7jjqptxk>#python</a> </div> <p class="origin" data-astro-cid-7jjqptxk>
+First published on Medium, December 2023.
+<a href="https://medium.com/@jatinkrmalik/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python-b77999534492" rel="nofollow noopener" data-astro-cid-7jjqptxk>Original ↗</a>  </p> <div class="author" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="56" height="56" loading="lazy" data-astro-cid-7jjqptxk> <div data-astro-cid-7jjqptxk> <p class="a-name" data-astro-cid-7jjqptxk><a href="/about/" data-astro-cid-7jjqptxk>Jatin Kumar Malik</a></p> <p class="a-bio" data-astro-cid-7jjqptxk>Principal Software Engineer at Atlassian, architecting distributed systems and building A2A AI platforms. Previously scaled platforms at Uber and shipped products at Adobe.</p> </div> </div> </footer> <div class="comments" id="comments" data-astro-cid-7jjqptxk> <script type="module">document.querySelectorAll(".archived .show-all").forEach(e=>e.addEventListener("click",()=>{e.closest(".archived")?.querySelectorAll("[data-more]").forEach(l=>l.hidden=!1),e.remove()}));</script>  </div> </div> <section class="wrap more" aria-labelledby="more-h" data-astro-cid-7jjqptxk> <h2 id="more-h" data-astro-cid-7jjqptxk>Keep reading</h2> <div class="grid" data-astro-cid-7jjqptxk> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/day-6-wait-for-it-advent-of-code-2023-python/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/day-6-wait-for-it-advent-of-code-2023-python/1-lKEdqTAUJqHKcSfgLSIISw.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>advent-of-code</span> <time datetime="2023-12-07" data-astro-cid-iyiqi2so>Dec 2023</time> <span data-astro-cid-iyiqi2so>8 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/day-6-wait-for-it-advent-of-code-2023-python/" data-astro-cid-iyiqi2so>[Day 6] Wait For It // Advent of Code 2023 (Python)</a></h3> <p class="desc" data-astro-cid-iyiqi2so>A Python walkthrough of Advent of Code 2023 Day 6: counting the ways to beat each boat race record by charge time, then solving one big race for Part 2.</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/day-4-scratchcards-advent-of-code-2023-python/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/0-w-TjpNeK36TU7uhM.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>advent-of-code</span> <time datetime="2023-12-04" data-astro-cid-iyiqi2so>Dec 2023</time> <span data-astro-cid-iyiqi2so>8 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/day-4-scratchcards-advent-of-code-2023-python/" data-astro-cid-iyiqi2so>[Day 4] Scratchcards // Advent of Code 2023 (Python)</a></h3> <p class="desc" data-astro-cid-iyiqi2so>The gondola takes you up. Strangely, though, the ground doesn’t seem to be coming with you; you’re not climbing a mountain.</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/day-3-gear-ratios-advent-of-code-2023-python/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/day-3-gear-ratios-advent-of-code-2023-python/0-No8Nv0wHR69L20wj.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>advent-of-code</span> <time datetime="2023-12-03" data-astro-cid-iyiqi2so>Dec 2023</time> <span data-astro-cid-iyiqi2so>4 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/day-3-gear-ratios-advent-of-code-2023-python/" data-astro-cid-iyiqi2so>[Day 3] Gear Ratios // Advent of Code 2023 (Python)</a></h3> <p class="desc" data-astro-cid-iyiqi2so>Solving Advent of Code 2023 Day 3 in Python: finding part numbers adjacent to symbols in an engine schematic grid, then summing gear ratios for Part 2.</p> </div> </article>  </div> </section> </article>  </main> <footer class="site-footer" data-astro-cid-5hce7sga> <div class="wrap foot" data-astro-cid-5hce7sga> <p data-astro-cid-5hce7sga>
+© 2026 Jatin Kumar Malik
+<span class="sep" data-astro-cid-5hce7sga>·</span> <a href="/rss.xml" data-astro-cid-5hce7sga>RSS</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://github.com/jatinkrmalik/jatinkrmalik.com" data-astro-cid-5hce7sga>Source</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://j47.in" data-astro-cid-5hce7sga>j47.in</a> </p> </div> </footer> <script type="module">const c=document.querySelector(".theme-toggle");c?.addEventListener("click",()=>{const e=document.documentElement,t=(e.dataset.theme??(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))==="dark"?"light":"dark";e.dataset.theme=t;try{localStorage.setItem("theme",t)}catch{}});</script> </body> </html>  

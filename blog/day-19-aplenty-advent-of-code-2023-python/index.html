@@ -1,0 +1,507 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-5hce7sga> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[Day 19] Aplenty // Advent of Code 2023 (Python) · Jatin K Malik</title><meta name="description" content="As you reach the bottom of the relentless avalanche of machine parts, you discover that they’re already forming a formidable heap."><meta name="author" content="Jatin Kumar Malik"><link rel="canonical" href="https://jatinkrmalik.com/blog/day-19-aplenty-advent-of-code-2023-python/"><meta name="generator" content="Astro v5.18.2"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Jatin K Malik" href="/rss.xml"><meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)"><meta property="og:site_name" content="Jatin K Malik"><meta property="og:type" content="article"><meta property="og:url" content="https://jatinkrmalik.com/blog/day-19-aplenty-advent-of-code-2023-python/"><meta property="og:title" content="[Day 19] Aplenty // Advent of Code 2023 (Python)"><meta property="og:description" content="As you reach the bottom of the relentless avalanche of machine parts, you discover that they’re already forming a formidable heap."><meta property="og:image" content="https://jatinkrmalik.com/images/blog/day-19-aplenty-advent-of-code-2023-python/0-jciy1cL5lsSK0f7R.jpg"><meta property="article:published_time" content="2023-12-27T00:00:00.000Z"><meta property="article:author" content="Jatin Kumar Malik"><meta property="article:tag" content="advent-of-code"><meta property="article:tag" content="python"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@jatinkrmalik"><meta name="twitter:creator" content="@jatinkrmalik"><meta name="twitter:title" content="[Day 19] Aplenty // Advent of Code 2023 (Python)"><meta name="twitter:description" content="As you reach the bottom of the relentless avalanche of machine parts, you discover that they’re already forming a formidable heap."><meta name="twitter:image" content="https://jatinkrmalik.com/images/blog/day-19-aplenty-advent-of-code-2023-python/0-jciy1cL5lsSK0f7R.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"[Day 19] Aplenty // Advent of Code 2023 (Python)","description":"As you reach the bottom of the relentless avalanche of machine parts, you discover that they’re already forming a formidable heap.","datePublished":"2023-12-27T00:00:00.000Z","dateModified":"2023-12-27T00:00:00.000Z","mainEntityOfPage":"https://jatinkrmalik.com/blog/day-19-aplenty-advent-of-code-2023-python/","url":"https://jatinkrmalik.com/blog/day-19-aplenty-advent-of-code-2023-python/","keywords":"advent-of-code, python","image":"https://jatinkrmalik.com/images/blog/day-19-aplenty-advent-of-code-2023-python/0-jciy1cL5lsSK0f7R.jpg","isBasedOn":"https://medium.com/@jatinkrmalik/day-19-aplenty-advent-of-code-2023-python-522ba14b1444","author":{"@type":"Person","name":"Jatin Kumar Malik","url":"https://jatinkrmalik.com/about/"}}</script><script>
+  // Apply the saved theme before first paint to avoid a flash.
+  (() => {
+    try {
+      const t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch {}
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.H0TgHpCk.css">
+<style>.cover[data-astro-cid-e5kvktnr]{display:block;width:100%;height:100%;object-fit:cover;background:var(--bg-sunk)}.gen[data-astro-cid-e5kvktnr]{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:1rem 1.1rem;font-family:var(--font-mono);color:var(--g-ink);background:radial-gradient(circle at 85% 15%,color-mix(in srgb,var(--g-ink) 18%,transparent) 0 18%,transparent 19%),repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--g-ink) 7%,transparent) 14px 15px),var(--g-bg);overflow:hidden}.g-tag[data-astro-cid-e5kvktnr]{font-size:clamp(1rem,2.4vw,1.35rem);font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}.g-year[data-astro-cid-e5kvktnr]{font-size:.75rem;opacity:.75;align-self:flex-end}.gen[data-astro-cid-e5kvktnr][data-tone="0"]{--g-bg: #fde7d6;--g-ink: #9a3412}.gen[data-astro-cid-e5kvktnr][data-tone="1"]{--g-bg: #dcefe4;--g-ink: #166534}.gen[data-astro-cid-e5kvktnr][data-tone="2"]{--g-bg: #dde7fb;--g-ink: #1e40af}.gen[data-astro-cid-e5kvktnr][data-tone="3"]{--g-bg: #ede3fb;--g-ink: #6b21a8}.gen[data-astro-cid-e5kvktnr][data-tone="4"]{--g-bg: #f9f0cf;--g-ink: #854d0e}.gen[data-astro-cid-e5kvktnr][data-tone="5"]{--g-bg: #e3eef2;--g-ink: #155e75}:root[data-theme=dark] .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}}
+.card[data-astro-cid-iyiqi2so]{display:flex;flex-direction:column;min-width:0}.media[data-astro-cid-iyiqi2so]{display:block;aspect-ratio:16 / 9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--rule);background:var(--bg-sunk)}.media[data-astro-cid-iyiqi2so] .cover{transition:transform .4s ease}.card[data-astro-cid-iyiqi2so]:hover .media[data-astro-cid-iyiqi2so] .cover{transform:scale(1.03)}.text[data-astro-cid-iyiqi2so]{padding-top:.85rem}.meta[data-astro-cid-iyiqi2so]{display:flex;flex-wrap:wrap;gap:.2rem .7rem;margin:0;font-size:.72rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em}.tag[data-astro-cid-iyiqi2so]{color:var(--accent);font-weight:600}.title[data-astro-cid-iyiqi2so]{font-size:1.15rem;line-height:1.3;letter-spacing:-.015em;margin:.4rem 0 0;overflow-wrap:anywhere}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]{text-decoration:none}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]:hover{color:var(--accent)}.desc[data-astro-cid-iyiqi2so]{margin:.45rem 0 0;color:var(--ink-2);font-size:.93rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.featured[data-astro-cid-iyiqi2so]{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:2.25rem;align-items:center}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so]{aspect-ratio:auto;max-height:30rem}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] img.cover{height:auto;max-height:30rem;object-fit:contain}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] .gen{aspect-ratio:16 / 9}.featured[data-astro-cid-iyiqi2so] .text[data-astro-cid-iyiqi2so]{padding-top:0}.featured[data-astro-cid-iyiqi2so] .title[data-astro-cid-iyiqi2so]{font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.03em}.featured[data-astro-cid-iyiqi2so] .desc[data-astro-cid-iyiqi2so]{font-family:var(--font-serif);font-size:1.2rem;line-height:1.5;-webkit-line-clamp:4;line-clamp:4}@media(max-width:760px){.featured[data-astro-cid-iyiqi2so]{grid-template-columns:minmax(0,1fr);gap:1rem}}
+</style>
+<link rel="stylesheet" href="/_astro/about.C9axxvRH.css"></head> <body data-astro-cid-5hce7sga> <a class="skip" href="#main" data-astro-cid-5hce7sga>Skip to content</a> <header class="site-header" data-astro-cid-5hce7sga> <div class="wrap bar" data-astro-cid-5hce7sga> <a href="/" class="brand" aria-label="Jatin K Malik, home" data-astro-cid-5hce7sga> <span class="brand-mark" aria-hidden="true" data-astro-cid-5hce7sga>jkm</span> <span class="brand-name" data-astro-cid-5hce7sga>Jatin K Malik</span> </a> <nav aria-label="Main" data-astro-cid-5hce7sga> <a href="/blog/" aria-current="page" data-astro-cid-5hce7sga> All posts </a><a href="/tags/" data-astro-cid-5hce7sga> Topics </a><a href="/about/" data-astro-cid-5hce7sga> About </a> <a href="/rss.xml" class="icon-link" aria-label="RSS feed" title="RSS feed" data-astro-cid-5hce7sga> <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M5 3a16 16 0 0 1 16 16h-3A13 13 0 0 0 5 6zm0 6a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7zm2 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4" data-astro-cid-5hce7sga></path></svg> </a> <button class="icon-link theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" data-astro-cid-5hce7sga> <svg class="i-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><circle cx="12" cy="12" r="4.2" fill="currentColor" data-astro-cid-5hce7sga></circle><g stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-5hce7sga><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" data-astro-cid-5hce7sga></path></g></svg> <svg class="i-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1" data-astro-cid-5hce7sga></path></svg> </button> </nav> </div> </header> <main id="main" data-astro-cid-5hce7sga>  <article class="post" data-astro-cid-7jjqptxk> <header class="wrap post-head" data-astro-cid-7jjqptxk> <p class="meta mono" data-astro-cid-7jjqptxk> <a class="kicker" href="/tags/advent-of-code/" data-astro-cid-7jjqptxk>advent-of-code</a> <time datetime="2023-12-27" data-astro-cid-7jjqptxk>27 December 2023</time> <span data-astro-cid-7jjqptxk>11 min read</span>  </p> <h1 data-astro-cid-7jjqptxk>[Day 19] Aplenty // Advent of Code 2023 (Python)</h1> <p class="dek" data-astro-cid-7jjqptxk>As you reach the bottom of the relentless avalanche of machine parts, you discover that they’re already forming a formidable heap.</p> <a class="byline" href="/about/" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="28" height="28" data-astro-cid-7jjqptxk> <span data-astro-cid-7jjqptxk>Jatin Kumar Malik</span> </a> </header>  <div class="wrap body" data-astro-cid-7jjqptxk> <div class="prose" data-astro-cid-7jjqptxk> <p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/0-jciy1cL5lsSK0f7R.jpg" alt="Aplenty (via DALL-E 3)"></p>
+<p><em>Aplenty (via DALL-E 3)</em></p>
+<blockquote>
+<p><strong><a href="https://adventofcode.com/2023/day/19">Advent of Code</a></strong><br>
+The Elves of Gear Island are thankful for your help and send you on your way. They even have a hang glider that someone…adventofcode.com</p>
+</blockquote>
+<hr>
+<h2 id="part-one">Part One</h2>
+<blockquote>
+<p>The Elves of Gear Island are thankful for your help and send you on your way. They even have a hang glider that someone <a href="https://adventofcode.com/2023/day/9">stole</a> from Desert Island; since you’re already going that direction, it would help them a lot if you would use it to get down there and return it to them.</p>
+<p>As you reach the bottom of the relentless avalanche of machine parts, you discover that they’re already forming a formidable heap. Don’t worry, though — a group of Elves is already here organizing the parts, and they have a system.</p>
+<p>To start, each part is rated in each of four categories:</p>
+<p><code>x</code>: Extremely cool looking</p>
+<p><code>m</code>: Musical (it makes a noise when you hit it)</p>
+<p><code>a</code>: Aerodynamic</p>
+<p><code>s</code>: Shiny</p>
+<p>Then, each part is sent through a series of workflows that will ultimately accept or reject the part. Each workflow has a name and contains a list of rules; each rule specifies a condition and where to send the part if the condition is true. The first rule that matches the part being considered is applied immediately, and the part moves on to the destination described by the rule. (The last rule in each workflow has no condition and always applies if reached.)</p>
+<p>Consider the workflow <code>ex{x>10:one,m&#x3C;20:two,a>30:R,A}</code>. This workflow is named <code>ex</code> and contains four rules. If workflow <code>ex</code> were considering a specific part, it would perform the following steps in order:</p>
+<p>Rule “<code>x>10:one</code>”: If the part’s <code>x</code> is more than <code>10</code>, send the part to the workflow named <code>one</code>.</p>
+<p>Rule “<code>m&#x3C;20:two</code>”: Otherwise, if the part’s <code>m</code> is less than <code>20</code>, send the part to the workflow named <code>two</code>.</p>
+<p>Rule “<code>a>30:R</code>”: Otherwise, if the part’s <code>a</code> is more than <code>30</code>, the part is immediately rejected (<code>R</code>).</p>
+<p>Rule “<code>A</code>”: Otherwise, because no other rules matched the part, the part is immediately accepted (<code>A</code>).</p>
+<p>If a part is sent to another workflow, it immediately switches to the start of that workflow instead and never returns. If a part is accepted (sent to <code>A</code>) or rejected (sent to <code>R</code>), the part immediately stops any further processing.</p>
+<p>The system works, but it’s not keeping up with the torrent of weird metal shapes. The Elves ask if you can help sort a few parts and give you the list of workflows and some part ratings (your puzzle input). For example:</p>
+<p>px{a&#x3C;2006:qkq,m>2090:A,rfg}<br>
+pv{a>1716:R,A}<br>
+lnx{m>1548:A,A}<br>
+rfg{s&#x3C;537:gd,x>2440:R,A}<br>
+qs{s>3448:A,lnx}<br>
+qkq{x&#x3C;1416:A,crn}<br>
+crn{x>2662:A,R}<br>
+in{s&#x3C;1351:px,qqz}<br>
+qqz{s>2770:qs,m&#x3C;1801:hdj,R}<br>
+gd{a>3333:R,R}<br>
+hdj{m>838:A,pv}</p>
+<p>{x=787,m=2655,a=1222,s=2876}<br>
+{x=1679,m=44,a=2067,s=496}<br>
+{x=2036,m=264,a=79,s=2244}<br>
+{x=2461,m=1339,a=466,s=291}<br>
+{x=2127,m=1623,a=2188,s=1013}</p>
+<p>The workflows are listed first, followed by a blank line, then the ratings of the parts the Elves would like you to sort. All parts begin in the workflow named <code>in</code>. In this example, the five listed parts go through the following workflows:</p>
+<p><code>{x=787,m=2655,a=1222,s=2876}</code>: <code>in</code> -> <code>qqz</code> -> <code>qs</code> -> <code>lnx</code> -> <code>A</code></p>
+<p><code>{x=1679,m=44,a=2067,s=496}</code>: <code>in</code> -> <code>px</code> -> <code>rfg</code> -> <code>gd</code> -> <code>R</code></p>
+<p><code>{x=2036,m=264,a=79,s=2244}</code>: <code>in</code> -> <code>qqz</code> -> <code>hdj</code> -> <code>pv</code> -> <code>A</code></p>
+<p><code>{x=2461,m=1339,a=466,s=291}</code>: <code>in</code> -> <code>px</code> -> <code>qkq</code> -> <code>crn</code> -> <code>R</code></p>
+<p><code>{x=2127,m=1623,a=2188,s=1013}</code>: <code>in</code> -> <code>px</code> -> <code>rfg</code> -> <code>A</code></p>
+<p>Ultimately, three parts are accepted. Adding up the <code>x</code>, <code>m</code>, <code>a</code>, and <code>s</code> rating for each of the accepted parts gives <code>7540</code> for the part with <code>x=787</code>, <code>4623</code> for the part with <code>x=2036</code>, and <code>6951</code> for the part with <code>x=2127</code>. Adding all of the ratings for all of the accepted parts gives the sum total of <code>19114</code>.</p>
+<p>Sort through all of the parts you’ve been given; what do you get if you add together all of the rating numbers for all of the parts that ultimately get accepted?</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>They even have a hang glider that someone <a href="https://adventofcode.com/2023/day/9">stole</a> from Desert Island.</p>
+</blockquote>
+<p>Ah, well! 👀</p>
+<p>So, seems like now we have a <em>relentless avalanche of machine parts</em> that has formed a giant heap. But some elves are trying to organize them based of a system that rates each part in following 4 categories:</p>
+<ul>
+<li><code>x</code>: Extremely cool looking</li>
+<li><code>m</code>: Musical (it makes a noise when you hit it)</li>
+<li><code>a</code>: Aerodynamic</li>
+<li><code>s</code>: Shiny</li>
+</ul>
+<blockquote>
+<p>Not very scientific, is it?!</p>
+<p>Then, each part is sent through a series of workflows that will ultimately accept or reject the part. Each workflow has a name and contains a list of rules; each rule specifies a condition and where to send the part if the condition is true. The first rule that matches the part being considered is applied immediately, and the part moves on to the destination described by the rule. (The last rule in each workflow has no condition and always applies if reached.)</p>
+</blockquote>
+<p>So, seems like each workflow has a series of qualification checks and as soon as a condition is met, we send the part to subsequent workflow.</p>
+<p>We are given an example workflow: <code>ex{x>10:one,m&#x3C;20:two,a>30:R,A}</code> which is named <code>ex</code> and has <code>4</code> rules:</p>
+<ul>
+<li>Rule “<code>x>10:one</code>”: If the part’s <code>x</code> is more than <code>10</code>, send the part to the workflow named <code>one</code>.</li>
+<li>Rule “<code>m&#x3C;20:two</code>”: Otherwise, if the part’s <code>m</code> is less than <code>20</code>, send the part to the workflow named <code>two</code>.</li>
+<li>Rule “<code>a>30:R</code>”: Otherwise, if the part’s <code>a</code> is more than <code>30</code>, the part is immediately rejected (<code>R</code>).</li>
+<li>Rule “<code>A</code>”: Otherwise, because no other rules matched the part, the part is immediately accepted (<code>A</code>).</li>
+</ul>
+<blockquote>
+<p>If a part is sent to another workflow, it immediately switches to the start of that workflow instead and never returns. If a part is accepted (sent to <code>A</code>) or rejected (sent to <code>R</code>), the part immediately stops any further processing.</p>
+</blockquote>
+<p>Got it! So, we can clearly see that each <strong><code>part</code></strong> seems to be an <strong><code>object</code></strong> with 4 properties and then we have a <strong><code>rule engine</code></strong> which is navigating through a series of <strong><code>workflows</code></strong> to finally reach either: <strong><code>A</code></strong> <strong>Accepted</strong> or <strong><code>R</code></strong> <strong>Rejected.</strong></p>
+<p>We then go on to calculate the <strong>sum of all rating numbers</strong> for all the <strong>accepted parts</strong> and that’s our answer!</p>
+<blockquote>
+<p>❗️ All parts begin in the workflow named <code>in</code>.</p>
+</blockquote>
+<p>We are given a base case, that looks something like:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-rtukACmiEyk92cD1Sh14KQ.png" alt="Base case walkthrough"></p>
+<p><em>Base case walkthrough</em></p>
+<p>So, let’s write some code for our base test case?</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-oXOjyikvG6FcHZHAb4ZBkQ.png" alt="Skelton code to get started"></p>
+<p><em>Skelton code to get started</em></p>
+<p>So, as per the visualization above, I am structuring my code to first process workflows and parts and then using the <code>accepted_parts_list</code> , calculate the <code>sum</code> .</p>
+<p>Let’s play around with our <code>input_str</code> to parse our <code>workflows</code> and <code>part_list</code> in a quick REPL:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-zlnwDdt7uNqrPWVv3YtNAA.png" alt=""></p>
+<p>I think we can encapsulate <code>part</code> data nicely by creating a class <code>MachinePart</code> like:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-xtv6-LtP3ue2acH9MK42GA.png" alt="Might be overkill, but what YOLO"></p>
+<p><em>Might be overkill, but what YOLO</em></p>
+<p>And our <code>parse_input()</code> looks something like this:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-itPSPmNlXBlM_vJNSjrJkg.png" alt=""></p>
+<p>Our workflows are still stored as a list of string rules, as I will be dealing with them during our <code>process()</code> flow, let’s do that! As always, we will start from a spagheti code to just build the logic and then refactor for brownee points:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-yqwoIdT4NeytTzAO3L6Qkw.png" alt="Debugging is fun!"></p>
+<p><em>Debugging is fun!</em></p>
+<p>And our sum function can be as simple as:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-gP7EjAquB36lWhzuNKiCFg.png" alt=""></p>
+<p>Everthing looks good! Let’s run it?</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[Running] python3 "/Users/jmalik/github/advent-of-code-2023/day_19/aplenty.py"</span></span>
+<span class="line"><span>✅ sum_of_rating_of_accepted_parts() tests passed</span></span>
+<span class="line"><span>🎉 All tests passed</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[Done] exited with code=0 in 0.248 seconds</span></span></code></pre>
+<p>I think we can do away with the ENUM, just makes the code little bloated, I will move the state into our <code>MachinePart</code> class and simplify some of the nesting as well:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-OuUARm0mFj5J5uW5hvwLiw.png" alt="MachinePart"></p>
+<p><em>MachinePart</em></p>
+<p>And hence, our <code>process()</code> gets broken into 2 classes, where we can take out common condition logic into <code>evaluate_condition()</code> :</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-hPn1RfSlCsWCtItWo25Bpg.png" alt="process -> evaluate_condition for each valid condition!"></p>
+<p><em>process -> evaluate_condition for each valid condition!</em></p>
+<blockquote>
+<p>I still see <strong>a lot of nesting</strong> we can simplify and we can <strong>save an iteration</strong> we are doing in <code>sum_of_rating_of_accepted_parts</code>, by directly doing that in <code>process()</code> but will leave that for part 2!</p>
+</blockquote>
+<p>Let’s load up our puzzle input and run this one?</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-xCt5ONdgUvxxJZW76DqKzg.png" alt=""></p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[Running] python3 "/Users/jmalik/github/advent-of-code-2023/day_19/aplenty.py"</span></span>
+<span class="line"><span>❗️ Sum of ratings of accepted parts: XXXXXX</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[Done] exited with code=0 in 0.207 seconds</span></span></code></pre>
+<p>And we have an answer in just <strong><code>0.207 seconds</code></strong> ! Pretty good, considering we had <strong>593 workflows</strong> and <strong>200 parts</strong> in our puzzle input.</p>
+<p>Let’s see if this is the correct answer? And yes it is! 🙌</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-qtFO_nNmiEbi4A9x5kHiBQ.png" alt="⭐️"></p>
+<p><em>⭐️</em></p>
+<p>Here’s our code till now:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># Day 19 - Aplenty</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>class MachinePart:</span></span>
+<span class="line"><span>    ACCEPTED = "A"</span></span>
+<span class="line"><span>    REJECTED = "R"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    VALID_STATES = [ACCEPTED, REJECTED]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def __init__(self, x: int, m: int, a: int, s: int):</span></span>
+<span class="line"><span>        self.ratings = {"x": x, "m": m, "a": a, "s": s}</span></span>
+<span class="line"><span>        self.state = None</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def set_state(self, state: str) -> None:</span></span>
+<span class="line"><span>        if state in [self.ACCEPTED, self.REJECTED]:</span></span>
+<span class="line"><span>            self.state = state</span></span>
+<span class="line"><span>        else:</span></span>
+<span class="line"><span>            raise ValueError(f"Invalid state: {state}")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def is_unprocessed(self) -> bool:</span></span>
+<span class="line"><span>        return self.state is None</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def __str__(self) -> str:</span></span>
+<span class="line"><span>        ratings_str = ",".join(</span></span>
+<span class="line"><span>            [f"{key}={value}" for key, value in self.ratings.items()]</span></span>
+<span class="line"><span>        )</span></span>
+<span class="line"><span>        return ratings_str</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def evaluate_condition(part, condition):</span></span>
+<span class="line"><span>    if "&#x3C;" in condition:</span></span>
+<span class="line"><span>        variable, value = condition.split("&#x3C;")</span></span>
+<span class="line"><span>        return part.ratings[variable] &#x3C; int(value)</span></span>
+<span class="line"><span>    elif ">" in condition:</span></span>
+<span class="line"><span>        variable, value = condition.split(">")</span></span>
+<span class="line"><span>        return part.ratings[variable] > int(value)</span></span>
+<span class="line"><span>    else:</span></span>
+<span class="line"><span>        raise ValueError(f"Invalid condition: {condition}")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def process(workflows: dict, parts_list: list) -> list:</span></span>
+<span class="line"><span>    INITIAL_WORKFLOW_ID = "in"</span></span>
+<span class="line"><span>    CONDITION_SEPARATOR = ":"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    for i, part in enumerate(parts_list):</span></span>
+<span class="line"><span>        # print(f"{i+1}/{len(parts_list)}\n Processing part {part}\n\n")</span></span>
+<span class="line"><span>        worflow_id = INITIAL_WORKFLOW_ID</span></span>
+<span class="line"><span>        while part.is_unprocessed():</span></span>
+<span class="line"><span>            for rule in workflows[worflow_id]:</span></span>
+<span class="line"><span>                if CONDITION_SEPARATOR in rule:</span></span>
+<span class="line"><span>                    condition, worflow_id = rule.split(CONDITION_SEPARATOR)</span></span>
+<span class="line"><span>                    if evaluate_condition(part, condition):</span></span>
+<span class="line"><span>                        if worflow_id in MachinePart.VALID_STATES:</span></span>
+<span class="line"><span>                            part.set_state(worflow_id)</span></span>
+<span class="line"><span>                        break # Break out of for loop and move to new workflow</span></span>
+<span class="line"><span>                elif rule in MachinePart.VALID_STATES:</span></span>
+<span class="line"><span>                    part.set_state(rule)</span></span>
+<span class="line"><span>                else:</span></span>
+<span class="line"><span>                    worflow_id = rule</span></span>
+<span class="line"><span>    return parts_list</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def sum_of_rating_of_accepted_parts(parts_list: list) -> int:</span></span>
+<span class="line"><span>    sum = 0</span></span>
+<span class="line"><span>    for part in parts_list:</span></span>
+<span class="line"><span>        if part.state == MachinePart.ACCEPTED:</span></span>
+<span class="line"><span>            sum += (</span></span>
+<span class="line"><span>                part.ratings["x"]</span></span>
+<span class="line"><span>                + part.ratings["m"]</span></span>
+<span class="line"><span>                + part.ratings["a"]</span></span>
+<span class="line"><span>                + part.ratings["s"]</span></span>
+<span class="line"><span>            )</span></span>
+<span class="line"><span>    return sum</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def parse_input(input_str: str) -> tuple:</span></span>
+<span class="line"><span>    workflow_str, parts_str = input_str.split("\n\n")</span></span>
+<span class="line"><span>    workflows = {}</span></span>
+<span class="line"><span>    for workflow in workflow_str.split("\n"):</span></span>
+<span class="line"><span>        workflow_name, workflow_rules = workflow.split("{")  # Split on first '{'</span></span>
+<span class="line"><span>        workflow_rules = workflow_rules[:-1]  # Remove trailing '}'</span></span>
+<span class="line"><span>        workflows[workflow_name] = workflow_rules.split(",")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    parts_list = []</span></span>
+<span class="line"><span>    for part in parts_str.split("\n"):</span></span>
+<span class="line"><span>        x, m, a, s = part[1:-1].split(",")</span></span>
+<span class="line"><span>        x = int(x.split("=")[1])</span></span>
+<span class="line"><span>        m = int(m.split("=")[1])</span></span>
+<span class="line"><span>        a = int(a.split("=")[1])</span></span>
+<span class="line"><span>        s = int(s.split("=")[1])</span></span>
+<span class="line"><span>        parts_list.append(MachinePart(x, m, a, s))</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    return workflows, parts_list</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def part_one():</span></span>
+<span class="line"><span>    with open("day_19/input.txt") as f:</span></span>
+<span class="line"><span>        input_str = f.read()</span></span>
+<span class="line"><span>    workflows, parts_list = parse_input(input_str)</span></span>
+<span class="line"><span>    parts_list = process(workflows, parts_list)</span></span>
+<span class="line"><span>    sum = sum_of_rating_of_accepted_parts(parts_list)</span></span>
+<span class="line"><span>    print(f"❗️ Sum of ratings of accepted parts: {sum}")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def test_sum_of_rating_of_accepted_parts():</span></span>
+<span class="line"><span>    input_str = """px{a&#x3C;2006:qkq,m>2090:A,rfg}</span></span>
+<span class="line"><span>pv{a>1716:R,A}</span></span>
+<span class="line"><span>lnx{m>1548:A,A}</span></span>
+<span class="line"><span>rfg{s&#x3C;537:gd,x>2440:R,A}</span></span>
+<span class="line"><span>qs{s>3448:A,lnx}</span></span>
+<span class="line"><span>qkq{x&#x3C;1416:A,crn}</span></span>
+<span class="line"><span>crn{x>2662:A,R}</span></span>
+<span class="line"><span>in{s&#x3C;1351:px,qqz}</span></span>
+<span class="line"><span>qqz{s>2770:qs,m&#x3C;1801:hdj,R}</span></span>
+<span class="line"><span>gd{a>3333:R,R}</span></span>
+<span class="line"><span>hdj{m>838:A,pv}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>{x=787,m=2655,a=1222,s=2876}</span></span>
+<span class="line"><span>{x=1679,m=44,a=2067,s=496}</span></span>
+<span class="line"><span>{x=2036,m=264,a=79,s=2244}</span></span>
+<span class="line"><span>{x=2461,m=1339,a=466,s=291}</span></span>
+<span class="line"><span>{x=2127,m=1623,a=2188,s=1013}"""</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    workflows, parts_list = parse_input(input_str)</span></span>
+<span class="line"><span>    parts_list = process(workflows, parts_list)</span></span>
+<span class="line"><span>    sum = sum_of_rating_of_accepted_parts(parts_list)</span></span>
+<span class="line"><span>    assert sum == 19114, f"Expected 19114, got {sum}"</span></span>
+<span class="line"><span>    print("✅ sum_of_rating_of_accepted_parts() tests passed")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if __name__ == "__main__":</span></span>
+<span class="line"><span>    test_sum_of_rating_of_accepted_parts()</span></span>
+<span class="line"><span>    print("🎉 All tests passed")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    part_one()</span></span></code></pre>
+<hr>
+<h2 id="part-two">Part Two</h2>
+<blockquote>
+<p>Even with your help, the sorting process still isn’t fast enough.</p>
+<p>One of the Elves comes up with a new plan: rather than sort parts individually through all of these workflows, maybe you can figure out in advance which combinations of ratings will be accepted or rejected.</p>
+<p>Each of the four ratings (<code>x</code>, <code>m</code>, <code>a</code>, <code>s</code>) can have an integer value ranging from a minimum of <code>1</code> to a maximum of <code>4000</code>. Of all possible distinct combinations of ratings, your job is to figure out which ones will be accepted.</p>
+<p>In the above example, there are <code>167409079868000</code> distinct combinations of ratings that will be accepted.</p>
+<p>Consider only your list of workflows; the list of part ratings that the Elves wanted you to sort is no longer relevant. How many distinct combinations of ratings will be accepted by the Elves’ workflows?</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Even with your help, the sorting process still <strong>isn’t fast enough</strong>.</p>
+</blockquote>
+<p>Well, excuse me?!</p>
+<p>So, one of the Elves comes up with a new plan: <strong>rather than sort parts individually</strong> through all of these workflows, maybe we can figure out in advance <strong>which combinations of ratings</strong> will be <strong>accepted</strong> or <strong>rejected</strong>. 🤔</p>
+<p>Interesting! We are given that:</p>
+<ul>
+<li>Each of the four ratings (<code>x</code>, <code>m</code>, <code>a</code>, <code>s</code>) can have an integer value ranging from a minimum of <code>1</code> to a maximum of <code>4000</code>.</li>
+<li>Of all possible distinct combinations of ratings, your job is to figure out which ones will be accepted.</li>
+</ul>
+<p>Well, now we can ignore parts in our puzzle input and we have to share that <strong>how many distinct combinations of ratings will be accepted by the Elves’ workflows?</strong></p>
+<p>💭 Now, looking at the question, it may seem pretty easy as we are scoping our rating values between 1 to 4000, but let me blow up your brain:</p>
+<blockquote>
+<p>For each of the four ratings (X, M, A, S), which can each take on values from 1 to 4000, there are a total of 256 trillion (256,000,000,000,000) possible combinations! 🤯</p>
+</blockquote>
+<p><strong>❗️ So, brute force approach is out of question here!</strong></p>
+<p>Now, we need to basically find the upper bound and lower bound of values for each X, M, A, S that will lead us to <code>A</code> — Accepted state for our rules!</p>
+<p>So, let’s visualize our base test case workflow rules? We can basically simplify this:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-FsSQLaFfKQzScrjKVhv83Q.png" alt=""></p>
+<p>into this:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-wlxavObXLncEEhyEOVyhMw.png" alt=""></p>
+<p>where, starting from <code>in</code> we have all these conditional paths to reach <code>A</code> or <code>R</code> . Let’s take the <strong>top left</strong> <strong><code>A</code></strong> <strong>in above visualization</strong>, now to reach there, we need to have a Part with value for each rating between the following inclusive ranges:</p>
+<p><strong><code>x: (1, 4000), m: (1, 2090), a: (2006, 4000), s: (1, 1350)</code></strong></p>
+<p>so that we can go from <code>in[0] --> px[0] --> px[1] --> A</code></p>
+<p>Now similarly, to reach the <strong>mid top</strong> <strong><code>A</code></strong> <strong>in above visualiation,</strong> the following ranges will fulfill the criteria:</p>
+<p><strong><code>x: (1, 1415), m: (1, 4000), a: (1, 2005), s: (1, 1350)</code></strong></p>
+<blockquote>
+<p>⬆️ This is important, if you didn’t understand how we reached these values, please read again!</p>
+</blockquote>
+<p>Once we can calculate these ranges for each entry of <code>A</code> in our rules, we just need to do a sum of all possible combinations per range criteria!</p>
+<p>First things first, let’s create a new function <code>find_acceptable_range()</code> which will iterate through our workflow and its’ rules to find a list of ranges as we disucssed above:</p>
+<blockquote>
+<p>I can’t help but think that this is a backtracking problem, where we will iterate through the <strong><code>workflows</code></strong> dict of rules and will push each path to a stack and then we encounter <strong><code>A</code></strong> we save that state of ranges and if we encounter <strong><code>R</code></strong> we just ignore that and backtrack else we keep going!</p>
+</blockquote>
+<p>This is just a hunch, but let’s explore that!</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-6_aJxlS5W4Rg94ai2du2iw.png" alt="Ah! Let’s see how to fix this!"></p>
+<p><em>Ah! Let’s see how to fix this!</em></p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-Dt6j4KnrM6rh0SRfjjQAew.png" alt="Ok!"></p>
+<p><em>Ok!</em></p>
+<p>So, we are able to get all the valid ranges that will get us to <code>A</code> :</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-F2Lo3lKo3W5xnVjPsvogsg.png" alt=""></p>
+<p>But the problem is, they all don’t seem distinct and our test case only has 9 <code>A</code> nodes but our range_list has 14 combinations! 🤔</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-apY1M5d_EpBoxcRaZ6xiLQ.png" alt="It seems like we have a lot of overlapping ranges!"></p>
+<p><em>It seems like we have a lot of overlapping ranges!</em></p>
+<p>.</p>
+<p>.</p>
+<blockquote>
+<p>back to drawing board</p>
+</blockquote>
+<p>.</p>
+<p>.</p>
+<p>After couple of hours of debugging! I was able to simplify our code a lot!</p>
+<p><em><strong>💭 The key caveat was that everytime we evaluate a condition</strong></em> <em><strong><code>&#x3C;</code></strong></em> <em><strong><code>></code></strong></em> <em><strong>for a</strong></em> <em><strong><code>range</code>, for example:</strong></em></p>
+<p><strong><code>range = {"x": (1, 4000), "m": (1, 4000), "a": (1, 4000), "s": (1, 4000)}</code></strong></p>
+<p>and given condition is <code>a&#x3C;2006</code> , our <code>range</code> will split into 2 parts:</p>
+<p><strong><code>true_range = {.........., "a": (1, 2005),.......}</code></strong></p>
+<p><strong><code>false_range = {.........., "a": (2006, 4000),.......}</code></strong></p>
+<p>where<code>true_range</code> will go on to evaluate the <code>next_workflow_id</code> and the <code>false_range</code> will move on to the next <code>rule</code> in list!</p>
+<p>Here’s what we had to change in code:</p>
+<p>Introduced a new class <code>MachinePartRanges</code> to store range for each rating! I also had to implement a <code>copy()</code> function for deep copy of our object while spliting into <code>true_range</code> and <code>false_range</code></p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-QYtDV5jDm2rYwXHzYKEZRg.png" alt=""></p>
+<p>Here’s our modified evaluate_condition method:</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-Zi_akXHU4uNa35euIlNAuA.png" alt=""></p>
+<p>And here’s our <em>creme la de creme</em> method<code>num_of_combinations_possible</code> that calculate the distinct combinations of ratings will be accepted by the workflows!</p>
+<blockquote>
+<p>“This function 👇 <strong>broke my brain!</strong></p>
+<p>I spent over 2 hours debugging this as it started with a full on spagetti code with a lot of nesting! Only when I was able to clean it with early returns in my code was when I was able to make some progress!”</p>
+<p><em><strong>Moral of story: Always write clean code so you can debug it later!</strong></em></p>
+</blockquote>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-OroyF6H1W7uDVmns6SP9fw.png" alt="We use the same DFS with Backtracking approach to find all accepted_ranges"></p>
+<p><em>We use the same DFS with Backtracking approach to find all accepted_ranges</em></p>
+<p>Let’s test our code for the base test case?</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-fnxjlpg_a5I7xWMdT9EVYQ.png" alt="We are still using the same input_str as part_one, but we will discard parts info while parse_input()"></p>
+<p><em>We are still using the same input_str as part_one, but we will discard parts info while parse_input()</em></p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[Running] python3 "/Users/jmalik/github/advent-of-code-2023/day_19/aplenty_2.py"</span></span>
+<span class="line"><span>✅ sum_of_rating_of_accepted_parts() tests passed</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[Done] exited with code=0 in 0.317 seconds</span></span></code></pre>
+<p>Perfect! Let’s load up our puzzle input and check if we can get the answer?</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-DyA0J7_RLH5KBIN0G7rpWw.png" alt=""></p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">[Running] python3 </span><span style="color:#032F62;--shiki-dark:#96D0FF">"/Users/jmalik/github/advent-of-code-2023/day_19/aplenty_2.py"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">❗️❗️</span><span style="color:#032F62;--shiki-dark:#96D0FF"> Number</span><span style="color:#032F62;--shiki-dark:#96D0FF"> of</span><span style="color:#032F62;--shiki-dark:#96D0FF"> combinations</span><span style="color:#032F62;--shiki-dark:#96D0FF"> possible:</span><span style="color:#032F62;--shiki-dark:#96D0FF"> XXXXXXXXXXXXXXX</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">[Done] exited with code</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF">0</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 0.345</span><span style="color:#032F62;--shiki-dark:#96D0FF"> seconds</span></span></code></pre>
+<p>Let’s see if this is the correct answer? 🤞</p>
+<p><img src="/images/blog/day-19-aplenty-advent-of-code-2023-python/1-8e4LpyIEOcXkq2uAMu5gMA.png" alt="🌟"></p>
+<p><em>🌟</em></p>
+<p>Here’s our code for Part 2, I am very proud of this code! 🥲</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># Day 19 - Aplenty</span></span>
+<span class="line"><span># Part Two</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>class MachinePartRanges:</span></span>
+<span class="line"><span>    ACCEPTED = "A"</span></span>
+<span class="line"><span>    REJECTED = "R"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def __init__(self):</span></span>
+<span class="line"><span>        self.rating_ranges = {</span></span>
+<span class="line"><span>            "x": (1, 4000),</span></span>
+<span class="line"><span>            "m": (1, 4000),</span></span>
+<span class="line"><span>            "a": (1, 4000),</span></span>
+<span class="line"><span>            "s": (1, 4000),</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>        self.state = None</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def __repr__(self) -> str:</span></span>
+<span class="line"><span>        return str(self.rating_ranges)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def copy(self):</span></span>
+<span class="line"><span>        # deep copy</span></span>
+<span class="line"><span>        new_mpr = MachinePartRanges()</span></span>
+<span class="line"><span>        new_mpr.rating_ranges = self.rating_ranges.copy()</span></span>
+<span class="line"><span>        return new_mpr</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def evaluate_condition(ranges: MachinePartRanges, condition: str) -> (MachinePartRanges, MachinePartRanges):</span></span>
+<span class="line"><span>    true_range, false_range = ranges.copy(), ranges.copy()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    variable, value = condition.split("&#x3C;" if "&#x3C;" in condition else ">")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    if "&#x3C;" in condition:</span></span>
+<span class="line"><span>        true_range.rating_ranges[variable] = (true_range.rating_ranges[variable][0], int(value) - 1)</span></span>
+<span class="line"><span>        false_range.rating_ranges[variable] = (int(value), false_range.rating_ranges[variable][1])</span></span>
+<span class="line"><span>    elif ">" in condition:</span></span>
+<span class="line"><span>        true_range.rating_ranges[variable] = (int(value) + 1, true_range.rating_ranges[variable][1])</span></span>
+<span class="line"><span>        false_range.rating_ranges[variable] = (false_range.rating_ranges[variable][0], int(value))</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    return true_range, false_range</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def num_of_combinations_possible(workflows) -> int:</span></span>
+<span class="line"><span>    INITIAL_WORKFLOW_ID = "in"</span></span>
+<span class="line"><span>    accepted_ranges_list = []</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    stack = [(MachinePartRanges(), INITIAL_WORKFLOW_ID)]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    while stack:</span></span>
+<span class="line"><span>        ranges, workflow_id = stack.pop()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        if workflow_id == MachinePartRanges.ACCEPTED: </span></span>
+<span class="line"><span>            accepted_ranges_list.append(ranges)</span></span>
+<span class="line"><span>            continue</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        if workflow_id == MachinePartRanges.REJECTED:</span></span>
+<span class="line"><span>            continue</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        for rule in workflows[workflow_id]:</span></span>
+<span class="line"><span>            if rule == MachinePartRanges.ACCEPTED:</span></span>
+<span class="line"><span>                accepted_ranges_list.append(ranges)</span></span>
+<span class="line"><span>                break</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>            if rule == MachinePartRanges.REJECTED:</span></span>
+<span class="line"><span>                break</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>            if ":" not in rule:</span></span>
+<span class="line"><span>                workflow_id = rule</span></span>
+<span class="line"><span>                stack.append((ranges, workflow_id))</span></span>
+<span class="line"><span>                continue</span></span>
+<span class="line"><span>            </span></span>
+<span class="line"><span>            # rule must be a condition</span></span>
+<span class="line"><span>            condition, new_worflow_id = rule.split(":")</span></span>
+<span class="line"><span>            true_range, false_range = evaluate_condition(ranges, condition) </span></span>
+<span class="line"><span>            stack.append((true_range, new_worflow_id)) # Add true range to stack to explore new_workflow_id</span></span>
+<span class="line"><span>            ranges = false_range # Update ranges for next iteration in rules loop</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    # now we have a list of accepted ranges, we can calculate the number of combinations possible</span></span>
+<span class="line"><span>    num_of_combinations = 0</span></span>
+<span class="line"><span>    for ranges in accepted_ranges_list:</span></span>
+<span class="line"><span>        num_of_combinations += (</span></span>
+<span class="line"><span>            (ranges.rating_ranges["x"][1] - ranges.rating_ranges["x"][0] + 1)</span></span>
+<span class="line"><span>            * (ranges.rating_ranges["m"][1] - ranges.rating_ranges["m"][0] + 1)</span></span>
+<span class="line"><span>            * (ranges.rating_ranges["a"][1] - ranges.rating_ranges["a"][0] + 1)</span></span>
+<span class="line"><span>            * (ranges.rating_ranges["s"][1] - ranges.rating_ranges["s"][0] + 1)</span></span>
+<span class="line"><span>        )</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    return num_of_combinations</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def parse_input(input_str: str) -> tuple:</span></span>
+<span class="line"><span>    workflow_str, _ = input_str.split("\n\n")</span></span>
+<span class="line"><span>    workflows = {}</span></span>
+<span class="line"><span>    for workflow in workflow_str.split("\n"):</span></span>
+<span class="line"><span>        workflow_name, workflow_rules = workflow.split("{")  # Split on first '{'</span></span>
+<span class="line"><span>        workflow_rules = workflow_rules[:-1]  # Remove trailing '}'</span></span>
+<span class="line"><span>        workflows[workflow_name] = workflow_rules.split(",")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    return workflows</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def part_two():</span></span>
+<span class="line"><span>    with open("day_19/input.txt") as f:</span></span>
+<span class="line"><span>        input_str = f.read()</span></span>
+<span class="line"><span>    workflows = parse_input(input_str)</span></span>
+<span class="line"><span>    num = num_of_combinations_possible(workflows)</span></span>
+<span class="line"><span>    print(f"❗️❗️ Number of combinations possible: {num}")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def test_num_of_combinations_possible():</span></span>
+<span class="line"><span>    input_str = """px{a&#x3C;2006:qkq,m>2090:A,rfg}</span></span>
+<span class="line"><span>pv{a>1716:R,A}</span></span>
+<span class="line"><span>lnx{m>1548:A,A}</span></span>
+<span class="line"><span>rfg{s&#x3C;537:gd,x>2440:R,A}</span></span>
+<span class="line"><span>qs{s>3448:A,lnx}</span></span>
+<span class="line"><span>qkq{x&#x3C;1416:A,crn}</span></span>
+<span class="line"><span>crn{x>2662:A,R}</span></span>
+<span class="line"><span>in{s&#x3C;1351:px,qqz}</span></span>
+<span class="line"><span>qqz{s>2770:qs,m&#x3C;1801:hdj,R}</span></span>
+<span class="line"><span>gd{a>3333:R,R}</span></span>
+<span class="line"><span>hdj{m>838:A,pv}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>{x=787,m=2655,a=1222,s=2876}</span></span>
+<span class="line"><span>{x=1679,m=44,a=2067,s=496}</span></span>
+<span class="line"><span>{x=2036,m=264,a=79,s=2244}</span></span>
+<span class="line"><span>{x=2461,m=1339,a=466,s=291}</span></span>
+<span class="line"><span>{x=2127,m=1623,a=2188,s=1013}"""</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    workflows = parse_input(input_str)</span></span>
+<span class="line"><span>    num = num_of_combinations_possible(workflows)</span></span>
+<span class="line"><span>    assert num == 167409079868000, f"Expected 167409079868000, got {num}"</span></span>
+<span class="line"><span>    print("✅ sum_of_rating_of_accepted_parts() tests passed")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if __name__ == "__main__":</span></span>
+<span class="line"><span>    test_num_of_combinations_possible()</span></span>
+<span class="line"><span>    part_two()</span></span></code></pre>
+<hr>
+<p>I am keeping Part 1 and Part 2 seperate in our code base as both parts are actually pretty different in terms of processing, might come back to merge them later. Too tired for now!</p>
+<p>Feel free to raise a PR?!</p>
+<hr>
+<p>p.s: I am deliberating <strong>not adding answers</strong> here so you can actually spend some time trying to understand how we solved the problem!</p>
+<p>Feel free to checkout code on my Github repo and try to set it up and run on your machine 👇</p>
+<blockquote>
+<p><strong><a href="https://github.com/jatinkrmalik/advent-of-code-2023">GitHub - jatinkrmalik/advent-of-code-2023: Well, here’s my attempt to solve all 25 problems of…</a></strong><br>
+Well, here’s my attempt to solve all 25 problems of Advent of Code 2023 with Python! 🎄 - GitHub …github.com</p>
+</blockquote> </div> <footer class="post-foot" data-astro-cid-7jjqptxk> <div class="tags" data-astro-cid-7jjqptxk> <a class="chip" href="/tags/advent-of-code/" data-astro-cid-7jjqptxk>#advent-of-code</a><a class="chip" href="/tags/python/" data-astro-cid-7jjqptxk>#python</a> </div> <p class="origin" data-astro-cid-7jjqptxk>
+First published on Medium, December 2023.
+<a href="https://medium.com/@jatinkrmalik/day-19-aplenty-advent-of-code-2023-python-522ba14b1444" rel="nofollow noopener" data-astro-cid-7jjqptxk>Original ↗</a>  </p> <div class="author" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="56" height="56" loading="lazy" data-astro-cid-7jjqptxk> <div data-astro-cid-7jjqptxk> <p class="a-name" data-astro-cid-7jjqptxk><a href="/about/" data-astro-cid-7jjqptxk>Jatin Kumar Malik</a></p> <p class="a-bio" data-astro-cid-7jjqptxk>Principal Software Engineer at Atlassian, architecting distributed systems and building A2A AI platforms. Previously scaled platforms at Uber and shipped products at Adobe.</p> </div> </div> </footer> <div class="comments" id="comments" data-astro-cid-7jjqptxk> <script type="module">document.querySelectorAll(".archived .show-all").forEach(e=>e.addEventListener("click",()=>{e.closest(".archived")?.querySelectorAll("[data-more]").forEach(l=>l.hidden=!1),e.remove()}));</script>  </div> </div> <section class="wrap more" aria-labelledby="more-h" data-astro-cid-7jjqptxk> <h2 id="more-h" data-astro-cid-7jjqptxk>Keep reading</h2> <div class="grid" data-astro-cid-7jjqptxk> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/day-17-clumsy-crucible-advent-of-code-2023-python/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/day-17-clumsy-crucible-advent-of-code-2023-python/0-yySJqIpnZupAF8I0.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>advent-of-code</span> <time datetime="2023-12-26" data-astro-cid-iyiqi2so>Dec 2023</time> <span data-astro-cid-iyiqi2so>10 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/day-17-clumsy-crucible-advent-of-code-2023-python/" data-astro-cid-iyiqi2so>[Day 17] Clumsy Crucible // Advent of Code 2023 (Python)</a></h3> <p class="desc" data-astro-cid-iyiqi2so>The lava starts flowing rapidly once the Lava Production Facility is operational. As you leave, the reindeer offers you a parachute, allowing you to quickly reach Gear Island.</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/day-18-lavaduct-lagoon-advent-of-code-2023-python/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/day-18-lavaduct-lagoon-advent-of-code-2023-python/0-lYtv2QgDM5vbpmoV.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>advent-of-code</span> <time datetime="2023-12-26" data-astro-cid-iyiqi2so>Dec 2023</time> <span data-astro-cid-iyiqi2so>9 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/day-18-lavaduct-lagoon-advent-of-code-2023-python/" data-astro-cid-iyiqi2so>[Day 18] Lavaduct Lagoon // Advent of Code 2023 (Python)</a></h3> <p class="desc" data-astro-cid-iyiqi2so>Solving Advent of Code 2023 Day 18 in Python: computing a lagoon&#39;s volume with the Shoelace formula and Pick&#39;s theorem, then scaling to huge hex-encoded dig plans.</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/day-20-pulse-propagation-advent-of-code-2023-python/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/day-20-pulse-propagation-advent-of-code-2023-python/0-pXNUwjPLdDqRpZmE.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>advent-of-code</span> <time datetime="2023-12-29" data-astro-cid-iyiqi2so>Dec 2023</time> <span data-astro-cid-iyiqi2so>16 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/day-20-pulse-propagation-advent-of-code-2023-python/" data-astro-cid-iyiqi2so>[Day 20] Pulse Propagation // Advent of Code 2023 (Python)</a></h3> <p class="desc" data-astro-cid-iyiqi2so>With your help, the Elves manage to find the right parts and fix all of the machines. Now, they just need to send the command to boot up the machines and get the sand flowing again.</p> </div> </article>  </div> </section> </article>  </main> <footer class="site-footer" data-astro-cid-5hce7sga> <div class="wrap foot" data-astro-cid-5hce7sga> <p data-astro-cid-5hce7sga>
+© 2026 Jatin Kumar Malik
+<span class="sep" data-astro-cid-5hce7sga>·</span> <a href="/rss.xml" data-astro-cid-5hce7sga>RSS</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://github.com/jatinkrmalik/jatinkrmalik.com" data-astro-cid-5hce7sga>Source</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://j47.in" data-astro-cid-5hce7sga>j47.in</a> </p> </div> </footer> <script type="module">const c=document.querySelector(".theme-toggle");c?.addEventListener("click",()=>{const e=document.documentElement,t=(e.dataset.theme??(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))==="dark"?"light":"dark";e.dataset.theme=t;try{localStorage.setItem("theme",t)}catch{}});</script> </body> </html>  

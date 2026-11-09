@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-5hce7sga> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Raspberry Pi 2 - Model B 1GB | All you need to know · Jatin K Malik</title><meta name="description" content="Planning to buy a Raspberry Pi 2? Or have a spare one lying around? This is the Wiki post for you. Learn how to set it up &#38; make interesting DIY projects."><meta name="author" content="Jatin Kumar Malik"><link rel="canonical" href="https://jatinkrmalik.com/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/"><meta name="generator" content="Astro v5.18.2"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Jatin K Malik" href="/rss.xml"><meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)"><meta property="og:site_name" content="Jatin K Malik"><meta property="og:type" content="article"><meta property="og:url" content="https://jatinkrmalik.com/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/"><meta property="og:title" content="Raspberry Pi 2 - Model B 1GB | All you need to know"><meta property="og:description" content="Planning to buy a Raspberry Pi 2? Or have a spare one lying around? This is the Wiki post for you. Learn how to set it up &#38; make interesting DIY projects."><meta property="og:image" content="https://jatinkrmalik.com/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-Model-B-1GB-cover.jpg"><meta property="article:published_time" content="2015-10-22T00:00:00.000Z"><meta property="article:modified_time" content="2015-10-26T00:00:00.000Z"><meta property="article:author" content="Jatin Kumar Malik"><meta property="article:tag" content="gadgets"><meta property="article:tag" content="linux"><meta property="article:tag" content="homelab"><meta property="article:tag" content="how-to"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@jatinkrmalik"><meta name="twitter:creator" content="@jatinkrmalik"><meta name="twitter:title" content="Raspberry Pi 2 - Model B 1GB | All you need to know"><meta name="twitter:description" content="Planning to buy a Raspberry Pi 2? Or have a spare one lying around? This is the Wiki post for you. Learn how to set it up &#38; make interesting DIY projects."><meta name="twitter:image" content="https://jatinkrmalik.com/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-Model-B-1GB-cover.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Raspberry Pi 2 - Model B 1GB | All you need to know","description":"Planning to buy a Raspberry Pi 2? Or have a spare one lying around? This is the Wiki post for you. Learn how to set it up & make interesting DIY projects.","datePublished":"2015-10-22T00:00:00.000Z","dateModified":"2015-10-26T00:00:00.000Z","mainEntityOfPage":"https://jatinkrmalik.com/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/","url":"https://jatinkrmalik.com/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/","keywords":"gadgets, linux, homelab, how-to","image":"https://jatinkrmalik.com/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-Model-B-1GB-cover.jpg","isBasedOn":"https://bitsnapper.com/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/","author":{"@type":"Person","name":"Jatin Kumar Malik","url":"https://jatinkrmalik.com/about/"}}</script><script>
+  // Apply the saved theme before first paint to avoid a flash.
+  (() => {
+    try {
+      const t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch {}
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.H0TgHpCk.css">
+<style>.cover[data-astro-cid-e5kvktnr]{display:block;width:100%;height:100%;object-fit:cover;background:var(--bg-sunk)}.gen[data-astro-cid-e5kvktnr]{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:1rem 1.1rem;font-family:var(--font-mono);color:var(--g-ink);background:radial-gradient(circle at 85% 15%,color-mix(in srgb,var(--g-ink) 18%,transparent) 0 18%,transparent 19%),repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--g-ink) 7%,transparent) 14px 15px),var(--g-bg);overflow:hidden}.g-tag[data-astro-cid-e5kvktnr]{font-size:clamp(1rem,2.4vw,1.35rem);font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}.g-year[data-astro-cid-e5kvktnr]{font-size:.75rem;opacity:.75;align-self:flex-end}.gen[data-astro-cid-e5kvktnr][data-tone="0"]{--g-bg: #fde7d6;--g-ink: #9a3412}.gen[data-astro-cid-e5kvktnr][data-tone="1"]{--g-bg: #dcefe4;--g-ink: #166534}.gen[data-astro-cid-e5kvktnr][data-tone="2"]{--g-bg: #dde7fb;--g-ink: #1e40af}.gen[data-astro-cid-e5kvktnr][data-tone="3"]{--g-bg: #ede3fb;--g-ink: #6b21a8}.gen[data-astro-cid-e5kvktnr][data-tone="4"]{--g-bg: #f9f0cf;--g-ink: #854d0e}.gen[data-astro-cid-e5kvktnr][data-tone="5"]{--g-bg: #e3eef2;--g-ink: #155e75}:root[data-theme=dark] .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}}
+.card[data-astro-cid-iyiqi2so]{display:flex;flex-direction:column;min-width:0}.media[data-astro-cid-iyiqi2so]{display:block;aspect-ratio:16 / 9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--rule);background:var(--bg-sunk)}.media[data-astro-cid-iyiqi2so] .cover{transition:transform .4s ease}.card[data-astro-cid-iyiqi2so]:hover .media[data-astro-cid-iyiqi2so] .cover{transform:scale(1.03)}.text[data-astro-cid-iyiqi2so]{padding-top:.85rem}.meta[data-astro-cid-iyiqi2so]{display:flex;flex-wrap:wrap;gap:.2rem .7rem;margin:0;font-size:.72rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em}.tag[data-astro-cid-iyiqi2so]{color:var(--accent);font-weight:600}.title[data-astro-cid-iyiqi2so]{font-size:1.15rem;line-height:1.3;letter-spacing:-.015em;margin:.4rem 0 0;overflow-wrap:anywhere}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]{text-decoration:none}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]:hover{color:var(--accent)}.desc[data-astro-cid-iyiqi2so]{margin:.45rem 0 0;color:var(--ink-2);font-size:.93rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.featured[data-astro-cid-iyiqi2so]{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:2.25rem;align-items:center}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so]{aspect-ratio:auto;max-height:30rem}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] img.cover{height:auto;max-height:30rem;object-fit:contain}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] .gen{aspect-ratio:16 / 9}.featured[data-astro-cid-iyiqi2so] .text[data-astro-cid-iyiqi2so]{padding-top:0}.featured[data-astro-cid-iyiqi2so] .title[data-astro-cid-iyiqi2so]{font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.03em}.featured[data-astro-cid-iyiqi2so] .desc[data-astro-cid-iyiqi2so]{font-family:var(--font-serif);font-size:1.2rem;line-height:1.5;-webkit-line-clamp:4;line-clamp:4}@media(max-width:760px){.featured[data-astro-cid-iyiqi2so]{grid-template-columns:minmax(0,1fr);gap:1rem}}
+</style>
+<link rel="stylesheet" href="/_astro/about.C9axxvRH.css"></head> <body data-astro-cid-5hce7sga> <a class="skip" href="#main" data-astro-cid-5hce7sga>Skip to content</a> <header class="site-header" data-astro-cid-5hce7sga> <div class="wrap bar" data-astro-cid-5hce7sga> <a href="/" class="brand" aria-label="Jatin K Malik, home" data-astro-cid-5hce7sga> <span class="brand-mark" aria-hidden="true" data-astro-cid-5hce7sga>jkm</span> <span class="brand-name" data-astro-cid-5hce7sga>Jatin K Malik</span> </a> <nav aria-label="Main" data-astro-cid-5hce7sga> <a href="/blog/" aria-current="page" data-astro-cid-5hce7sga> All posts </a><a href="/tags/" data-astro-cid-5hce7sga> Topics </a><a href="/about/" data-astro-cid-5hce7sga> About </a> <a href="/rss.xml" class="icon-link" aria-label="RSS feed" title="RSS feed" data-astro-cid-5hce7sga> <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M5 3a16 16 0 0 1 16 16h-3A13 13 0 0 0 5 6zm0 6a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7zm2 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4" data-astro-cid-5hce7sga></path></svg> </a> <button class="icon-link theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" data-astro-cid-5hce7sga> <svg class="i-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><circle cx="12" cy="12" r="4.2" fill="currentColor" data-astro-cid-5hce7sga></circle><g stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-5hce7sga><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" data-astro-cid-5hce7sga></path></g></svg> <svg class="i-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1" data-astro-cid-5hce7sga></path></svg> </button> </nav> </div> </header> <main id="main" data-astro-cid-5hce7sga>  <article class="post" data-astro-cid-7jjqptxk> <header class="wrap post-head" data-astro-cid-7jjqptxk> <p class="meta mono" data-astro-cid-7jjqptxk> <a class="kicker" href="/tags/gadgets/" data-astro-cid-7jjqptxk>gadgets</a> <time datetime="2015-10-22" data-astro-cid-7jjqptxk>22 October 2015</time> <span data-astro-cid-7jjqptxk>9 min read</span>  </p> <h1 data-astro-cid-7jjqptxk>Raspberry Pi 2 - Model B 1GB | All you need to know</h1> <p class="dek" data-astro-cid-7jjqptxk>Planning to buy a Raspberry Pi 2? Or have a spare one lying around? This is the Wiki post for you. Learn how to set it up &amp; make interesting DIY projects.</p> <a class="byline" href="/about/" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="28" height="28" data-astro-cid-7jjqptxk> <span data-astro-cid-7jjqptxk>Jatin Kumar Malik</span> </a> </header> <figure class="hero" data-astro-cid-7jjqptxk> <img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-Model-B-1GB-cover.jpg" alt="" loading="eager" decoding="async" fetchpriority="high" data-astro-cid-7jjqptxk> </figure> <div class="wrap body" data-astro-cid-7jjqptxk> <div class="prose" data-astro-cid-7jjqptxk> <hr>
+<p><strong>Update[22 Oct 2015]</strong>: Added some essential software(s) to have on your Raspberry Pi 2!</p>
+<hr>
+<p>So, the coolest thing happened and I decided to finally buy the famous $35 computer last week. Yes! <strong><a href="http://www.amazon.in/gp/product/B00T7EE3D0/ref=as_li_tl?ie=UTF8&#x26;camp=3626&#x26;creative=24790&#x26;creativeASIN=B00T7EE3D0&#x26;linkCode=as2&#x26;tag=bitsnappercom-21">Raspberry Pi 2 - MODB - 1GB - Quad core</a></strong> it is. Raspberry Pi 2 was in my gadget’s bucket list from almost a year now. Amazon India was running some <a href="http://www.amazon.in/gp/product/B00T7EE3D0/ref=as_li_tl?ie=UTF8&#x26;camp=3626&#x26;creative=24790&#x26;creativeASIN=B00T7EE3D0&#x26;linkCode=as2&#x26;tag=bitsnappercom-21">cool discount</a> this week and I also had a Gift voucher resulting in the purchase. I got the latest Model B which is touted to be 6x faster than last generation.</p>
+<p>After tinkering with this gorgeous SoC (System on chip) for last week, I feel I am qualified to write this review to ponder over <em>why you should buy a Raspberry Pi 2 and what can you do with it.</em> So, shall we begin?</p>
+<h2 id="raspberry-pi-is-it-yummy">Raspberry Pi? Is it yummy?</h2>
+<p><em>Well yes! But not the way you are thinking ;)</em></p>
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/uXUjwk2-qx4" title="YouTube video" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+<p>The Raspberry Pi 2 Model B is the second generation of Raspberry Pi family. It replaced the original Raspberry Pi 1 Model B+ in February 2015. Raspberry Pi has a very interesting history behind it. It was developed in the UK by the <a href="https://www.raspberrypi.org/">Raspberry Pi Foundation</a> with the intention of promoting the teaching of basic computer science in schools. The idea behind a portable computer goes back to 2006. The original reason behind it’s development was the dipping computer literacy in UK or to quote in the Raspberry Pi Foundation words:</p>
+<blockquote>
+<p>“The idea for Raspberry Pi grew out of concern about, the year-on-year decline in the numbers and skills levels of the A Level students applying to read Computer Science in each academic year.”</p>
+</blockquote>
+<p>But as we all know, RPi’s popularity increased beyond the intended use-case over the years and it soon became the favourite gadget for DIY enthusiasts as RPi being a portable computer found it’s way in many personal projects. We will be looking on those but first, let’s visit the hardware department to see what is it actually that RPi 2 is packing ;)</p>
+<h2 id="so-whats-in-the-box">So what’s in the box?</h2>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-unboxing.jpg" alt="Raspberry Pi 2 unboxing contents"><br>
+<em>Well, all this is all you get!</em></p>
+<ol>
+<li>Safety Guide &#x26; Quick Start Guide</li>
+<li>Raspberry Pi 2 SoC (System on chip)</li>
+<li>The box itself :P</li>
+</ol>
+<p><strong>And done.</strong> This unboxing itself speaks volume of the purpose of RPi. It is not there to replace your Desktop or Laptop, It is just meant to be a pure DIY kit where you have the freedom to juice up your creativity and extend the functionality as you like. It will just provide you the barebone foundation. Hmm, since we are talking about the SoC, let us look up the hardware and see what all do you get soldered on this credit card size microcomputer.</p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-Model-B-1GB-System-on-chip-diagram-circuit.jpg" alt="Raspberry Pi 2 Model B 1GB System on chip diagram circuit"><br>
+<em>Raspberry Pi 2 Model B 1GB schematics</em></p>
+<h3 id="specs">#Specs:</h3>
+<ul>
+<li>A 900MHz quad-core ARM Cortex-A7 CPU</li>
+<li>1GB RAM</li>
+<li>4 USB ports</li>
+<li>40 GPIO pins</li>
+<li>Full HDMI port</li>
+<li>Ethernet port</li>
+<li>Combined 3.5mm audio jack and composite video</li>
+<li>Camera interface (CSI)</li>
+<li>Display interface (DSI)</li>
+<li>Micro SD card slot</li>
+<li>VideoCore IV 3D graphics core</li>
+</ul>
+<blockquote>
+<h4 id="all-this-for-just-35">All this for just $35!</h4>
+</blockquote>
+<h2 id="sounds-nice-how-to-set-it-up">Sounds nice! How to set it up?</h2>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-Model-B-1GB-shirt-logo.jpg" alt="Raspberry Pi 2 Model B 1GB shirt logo"><br>
+<em>yumm</em></p>
+<p>RPi 2 boots up using a microSD card (yep, the same you use in your smartphone) and because it has an ARMv7 processor, it can boot up the full range of ARM GNU/Linux distributions, including Snappy Ubuntu Core, as well as Microsoft Windows 10 IoT core. The portable size gives independence to carry it anywhere and run it headless and control it off your phone (more on this later).</p>
+<p>But first follow <strong><a href="https://www.raspberrypi.org/help/quick-start-guide/">this awesome quick start guide</a></strong> to get your pi booting up. It will basically help you to Format the card, Write the OS’s image on it and get you boot it up. I won’t explain it here as it is very well explained in the link above.</p>
+<p>I used Raspbian for the initial use and would suggest you to try the same one. It’s super easy to setup and use. It would feel trivial if you have used any OS (Windows/Mac/Linux) before. After writing the card with N00Bs image when you first boot up the RPi 2 and connect the USB keyboard &#x26; mouse and display via HDMI port and a 5V microUSB adapter for Power. Choose the partitions and the OS as suggested and wait for it to install. After the installation completes, it will reboot and you will be greeted by the Raspberry Pi configuration screen.</p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-Model-B-1GB-Configuration-screen.png" alt="Raspberry Pi 2 Model B 1GB Configuration screen"><br>
+<em>Raspi-config screen</em></p>
+<p>Tinker with the options and make sure to go to <strong>#8 Advanced Options</strong> screen. Make sure to <strong>Enable the SSH</strong> because you will be using this extensively. Feel free to play with the options but make sure you know what you are doing. If you don’t, please please visit the <a href="https://www.raspberrypi.org/documentation/">Official Raspberry Pi Documentation</a> and read it, it will help you a lot to cover the basic as well as advanced option(s) about your Pi.</p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-Model-B-1GB-Advanced-Configuration-screen.png" alt="Advanced Options"><br>
+<em>Advanced Options</em></p>
+<p>After you hit the finish, you will be asked to log in. Depending on if you changed the password for user “pi” via Raspi-config screen, use that to login and you will be in the Terminalish console.If you are well versed with Linux, the terminal is all what you will need to use it but if you are more of a GUI guy, just enter “<em><strong>startx</strong></em>” and press enter. It will boot you in the GUI environment of Raspbian.</p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/Raspberry-Pi-2-Model-B-1GB-Raspbian-GUI.png" alt="Raspberry Pi 2 Model B 1GB - Raspbian GUI"><br>
+<em>Raspbian GUI</em></p>
+<p>Learning curve is bare minimum. Raspbian is a a super minimalistic, clean and free operating system based on Debian which is optimized for the Raspberry Pi hardware. An operating system is the set of basic programs and utilities that make your Raspberry Pi run. However, Raspbian provides more than a pure OS: it comes with over <strong>35,000 packages</strong>(via APT repository), pre-compiled software bundled in a nice format for easy installation on your Raspberry Pi. You will be just one command away to install any software, be it Java Development Kit or Php or MySQL server. <em><strong>That’s the beauty of Linux.</strong></em></p>
+<h2 id="remote-access-is-the-king">Remote Access is the king?!</h2>
+<p>Since we will be using the RPi in different projects, we will need a way to access it remotely so that we won’t need to connect a monitor, keyboard or mouse to it, instead we will use it with just a power supply (either plugged in the wall or battery) and internet connection (ethernet or wifi dongle).</p>
+<blockquote>
+<p>SSH to the rescue!</p>
+</blockquote>
+<p>SSH (Secured Shell) will allow us to access the RPi remotely from any machine (Windows/Mac/Linux/Android/iOS) provided it is in the same network. Most of you who have worked with Linux must be smiling right now as you know how powerful a shell is in Linux world. So let’s understand the basics:</p>
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/zlv9dI-9g1U" title="YouTube video" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+<p>So, by using SSH we basically get the command windows (SHELL) on our personal system and by using the keyboard we can execute command remotely. For our Raspberry Pi, we need a setup like this, where both the client and server are in same network. To understand more, check out the following:</p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/how-ssh-works-raspberry-pi-2.jpg" alt="how ssh works raspberry pi 2"><br>
+<em>Easy stuff eh?</em></p>
+<p>Now simply headover to <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/">Raspberry Pi SSH doc</a> page and follow the steps. Soon you will be up and running with the shell console remotely. We do have more ways to connect to the Pi, for instance if you want a full blown remote Desktop GUI access you will have to use <strong>VNC server</strong>, or if you want the access to the files you can setup a <strong>FTP server</strong>, or you can serve webpages in your intranet by setting up a <strong>HTTP webserver</strong>. Possibilities are endless! Just visit the <a href="https://www.raspberrypi.org/documentation/remote-access/">Remote Access Documentation page</a> and get your hands dirty (which is the best way to learn it fast).</p>
+<h2 id="the-essentials">The essential(s):</h2>
+<p><em>I am assuming here that you installed Rasbian on your RPi and you can run your RPi purely headless i.e. just with power source and an ethernet cable and SSH into into from any other machine.</em></p>
+<p>Since you knew and bought a Raspberry Pi, it can be safely said that you belong to the eternal “curious geek” category. You like to build stuff and you get immense pleasure out of your DIY projects. So, let us look at the things you must have up and running on your RPi to use within terminal. Let start with the list:</p>
+<p><em>💡 Make sure you do a</em> <code>sudo apt-get update &#x26;&#x26; sudo apt-get upgrade -y</code> <em>before installing the software(s) below.</em></p>
+<ol>
+<li>
+<p><strong>apache2</strong> - Apache HTTP Server | Duh.<br>
+<code>$ sudo apt-get install apache2</code></p>
+</li>
+<li>
+<p><strong>avahi-daemon</strong> - Avahi mDNS/DNS-SD daemon | Great for name resolution &#x26; for finding printers on network.<br>
+<code>$ sudo apt-get install avahi-daemon</code></p>
+</li>
+<li>
+<p><strong>bzip2</strong> - High-quality block-sorting file compressor | You will need this for <a href="/blog/love-python-take-this-challenge-now/">attempting The Python Challenge.</a><br>
+<code>$ sudo apt-get install bzip2</code></p>
+</li>
+<li>
+<p><strong>cowsay</strong>- A configurable talking cow | Because why the hell not?!<br>
+<code>$ sudo apt-get install cowsay</code></p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/cowsay-on-Raspberry-Pi-2-bitsnapper-ftw.png" alt="cowsay on Raspberry Pi 2 bitsnapper ftw"><br>
+<em>Moo.</em></p>
+</li>
+<li>
+<p><strong>curl</strong> - A command line tool for transferring data with URL syntax | Should be preinstalled but just in case.<br>
+<code>$ sudo apt-get install curl</code></p>
+</li>
+<li>
+<p><strong>fortune-mod</strong> - Provides fortune cookies on demand |  Isn’t that supercool?<br>
+<code>$ sudo apt-get install fortune-mod</code><br>
+💡 You can use fortune with cowsay to get something cool like this:</p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/fortune-mod-with-cowsay-on-Raspberry-Pi-2.png" alt="fortune mod with cowsay on Raspberry Pi 2"><br>
+<em>Oh. Ok.</em></p>
+</li>
+<li>
+<p><strong>gcc</strong> - GNU C compiler | Super useful when you have to make a software from it’s source.<br>
+<code>$ sudo apt-get install gcc</code></p>
+</li>
+<li>
+<p><strong>git</strong> - The stupid content tracker | Push that code baby! ;)<br>
+<code>$ sudo apt-get install git</code></p>
+</li>
+<li>
+<p><strong>gzip</strong> - GNU compression utilities | Hello? ZIP files ftw \m/<br>
+<code>$ sudo apt-get install gzip</code></p>
+</li>
+<li>
+<p><strong>htop</strong> - Interactive processes viewer | My most used software!<br>
+<code>$ sudo apt-get install htop</code></p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/htop-on-Raspberry-Pi-2.png" alt="htop on Raspberry Pi 2"><br>
+<em>Lovely.</em></p>
+</li>
+<li>
+<p><strong>minecraft-pi</strong> - Minecraft for the Raspberry Pi | Because we can.<br>
+<code>$ sudo apt-get install minecraft-pi</code></p>
+</li>
+<li>
+<p><strong>mysql-client</strong> &#x26;<strong>mysql-server</strong> - MySQL database client and server | To become SQL champ!<br>
+<code>$ sudo apt-get install mysql-client mysql-server</code></p>
+</li>
+<li>
+<p><strong>nano</strong>- small, friendly text editor inspired by Pico | Best thing if you are not comfortable with Vi<br>
+<code>$ sudo apt-get install nano</code></p>
+</li>
+<li>
+<p><strong>ncdu</strong> - ncurses disk usage viewer | Interactive disk space usage per file/folder<br>
+<code>$ sudo apt-get install ncdu</code></p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/ncdu-on-Raspberry-Pi-2.png" alt="ncdu on Raspberry Pi 2"><br>
+<em>Way better than ls, right?</em></p>
+</li>
+<li>
+<p><strong>nmap</strong> - The Network Mapper | Network exploration tool and security / port scanner<br>
+<code>$ sudo apt-get install nmap</code></p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/nmap-on-Raspberry-Pi-2.png" alt="nmap on Raspberry Pi 2"><br>
+<em>Scan em all!</em></p>
+</li>
+<li>
+<p><strong>nodejs</strong> - Node.js event-based server-side javascript engine | <a href="/blog/hands-on-with-node-js-tutorial/">Make your WebApp here</a>.<br>
+<code>$ sudo apt-get install nodejs</code></p>
+</li>
+<li>
+<p><strong>omxplayer</strong> - Command line media player for Raspberry Pi | Play some music via shell<br>
+<code>$ sudo apt-get install omxplayer</code><br>
+💡 ProTip: Use Omxplayer on RPi to make your own BoomBox.</p>
+</li>
+<li>
+<p><strong>openjdk-7-jdk</strong> - OpenJDK Development Kit (JDK) | Open source Java<br>
+<code>$ sudo apt-get install openjdk-7-jdk</code><br>
+<strong>OR</strong><br>
+<strong>oracle-java8-jdk</strong>- Java™ Platform, Standard Edition 8 Development Kit<br>
+<code>$ sudo apt-get install oracle-java8-jdk</code></p>
+<p><strong>Q: What is the difference between the source code found in the OpenJDK repository, and the code you use to build the Oracle JDK?</strong><br>
+<strong>A</strong>: It is very close - our build process for Oracle JDK releases builds on OpenJDK 7 by adding just a couple of pieces, like the deployment code, which includes Oracle’s implementation of the Java Plugin and Java WebStart, as well as some closed source third party components like a graphics rasterizer, some open source third party components, like Rhino, and a few bits and pieces here and there, like additional documentation or third party fonts. Moving forward, our intent is to open source all pieces of the Oracle JDK except those that we consider commercial features such as JRockit Mission Control (not yet available in Oracle JDK), and replace encumbered third party components with open source alternatives to achieve closer parity between the code bases.</p>
+</li>
+<li>
+<p><strong>sl</strong> - Correct you if you type `sl’ by mistake | Steam Locomotive classic Linux joke<br>
+<code>$ sudo apt-get install sl</code></p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/SL-on-Raspberry-Pi-2.png" alt="Steam locomotive on Raspberry Pi 2"><br>
+<em>Type sl instead of ls to see the magic.</em></p>
+</li>
+<li>
+<p><strong>tightvncserver</strong> - Virtual network computing server software | Interact with RPi graphic desktop wirelessly<br>
+<code>$ sudo apt-get install tightvncserver</code></p>
+<p><img src="/images/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/tighvnc-remote-access-on-Raspberry-Pi-2.jpg" alt="tighvnc remote access on Raspberry Pi 2"><br>
+<em>Ain’t that cool?</em></p>
+</li>
+<li>
+<p><strong>vim</strong> - Vi IMproved,enhanced vi editor | Best text editor of Linux<br>
+<code>$ sudo apt-get install vim</code></p>
+</li>
+</ol>
+<hr>
+<p><em>&#x3C;Note: This post is in development as you read. I will keep adding the new things and DIY setups I do with my RPI so make sure to bookmark this.></em></p> </div> <footer class="post-foot" data-astro-cid-7jjqptxk> <div class="tags" data-astro-cid-7jjqptxk> <a class="chip" href="/tags/gadgets/" data-astro-cid-7jjqptxk>#gadgets</a><a class="chip" href="/tags/linux/" data-astro-cid-7jjqptxk>#linux</a><a class="chip" href="/tags/homelab/" data-astro-cid-7jjqptxk>#homelab</a><a class="chip" href="/tags/how-to/" data-astro-cid-7jjqptxk>#how-to</a> </div> <p class="origin" data-astro-cid-7jjqptxk>
+First published on BitSnapper, October 2015.
+<a href="https://bitsnapper.com/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/" rel="nofollow noopener" data-astro-cid-7jjqptxk>Original ↗</a>  </p> <div class="author" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="56" height="56" loading="lazy" data-astro-cid-7jjqptxk> <div data-astro-cid-7jjqptxk> <p class="a-name" data-astro-cid-7jjqptxk><a href="/about/" data-astro-cid-7jjqptxk>Jatin Kumar Malik</a></p> <p class="a-bio" data-astro-cid-7jjqptxk>Principal Software Engineer at Atlassian, architecting distributed systems and building A2A AI platforms. Previously scaled platforms at Uber and shipped products at Adobe.</p> </div> </div> </footer> <div class="comments" id="comments" data-astro-cid-7jjqptxk> <script type="module">document.querySelectorAll(".archived .show-all").forEach(e=>e.addEventListener("click",()=>{e.closest(".archived")?.querySelectorAll("[data-more]").forEach(l=>l.hidden=!1),e.remove()}));</script>  </div> </div> <section class="wrap more" aria-labelledby="more-h" data-astro-cid-7jjqptxk> <h2 id="more-h" data-astro-cid-7jjqptxk>Keep reading</h2> <div class="grid" data-astro-cid-7jjqptxk> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/network-attached-storage-nas-raspberry-pi-2/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/network-attached-storage-nas-raspberry-pi-2/Create-a-Network-attached-storage-using-Raspberry-Pi-2-1158x600.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>homelab</span> <time datetime="2015-11-04" data-astro-cid-iyiqi2so>Nov 2015</time> <span data-astro-cid-iyiqi2so>7 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/network-attached-storage-nas-raspberry-pi-2/" data-astro-cid-iyiqi2so>Project #1: Create a Network attached storage | Raspberry Pi 2</a></h3> <p class="desc" data-astro-cid-iyiqi2so>Discover how you can create your own Network Attached storage (NAS) within 30 minutes using a Raspberry Pi 2. Say goodbye to intranetwork data sharing woes!</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/create-lamp-web-server-raspberry-pi-2/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/create-lamp-web-server-raspberry-pi-2/create-your-lamp-server-with-wordpress-on-raspberry-pi-2.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>homelab</span> <time datetime="2015-12-10" data-astro-cid-iyiqi2so>Dec 2015</time> <span data-astro-cid-iyiqi2so>8 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/create-lamp-web-server-raspberry-pi-2/" data-astro-cid-iyiqi2so>Project #2: Create your own LAMP web server | Raspberry Pi 2</a></h3> <p class="desc" data-astro-cid-iyiqi2so>Discover how can you setup your own LAMP stack on your Raspberry Pi 2 &amp; host your personal website or blog for the world to marvel at? Just dive in!</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/create-piratebox-bittorrent-raspberry-pi-2/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/create-piratebox-bittorrent-raspberry-pi-2/Bittorrent-always-on-pirate-box-with-Raspberry-Pi-2-cover-pic.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>homelab</span> <time datetime="2016-03-29" data-astro-cid-iyiqi2so>Mar 2016</time> <span data-astro-cid-iyiqi2so>3 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/create-piratebox-bittorrent-raspberry-pi-2/" data-astro-cid-iyiqi2so>Project #3: Create a PirateBox (BitTorrent) | Raspberry Pi 2</a></h3> <p class="desc" data-astro-cid-iyiqi2so>Create your own low-powered always-on PirateBox using your Raspberry Pi. Let storm over the bits &amp; bytes of BitTorrent as we know it. #KeepSeeding</p> </div> </article>  </div> </section> </article>  </main> <footer class="site-footer" data-astro-cid-5hce7sga> <div class="wrap foot" data-astro-cid-5hce7sga> <p data-astro-cid-5hce7sga>
+© 2026 Jatin Kumar Malik
+<span class="sep" data-astro-cid-5hce7sga>·</span> <a href="/rss.xml" data-astro-cid-5hce7sga>RSS</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://github.com/jatinkrmalik/jatinkrmalik.com" data-astro-cid-5hce7sga>Source</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://j47.in" data-astro-cid-5hce7sga>j47.in</a> </p> </div> </footer> <script type="module">const c=document.querySelector(".theme-toggle");c?.addEventListener("click",()=>{const e=document.documentElement,t=(e.dataset.theme??(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))==="dark"?"light":"dark";e.dataset.theme=t;try{localStorage.setItem("theme",t)}catch{}});</script> </body> </html>  

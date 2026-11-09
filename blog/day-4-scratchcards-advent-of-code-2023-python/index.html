@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-5hce7sga> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[Day 4] Scratchcards // Advent of Code 2023 (Python) · Jatin K Malik</title><meta name="description" content="The gondola takes you up. Strangely, though, the ground doesn’t seem to be coming with you; you’re not climbing a mountain."><meta name="author" content="Jatin Kumar Malik"><link rel="canonical" href="https://jatinkrmalik.com/blog/day-4-scratchcards-advent-of-code-2023-python/"><meta name="generator" content="Astro v5.18.2"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Jatin K Malik" href="/rss.xml"><meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)"><meta property="og:site_name" content="Jatin K Malik"><meta property="og:type" content="article"><meta property="og:url" content="https://jatinkrmalik.com/blog/day-4-scratchcards-advent-of-code-2023-python/"><meta property="og:title" content="[Day 4] Scratchcards // Advent of Code 2023 (Python)"><meta property="og:description" content="The gondola takes you up. Strangely, though, the ground doesn’t seem to be coming with you; you’re not climbing a mountain."><meta property="og:image" content="https://jatinkrmalik.com/images/blog/day-4-scratchcards-advent-of-code-2023-python/0-w-TjpNeK36TU7uhM.jpg"><meta property="article:published_time" content="2023-12-04T00:00:00.000Z"><meta property="article:author" content="Jatin Kumar Malik"><meta property="article:tag" content="advent-of-code"><meta property="article:tag" content="python"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@jatinkrmalik"><meta name="twitter:creator" content="@jatinkrmalik"><meta name="twitter:title" content="[Day 4] Scratchcards // Advent of Code 2023 (Python)"><meta name="twitter:description" content="The gondola takes you up. Strangely, though, the ground doesn’t seem to be coming with you; you’re not climbing a mountain."><meta name="twitter:image" content="https://jatinkrmalik.com/images/blog/day-4-scratchcards-advent-of-code-2023-python/0-w-TjpNeK36TU7uhM.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"[Day 4] Scratchcards // Advent of Code 2023 (Python)","description":"The gondola takes you up. Strangely, though, the ground doesn’t seem to be coming with you; you’re not climbing a mountain.","datePublished":"2023-12-04T00:00:00.000Z","dateModified":"2023-12-04T00:00:00.000Z","mainEntityOfPage":"https://jatinkrmalik.com/blog/day-4-scratchcards-advent-of-code-2023-python/","url":"https://jatinkrmalik.com/blog/day-4-scratchcards-advent-of-code-2023-python/","keywords":"advent-of-code, python","image":"https://jatinkrmalik.com/images/blog/day-4-scratchcards-advent-of-code-2023-python/0-w-TjpNeK36TU7uhM.jpg","isBasedOn":"https://medium.com/@jatinkrmalik/day-4-scratchcards-advent-of-code-2023-python-550a074ccb37","author":{"@type":"Person","name":"Jatin Kumar Malik","url":"https://jatinkrmalik.com/about/"}}</script><script>
+  // Apply the saved theme before first paint to avoid a flash.
+  (() => {
+    try {
+      const t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch {}
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.H0TgHpCk.css">
+<style>.cover[data-astro-cid-e5kvktnr]{display:block;width:100%;height:100%;object-fit:cover;background:var(--bg-sunk)}.gen[data-astro-cid-e5kvktnr]{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:1rem 1.1rem;font-family:var(--font-mono);color:var(--g-ink);background:radial-gradient(circle at 85% 15%,color-mix(in srgb,var(--g-ink) 18%,transparent) 0 18%,transparent 19%),repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--g-ink) 7%,transparent) 14px 15px),var(--g-bg);overflow:hidden}.g-tag[data-astro-cid-e5kvktnr]{font-size:clamp(1rem,2.4vw,1.35rem);font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}.g-year[data-astro-cid-e5kvktnr]{font-size:.75rem;opacity:.75;align-self:flex-end}.gen[data-astro-cid-e5kvktnr][data-tone="0"]{--g-bg: #fde7d6;--g-ink: #9a3412}.gen[data-astro-cid-e5kvktnr][data-tone="1"]{--g-bg: #dcefe4;--g-ink: #166534}.gen[data-astro-cid-e5kvktnr][data-tone="2"]{--g-bg: #dde7fb;--g-ink: #1e40af}.gen[data-astro-cid-e5kvktnr][data-tone="3"]{--g-bg: #ede3fb;--g-ink: #6b21a8}.gen[data-astro-cid-e5kvktnr][data-tone="4"]{--g-bg: #f9f0cf;--g-ink: #854d0e}.gen[data-astro-cid-e5kvktnr][data-tone="5"]{--g-bg: #e3eef2;--g-ink: #155e75}:root[data-theme=dark] .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .gen[data-astro-cid-e5kvktnr]{--g-bg: color-mix(in srgb, var(--g-ink) 22%, #141518);color:color-mix(in srgb,var(--g-ink) 40%,#fff)}}
+.card[data-astro-cid-iyiqi2so]{display:flex;flex-direction:column;min-width:0}.media[data-astro-cid-iyiqi2so]{display:block;aspect-ratio:16 / 9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--rule);background:var(--bg-sunk)}.media[data-astro-cid-iyiqi2so] .cover{transition:transform .4s ease}.card[data-astro-cid-iyiqi2so]:hover .media[data-astro-cid-iyiqi2so] .cover{transform:scale(1.03)}.text[data-astro-cid-iyiqi2so]{padding-top:.85rem}.meta[data-astro-cid-iyiqi2so]{display:flex;flex-wrap:wrap;gap:.2rem .7rem;margin:0;font-size:.72rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em}.tag[data-astro-cid-iyiqi2so]{color:var(--accent);font-weight:600}.title[data-astro-cid-iyiqi2so]{font-size:1.15rem;line-height:1.3;letter-spacing:-.015em;margin:.4rem 0 0;overflow-wrap:anywhere}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]{text-decoration:none}.title[data-astro-cid-iyiqi2so] a[data-astro-cid-iyiqi2so]:hover{color:var(--accent)}.desc[data-astro-cid-iyiqi2so]{margin:.45rem 0 0;color:var(--ink-2);font-size:.93rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.featured[data-astro-cid-iyiqi2so]{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:2.25rem;align-items:center}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so]{aspect-ratio:auto;max-height:30rem}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] img.cover{height:auto;max-height:30rem;object-fit:contain}.featured[data-astro-cid-iyiqi2so] .media[data-astro-cid-iyiqi2so] .gen{aspect-ratio:16 / 9}.featured[data-astro-cid-iyiqi2so] .text[data-astro-cid-iyiqi2so]{padding-top:0}.featured[data-astro-cid-iyiqi2so] .title[data-astro-cid-iyiqi2so]{font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.03em}.featured[data-astro-cid-iyiqi2so] .desc[data-astro-cid-iyiqi2so]{font-family:var(--font-serif);font-size:1.2rem;line-height:1.5;-webkit-line-clamp:4;line-clamp:4}@media(max-width:760px){.featured[data-astro-cid-iyiqi2so]{grid-template-columns:minmax(0,1fr);gap:1rem}}
+</style>
+<link rel="stylesheet" href="/_astro/about.C9axxvRH.css"></head> <body data-astro-cid-5hce7sga> <a class="skip" href="#main" data-astro-cid-5hce7sga>Skip to content</a> <header class="site-header" data-astro-cid-5hce7sga> <div class="wrap bar" data-astro-cid-5hce7sga> <a href="/" class="brand" aria-label="Jatin K Malik, home" data-astro-cid-5hce7sga> <span class="brand-mark" aria-hidden="true" data-astro-cid-5hce7sga>jkm</span> <span class="brand-name" data-astro-cid-5hce7sga>Jatin K Malik</span> </a> <nav aria-label="Main" data-astro-cid-5hce7sga> <a href="/blog/" aria-current="page" data-astro-cid-5hce7sga> All posts </a><a href="/tags/" data-astro-cid-5hce7sga> Topics </a><a href="/about/" data-astro-cid-5hce7sga> About </a> <a href="/rss.xml" class="icon-link" aria-label="RSS feed" title="RSS feed" data-astro-cid-5hce7sga> <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M5 3a16 16 0 0 1 16 16h-3A13 13 0 0 0 5 6zm0 6a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7zm2 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4" data-astro-cid-5hce7sga></path></svg> </a> <button class="icon-link theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" data-astro-cid-5hce7sga> <svg class="i-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><circle cx="12" cy="12" r="4.2" fill="currentColor" data-astro-cid-5hce7sga></circle><g stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-5hce7sga><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" data-astro-cid-5hce7sga></path></g></svg> <svg class="i-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" data-astro-cid-5hce7sga><path fill="currentColor" d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1" data-astro-cid-5hce7sga></path></svg> </button> </nav> </div> </header> <main id="main" data-astro-cid-5hce7sga>  <article class="post" data-astro-cid-7jjqptxk> <header class="wrap post-head" data-astro-cid-7jjqptxk> <p class="meta mono" data-astro-cid-7jjqptxk> <a class="kicker" href="/tags/advent-of-code/" data-astro-cid-7jjqptxk>advent-of-code</a> <time datetime="2023-12-04" data-astro-cid-7jjqptxk>4 December 2023</time> <span data-astro-cid-7jjqptxk>8 min read</span>  </p> <h1 data-astro-cid-7jjqptxk>[Day 4] Scratchcards // Advent of Code 2023 (Python)</h1> <p class="dek" data-astro-cid-7jjqptxk>The gondola takes you up. Strangely, though, the ground doesn’t seem to be coming with you; you’re not climbing a mountain.</p> <a class="byline" href="/about/" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="28" height="28" data-astro-cid-7jjqptxk> <span data-astro-cid-7jjqptxk>Jatin Kumar Malik</span> </a> </header>  <div class="wrap body" data-astro-cid-7jjqptxk> <div class="prose" data-astro-cid-7jjqptxk> <p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/0-w-TjpNeK36TU7uhM.jpg" alt="Scratchcards (via DALL-E 3)"></p>
+<p><em>Scratchcards (via DALL-E 3)</em></p>
+<blockquote>
+<p><strong><a href="https://adventofcode.com/2023/day/4">Advent of Code</a></strong><br>
+The gondola takes you up. Strangely, though, the ground doesn’t seem to be coming with you; you’re not climbing a…adventofcode.com</p>
+</blockquote>
+<h2 id="part-one">Part One</h2>
+<p>The gondola takes you up. Strangely, though, the ground doesn’t seem to be coming with you; you’re not climbing a mountain. As the circle of Snow Island recedes below you, an entire new landmass suddenly appears above you! The gondola carries you to the surface of the new island and lurches into the station.</p>
+<p>As you exit the gondola, the first thing you notice is that the air here is much warmer than it was on Snow Island. It’s also quite humid. Is this where the water source is?</p>
+<p>The next thing you notice is an Elf sitting on the floor across the station in what seems to be a pile of colorful square cards.</p>
+<p>“Oh! Hello!” The Elf excitedly runs over to you. “How may I be of service?” You ask about water sources.</p>
+<p>“I’m not sure; I just operate the gondola lift. That does sound like something we’d have, though — this is Island Island, after all! I bet the gardener would know. He’s on a different island, though — er, the small kind surrounded by water, not the floating kind. We really need to come up with a better naming scheme. Tell you what: if you can help me with something quick, I’ll let you borrow my boat and you can go visit the gardener. I got all these scratchcards as a gift, but I can’t figure out what I’ve won.”</p>
+<p>The Elf leads you over to the pile of colorful cards. There, you discover dozens of <em><strong>scratchcards</strong></em>, all with their opaque covering already scratched off. Picking one up, it looks like each card has two lists of numbers separated by a vertical bar (|): a list of winning numbers and then a list of numbers you have. You organize the information into a table (your puzzle input).</p>
+<p>As far as the Elf has been able to figure out, you have to figure out which of the numbers you have appear in the list of winning numbers. The first match makes the card worth one point and each match after the first doubles the point value of that card.</p>
+<p>For example:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">41 48 83 86 17 | 83 86  6 31 17  9 48 53</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 2</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">13 32 20 16 61 | 61 30 68 82 17 32 24 19</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 3</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:  </span><span style="color:#032F62;--shiki-dark:#96D0FF">1 21 53 59 44 | 69 82 63 72 16 21 14  1</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 4</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">41 92 73 84 69 | 59 84 76 51 58  5 54 83</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 5</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">87 83 26 28 32 | 88 30 70 12 93 22 82 36</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 6</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">31 18 13 56 72 | 74 77 10 23 35 67 36 11</span></span></code></pre>
+<p>In the above example, card 1 has five winning numbers (<strong>41, 48, 83, 86, and 17</strong>) and eight numbers you have (<strong>83, 86, 6, 31, 17, 9, 48, and 53</strong>). Of the numbers you have, four of them (<strong>48, 83, 17, and 86</strong>) are <em>winning numbers</em>! That means card 1 is worth 8 points (1 for the first match, then doubled three times for each of the three matches after the first).</p>
+<ul>
+<li>Card 2 has two winning numbers (32 and 61), so it is worth 2 points.</li>
+<li>Card 3 has two winning numbers (1 and 21), so it is worth 2 points.</li>
+<li>Card 4 has one winning number (84), so it is worth 1 point.</li>
+<li>Card 5 has no winning numbers, so it is worth no points.</li>
+<li>Card 6 has no winning numbers, so it is worth no points.</li>
+</ul>
+<p>So, in this example, the Elf’s pile of scratchcards is worth <strong>13 points</strong>.</p>
+<p>Take a seat in the large pile of colorful cards. How many points are they worth in total?</p>
+<hr>
+<p>💭 Reading the problem, it is clear that we need to process each gamecard independently, get it’s points, and then find a total sum of all the points of all the gamecards.</p>
+<p>This allows us to break down the problem, so we can focus on just 1 gamecard first and then extrapolate our solution to the whole list.</p>
+<p>So, first things first, let’s write down the base test case provided to us in the puzzle:</p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-DBj3SHcf0QQ1Uc-b2K4n1g.png" alt="TDD for the win! 👊"></p>
+<p><em>TDD for the win! 👊</em></p>
+<p>So, ofcourse when we run this, we get:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">❯</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/.pyenv/versions/3.11.0rc2/bin/python</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/github/advent-of-code-2023/day_4/scratchcards.py</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">Traceback</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> (most </span><span style="color:#032F62;--shiki-dark:#96D0FF">recent</span><span style="color:#032F62;--shiki-dark:#96D0FF"> call</span><span style="color:#032F62;--shiki-dark:#96D0FF"> last</span><span style="color:#24292E;--shiki-dark:#ADBAC7">):</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">  File</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "/Users/jmalik/github/advent-of-code-2023/day_4/scratchcards.py",</span><span style="color:#032F62;--shiki-dark:#96D0FF"> line</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 17,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> in</span><span style="color:#D73A49;--shiki-dark:#F47067"> &#x3C;</span><span style="color:#032F62;--shiki-dark:#96D0FF">modul</span><span style="color:#24292E;--shiki-dark:#ADBAC7">e</span><span style="color:#D73A49;--shiki-dark:#F47067">></span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#DCBDFB">    test_calculate_total_points</span><span style="color:#24292E;--shiki-dark:#ADBAC7">()</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">  File</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "/Users/jmalik/github/advent-of-code-2023/day_4/scratchcards.py",</span><span style="color:#032F62;--shiki-dark:#96D0FF"> line</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 13,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> in</span><span style="color:#032F62;--shiki-dark:#96D0FF"> test_calculate_total_points</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">    assert</span><span style="color:#032F62;--shiki-dark:#96D0FF"> total_points</span><span style="color:#032F62;--shiki-dark:#96D0FF"> ==</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 13,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> f"Expected 13, got {total_points}"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">AssertionError:</span><span style="color:#032F62;--shiki-dark:#96D0FF"> Expected</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 13,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> got</span><span style="color:#032F62;--shiki-dark:#96D0FF"> None</span></span></code></pre>
+<p>Let’s now try to look into how we can calculate the points for a scratchcards. If we look into the example, we can see that an ideal scratchcard looks like:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">41 48 83 86 17 | 83 86  6 31 17  9 48 53</span></span></code></pre>
+<p>where, it’s Card Number, followed by <em><strong>Winning numbers</strong></em> seprated by a whitespace each and then following by <em><strong>Your numbers</strong></em> and they both are seprated by a pipe <code>|</code> .</p>
+<p>Quickly whipping your a terminal window with <code>ipython3</code> we can do basically data sanity using our beloved <code>split()</code> function:</p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-nYcIg6GfDKRV6uEnc8-9tw.webp" alt=""></p>
+<p>We can also observe, that we calculate points by “doubling” 1, <code>n</code> numbers of times, where <code>n</code> is the count of winning numbers in a scratchcard.</p>
+<blockquote>
+<p>1 → 2 → 4 → 8 ….</p>
+</blockquote>
+<p><em><strong>Does ⬆️ look familar? Yep! This seems to be growing at</strong></em> <em><strong><code>2^(n-1)</code></strong></em></p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-x9a0Ggycem0CjQy8hnDvkw.webp" alt="My notes! I like to write as I think."></p>
+<p><em>My notes! I like to write as I think.</em></p>
+<p>So, putting this all together, the basic algo I can think of is:</p>
+<ol>
+<li>For each scratch card, match each number from <code>your_numbers</code> against <code>winning_numbers</code> and take a count of matches</li>
+<li>Calcualte value of that scratch card using <code>2^(n-1)</code></li>
+<li>Repeat 1–2 for each card, and do a <code>total_value += card_value</code></li>
+<li>return <code>total_value</code></li>
+<li>???</li>
+<li>Profit!</li>
+</ol>
+<p>Let’s convert this into simple POC code:</p>
+<blockquote>
+<p><strong>💡 Edge case:</strong> In case no match is found, we have to return <code>0</code> as <code>2**(n-1)</code> will return <code>1</code> as <code>n^0 == 1</code> is always true.</p>
+</blockquote>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-LkyFMub7pmcsvoBrk4uktg.png" alt=""></p>
+<p>And, let’s run for the base test case…. 🤞</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">❯</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/.pyenv/versions/3.11.0rc2/bin/python</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/github/advent-of-code-2023/day_4/scratchcards.py</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">All</span><span style="color:#032F62;--shiki-dark:#96D0FF"> tests</span><span style="color:#032F62;--shiki-dark:#96D0FF"> passed!</span></span></code></pre>
+<p>Noice! Now, let’s load up our puzzle input and pass it to our <code>calculate_total_points()</code> function:</p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-D03404PIU-CSx5lkkOVIQQ.png" alt=""></p>
+<p>And time for the ultimate run!</p>
+<p>🥁</p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-AYSS5J7rXeWbcOxB4PAoyw.png" alt="Woah! That was easy. First try!!! 🕶"></p>
+<p><em>Woah! That was easy. First try!!! 🕶</em></p>
+<p>Let’s make our code a bit pythonic, shall we?</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># --- Day 4: Scratchcards ---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">class</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> ScratchCardProcessor</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> calculate_total_points</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, scratchcards):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> sum</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">._calculate_points(scratchcard) </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> scratchcard </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> scratchcards.splitlines())</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> _calculate_points</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, scratchcard):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        _, numbers </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> scratchcard.split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">": "</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        winning_numbers, your_numbers </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> map</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#D73A49;--shiki-dark:#F47067">lambda</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> ns: [</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">int</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(n) </span><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> n </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> ns.split()], numbers.split(</span><span style="color:#032F62;--shiki-dark:#96D0FF">" | "</span><span style="color:#24292E;--shiki-dark:#ADBAC7">))</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        match_count </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> sum</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#D73A49;--shiki-dark:#F47067"> for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> number </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> your_numbers </span><span style="color:#D73A49;--shiki-dark:#F47067">if</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> number </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> winning_numbers)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 0</span><span style="color:#D73A49;--shiki-dark:#F47067"> if</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> match_count </span><span style="color:#D73A49;--shiki-dark:#F47067">==</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 0</span><span style="color:#D73A49;--shiki-dark:#F47067"> else</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F47067">**</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(match_count </span><span style="color:#D73A49;--shiki-dark:#F47067">-</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> part_1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    processor </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> ScratchCardProcessor()</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    with</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> open</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"day_4/input.txt"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">) </span><span style="color:#D73A49;--shiki-dark:#F47067">as</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        scratchcards </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> f.read()</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#D73A49;--shiki-dark:#F47067">f</span><span style="color:#032F62;--shiki-dark:#96D0FF">"Total points: </span><span style="color:#005CC5;--shiki-dark:#F47067">{</span><span style="color:#24292E;--shiki-dark:#ADBAC7">processor.calculate_total_points(scratchcards)</span><span style="color:#005CC5;--shiki-dark:#F47067">}</span><span style="color:#032F62;--shiki-dark:#96D0FF">"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">if</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __name__</span><span style="color:#D73A49;--shiki-dark:#F47067"> ==</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "__main__"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    part_1()</span></span></code></pre>
+<hr>
+<h2 id="part-two">Part Two</h2>
+<p>Just as you’re about to report your findings to the Elf, one of you realizes that the rules have actually been printed on the back of every card this whole time.</p>
+<p>There’s no such thing as “points”. Instead, scratchcards only cause you to win more scratchcards equal to the number of winning numbers you have.</p>
+<p>Specifically, you win copies of the scratchcards below the winning card equal to the number of matches. So, if card 10 were to have 5 matching numbers, you would win one copy each of cards 11, 12, 13, 14, and 15.</p>
+<p>Copies of scratchcards are scored like normal scratchcards and have the same card number as the card they copied. So, if you win a copy of card 10 and it has 5 matching numbers, it would then win a copy of the same cards that the original card 10 won: cards 11, 12, 13, 14, and 15. This process repeats until none of the copies cause you to win any more cards. (Cards will never make you copy a card past the end of the table.)</p>
+<p>This time, the above example goes differently:</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">41 48 83 86 17 | 83 86  6 31 17  9 48 53</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 2</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">13 32 20 16 61 | 61 30 68 82 17 32 24 19</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 3</span><span style="color:#24292E;--shiki-dark:#ADBAC7">:  </span><span style="color:#032F62;--shiki-dark:#96D0FF">1 21 53 59 44 | 69 82 63 72 16 21 14  1</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 4</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">41 92 73 84 69 | 59 84 76 51 58  5 54 83</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 5</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">87 83 26 28 32 | 88 30 70 12 93 22 82 36</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#8DDB8C">Card 6</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#032F62;--shiki-dark:#96D0FF">31 18 13 56 72 | 74 77 10 23 35 67 36 11</span></span></code></pre>
+<ul>
+<li>Card 1 has four matching numbers, so you win one copy each of the next four cards: cards 2, 3, 4, and 5.</li>
+<li>Your original card 2 has two matching numbers, so you win one copy each of cards 3 and 4.</li>
+<li>Your copy of card 2 also wins one copy each of cards 3 and 4.</li>
+<li>Your four instances of card 3 (one original and three copies) have two matching numbers, so you win four copies each of cards 4 and 5.</li>
+<li>Your eight instances of card 4 (one original and seven copies) have one matching number, so you win eight copies of card 5.</li>
+<li>Your fourteen instances of card 5 (one original and thirteen copies) have no matching numbers and win no more cards.</li>
+<li>Your one instance of card 6 (one original) has no matching numbers and wins no more cards.</li>
+</ul>
+<p>Once all of the originals and copies have been processed, you end up with <code>1</code>instance of card 1, <code>2</code> instances of card 2, <code>4</code> instances of card 3, <code>8</code>instances of card 4, <code>14</code> instances of card 5, and <code>1</code> instance of card 6. In total, this example pile of scratchcards causes you to ultimately have <code>30</code>scratchcards!</p>
+<p>Process all of the original and copied scratchcards until no more scratchcards are won. Including the original set of scratchcards, how many total scratchcards do you end up with?</p>
+<hr>
+<p>Wait! WTF is this! 🤯</p>
+<p>I had to re-read this problem a few times to make any sense of it. I picked up the pen and drew the expansion of tickets to get a <code>visual</code> cue about the function and I came up with:</p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-Xqb_ICqmc35Mi3sTrtigOQ.webp" alt="Part 2 was quite puzzling TBH"></p>
+<p><em>Part 2 was quite puzzling TBH</em></p>
+<p>💭 Once, I had this visually in front of me, it all started to make some sense. All we had to do is maintain 2 datapoints for each ticket:</p>
+<ol>
+<li>Count of match with winning numbers (static)</li>
+<li>Number of duplicate scratchcards (dynamic as number of dups will grow as we process predecessor scratchcards!)</li>
+</ol>
+<p>And at the end of processing all cards, all we had to calcualte is the <code>sum(number_of_cards)</code> where <code>number_of_cards = count(original + duplicates)</code> .</p>
+<p>First, let’s write our base test case as given in example in the puzzle!</p>
+<blockquote>
+<p>💡This is always a good thing if you are given any test cases as it helps you play around and identify any potential edge cases!</p>
+</blockquote>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-dM_xE5JjQao-ImRvkWiK2Q.png" alt=""></p>
+<p>And now calling it, we should see a failure! 🔴</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">❯</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/.pyenv/versions/3.11.0rc2/bin/python</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/github/advent-of-code-2023/day_4/scratchcards.py</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">test_calculate_total_points</span><span style="color:#032F62;--shiki-dark:#96D0FF"> passed!</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">Total</span><span style="color:#032F62;--shiki-dark:#96D0FF"> points:</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 25571</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">Traceback</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> (most </span><span style="color:#032F62;--shiki-dark:#96D0FF">recent</span><span style="color:#032F62;--shiki-dark:#96D0FF"> call</span><span style="color:#032F62;--shiki-dark:#96D0FF"> last</span><span style="color:#24292E;--shiki-dark:#ADBAC7">):</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">  File</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "/Users/jmalik/github/advent-of-code-2023/day_4/scratchcards.py",</span><span style="color:#032F62;--shiki-dark:#96D0FF"> line</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 55,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> in</span><span style="color:#D73A49;--shiki-dark:#F47067"> &#x3C;</span><span style="color:#032F62;--shiki-dark:#96D0FF">modul</span><span style="color:#24292E;--shiki-dark:#ADBAC7">e</span><span style="color:#D73A49;--shiki-dark:#F47067">></span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#DCBDFB">    ScratchCardProcessor.test_calculate_total_scratchcards</span><span style="color:#24292E;--shiki-dark:#ADBAC7">()</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">  File</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "/Users/jmalik/github/advent-of-code-2023/day_4/scratchcards.py",</span><span style="color:#032F62;--shiki-dark:#96D0FF"> line</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 42,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> in</span><span style="color:#032F62;--shiki-dark:#96D0FF"> test_calculate_total_scratchcards</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">    assert</span><span style="color:#032F62;--shiki-dark:#96D0FF"> total_scratchcards</span><span style="color:#032F62;--shiki-dark:#96D0FF"> ==</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 30,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> f"Expected 30, got {total_scratchcards}"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">AssertionError:</span><span style="color:#032F62;--shiki-dark:#96D0FF"> Expected</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 30,</span><span style="color:#032F62;--shiki-dark:#96D0FF"> got</span><span style="color:#032F62;--shiki-dark:#96D0FF"> None</span></span></code></pre>
+<p>Yep, let’s write a POC code and see what we can come up with to fix this test case!</p>
+<p>My idea was to not touch the input (original) scratchcard file and just maintain a simple <code>repository</code> at class level to just keep the dynamic count of number of scratchcards! So, I just introduced that and initiated it with <code>card_id: 1</code> for all card_ids present in the input! Something like:</p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-jLRIkQG3h4AKRZU2AMWNcg.png" alt=""></p>
+<p>And then using this one, I could just get the <code>count_match</code> and then run a loop to do a +1 against successive <code>card_ids</code> . The idea was pretty neat and clean allowing me to also reuse a part of old code logic from part 1.</p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-zowP4XeYZ43KNiEoA8hQKQ.png" alt=""></p>
+<p>This wasn’t smooth sailing, but after fixing a couple of bugs and debugging it line by line for the base test case, we were able to match the state of <code>repository</code> with our notebook:</p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-t5RJqouiXOy9gckVsKyF7Q.webp" alt="Repository with card_id:count looks promising!"></p>
+<p><em>Repository with card_id:count looks promising!</em></p>
+<p>And….voila! Our base test case is now green! 🟢</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">❯</span><span style="color:#032F62;--shiki-dark:#96D0FF">  cd</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/github/advent-of-code-2023</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> ; </span><span style="color:#6F42C1;--shiki-dark:#F69D50">/usr/bin/env</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/.pyenv/versions/3.11.0rc2/bin/python</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/.vscode/extensions/ms-python.python-2023.20.0/pythonFiles/lib/python/debugpy/adapter/../../debugpy/launcher</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 58812</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> --</span><span style="color:#032F62;--shiki-dark:#96D0FF"> /Users/jmalik/github/advent-of-code-2023/day_4/scratchcards.py</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">test_calculate_total_points</span><span style="color:#032F62;--shiki-dark:#96D0FF"> passed!</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">Total</span><span style="color:#032F62;--shiki-dark:#96D0FF"> points:</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 25571</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#F69D50">test_calculate_total_scratchcards</span><span style="color:#032F62;--shiki-dark:#96D0FF"> passed!</span></span></code></pre>
+<p>Let’s now just write a simple function <code>part_2()</code> to load up the <code>input.txt</code> and run it for our new function <code>calculate_total_scratchcards()</code> ?</p>
+<p>And surely, our code compiles beautifully and we get a number — <code>xxx</code> .</p>
+<p>Let’s put this into the answer box at the website….and…..</p>
+<p><img src="/images/blog/day-4-scratchcards-advent-of-code-2023-python/1-OuOdExI7ibdymv2K3E1Frw.png" alt="Booom!"></p>
+<p><em>Booom!</em></p>
+<p>Here’s the final pythonic code, with docstrings, list comprehentions and yada yada…I was feeling really happy to solve this with such precision! 🤌</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># --- Day 4: Scratchcards ---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>class ScratchCardProcessor:</span></span>
+<span class="line"><span>    """Processes scratch cards to calculate total points and total scratchcards."""</span></span>
+<span class="line"><span>    </span></span>
+<span class="line"><span>    def __init__(self, scratchcards: str):</span></span>
+<span class="line"><span>        """Initializes the processor with a string of scratchcards."""</span></span>
+<span class="line"><span>        self.scratchcards = scratchcards</span></span>
+<span class="line"><span>        self.repository = {self._get_card_id(scratchcard): 1 for scratchcard in self._get_lines()}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def calculate_total_points(self) -> int:</span></span>
+<span class="line"><span>        """Calculates the total points from all scratchcards."""</span></span>
+<span class="line"><span>        return sum(self._calculate_points(scratchcard) for scratchcard in self._get_lines())</span></span>
+<span class="line"><span>    </span></span>
+<span class="line"><span>    def calculate_total_scratchcards(self) -> int:</span></span>
+<span class="line"><span>        """Calculates the total number of scratchcards."""</span></span>
+<span class="line"><span>        for scratchcard in self._get_lines():</span></span>
+<span class="line"><span>            card_id = self._get_card_id(scratchcard)</span></span>
+<span class="line"><span>            match_count = self._get_match_count(scratchcard)</span></span>
+<span class="line"><span>            for i in range(1, match_count + 1):</span></span>
+<span class="line"><span>                self.repository[card_id + i] += self.repository[card_id]</span></span>
+<span class="line"><span>        </span></span>
+<span class="line"><span>        return sum(self.repository.values())</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def _get_lines(self):</span></span>
+<span class="line"><span>        """Splits the scratchcards string into individual lines."""</span></span>
+<span class="line"><span>        return self.scratchcards.splitlines()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def _get_card_id(self, scratchcard: str) -> int:</span></span>
+<span class="line"><span>        """Extracts the card ID from a scratchcard string."""</span></span>
+<span class="line"><span>        return int(scratchcard.split(":")[0].split()[1])</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def _get_match_count(self, scratchcard: str) -> int:</span></span>
+<span class="line"><span>        """Calculates the match count for a scratchcard."""</span></span>
+<span class="line"><span>        _, numbers = scratchcard.split(": ")</span></span>
+<span class="line"><span>        winning_numbers, your_numbers = (set(map(int, ns.split())) for ns in numbers.split(" | "))</span></span>
+<span class="line"><span>        return len(your_numbers &#x26; winning_numbers)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    def _calculate_points(self, scratchcard: str) -> int:</span></span>
+<span class="line"><span>        """Calculates points for a single scratchcard."""</span></span>
+<span class="line"><span>        match_count = self._get_match_count(scratchcard)</span></span>
+<span class="line"><span>        return 0 if match_count == 0 else 2 ** (match_count - 1)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @staticmethod</span></span>
+<span class="line"><span>    def test_calculate_total_points():</span></span>
+<span class="line"><span>        scratchcards = """Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53</span></span>
+<span class="line"><span>Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19</span></span>
+<span class="line"><span>Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1</span></span>
+<span class="line"><span>Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83</span></span>
+<span class="line"><span>Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36</span></span>
+<span class="line"><span>Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11</span></span>
+<span class="line"><span>"""</span></span>
+<span class="line"><span>        processor = ScratchCardProcessor(scratchcards)</span></span>
+<span class="line"><span>        total_points = processor.calculate_total_points()</span></span>
+<span class="line"><span>        assert total_points == 13, f"Expected 13, got {total_points}"</span></span>
+<span class="line"><span>        print("test_calculate_total_points passed!")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @staticmethod</span></span>
+<span class="line"><span>    def test_calculate_total_scratchcards():</span></span>
+<span class="line"><span>        scratchcards = """Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53</span></span>
+<span class="line"><span>Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19</span></span>
+<span class="line"><span>Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1</span></span>
+<span class="line"><span>Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83</span></span>
+<span class="line"><span>Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36</span></span>
+<span class="line"><span>Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11</span></span>
+<span class="line"><span>"""</span></span>
+<span class="line"><span>        processor = ScratchCardProcessor(scratchcards)</span></span>
+<span class="line"><span>        total_scratchcards = processor.calculate_total_scratchcards()</span></span>
+<span class="line"><span>        assert total_scratchcards == 30, f"Expected 30, got {total_scratchcards}"</span></span>
+<span class="line"><span>        print("test_calculate_total_scratchcards passed!")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def part_1():</span></span>
+<span class="line"><span>    with open("day_4/input.txt") as f:</span></span>
+<span class="line"><span>        scratchcards = f.read()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    processor = ScratchCardProcessor(scratchcards)</span></span>
+<span class="line"><span>    print(f"Total points: {processor.calculate_total_points()}")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>def part_2():</span></span>
+<span class="line"><span>    with open("day_4/input.txt") as f:</span></span>
+<span class="line"><span>        scratchcards = f.read()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    processor = ScratchCardProcessor(scratchcards)</span></span>
+<span class="line"><span>    print(f"Total scratchcards: {processor.calculate_total_scratchcards()}")</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if __name__ == "__main__":</span></span>
+<span class="line"><span>    ScratchCardProcessor.test_calculate_total_points()</span></span>
+<span class="line"><span>    part_1()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    ScratchCardProcessor.test_calculate_total_scratchcards()</span></span>
+<span class="line"><span>    part_2()</span></span></code></pre>
+<hr>
+<p>p.s: I am deliberating not adding answers here so you can actually spend some time trying to understand how we solved the problem!</p>
+<p>Feel free to checkout code on my Github repo and try to set it up and run on your machine 👇</p>
+<blockquote>
+<p><strong><a href="https://github.com/jatinkrmalik/advent-of-code-2023/tree/main">GitHub - jatinkrmalik/advent-of-code-2023: Advent of Code is an Advent calendar of small…</a></strong><br>
+Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can…github.com</p>
+</blockquote> </div> <footer class="post-foot" data-astro-cid-7jjqptxk> <div class="tags" data-astro-cid-7jjqptxk> <a class="chip" href="/tags/advent-of-code/" data-astro-cid-7jjqptxk>#advent-of-code</a><a class="chip" href="/tags/python/" data-astro-cid-7jjqptxk>#python</a> </div> <p class="origin" data-astro-cid-7jjqptxk>
+First published on Medium, December 2023.
+<a href="https://medium.com/@jatinkrmalik/day-4-scratchcards-advent-of-code-2023-python-550a074ccb37" rel="nofollow noopener" data-astro-cid-7jjqptxk>Original ↗</a>  </p> <div class="author" data-astro-cid-7jjqptxk> <img src="https://github.com/jatinkrmalik.png" alt="" width="56" height="56" loading="lazy" data-astro-cid-7jjqptxk> <div data-astro-cid-7jjqptxk> <p class="a-name" data-astro-cid-7jjqptxk><a href="/about/" data-astro-cid-7jjqptxk>Jatin Kumar Malik</a></p> <p class="a-bio" data-astro-cid-7jjqptxk>Principal Software Engineer at Atlassian, architecting distributed systems and building A2A AI platforms. Previously scaled platforms at Uber and shipped products at Adobe.</p> </div> </div> </footer> <div class="comments" id="comments" data-astro-cid-7jjqptxk> <script type="module">document.querySelectorAll(".archived .show-all").forEach(e=>e.addEventListener("click",()=>{e.closest(".archived")?.querySelectorAll("[data-more]").forEach(l=>l.hidden=!1),e.remove()}));</script>  </div> </div> <section class="wrap more" aria-labelledby="more-h" data-astro-cid-7jjqptxk> <h2 id="more-h" data-astro-cid-7jjqptxk>Keep reading</h2> <div class="grid" data-astro-cid-7jjqptxk> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/day-3-gear-ratios-advent-of-code-2023-python/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/day-3-gear-ratios-advent-of-code-2023-python/0-No8Nv0wHR69L20wj.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>advent-of-code</span> <time datetime="2023-12-03" data-astro-cid-iyiqi2so>Dec 2023</time> <span data-astro-cid-iyiqi2so>4 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/day-3-gear-ratios-advent-of-code-2023-python/" data-astro-cid-iyiqi2so>[Day 3] Gear Ratios // Advent of Code 2023 (Python)</a></h3> <p class="desc" data-astro-cid-iyiqi2so>Solving Advent of Code 2023 Day 3 in Python: finding part numbers adjacent to symbols in an engine schematic grid, then summing gear ratios for Part 2.</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/0-7CxW81AraoeLTPFf.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>advent-of-code</span> <time datetime="2023-12-06" data-astro-cid-iyiqi2so>Dec 2023</time> <span data-astro-cid-iyiqi2so>13 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/day-5-if-you-give-a-seed-a-fertilizer-advent-of-code-2023-python/" data-astro-cid-iyiqi2so>[Day 5] If You Give A Seed A Fertilizer// Advent of Code 2023 (Python)</a></h3> <p class="desc" data-astro-cid-iyiqi2so>You take the boat and find the gardener right where you were told he would be: managing a giant “garden” that looks more to you like a farm.</p> </div> </article> <article class="card" data-astro-cid-iyiqi2so> <a class="media" href="/blog/day-0-advent-of-code-2023/" tabindex="-1" aria-hidden="true" data-astro-cid-iyiqi2so> <img class="cover" src="/images/blog/day-0-advent-of-code-2023/0-mQRA1H5UIfkQ-NBc.thumb.webp" alt="" loading="lazy" decoding="async" data-astro-cid-e5kvktnr> </a> <div class="text" data-astro-cid-iyiqi2so> <p class="meta mono" data-astro-cid-iyiqi2so> <span class="tag" data-astro-cid-iyiqi2so>advent-of-code</span> <time datetime="2023-12-02" data-astro-cid-iyiqi2so>Dec 2023</time> <span data-astro-cid-iyiqi2so>1 min</span> </p> <h3 class="title" data-astro-cid-iyiqi2so><a href="/blog/day-0-advent-of-code-2023/" data-astro-cid-iyiqi2so>[Day 0] Advent of Code 2023</a></h3> <p class="desc" data-astro-cid-iyiqi2so>Advent of Code 2023 is here and I am planning to push code daily this time as the problems unfold!</p> </div> </article>  </div> </section> </article>  </main> <footer class="site-footer" data-astro-cid-5hce7sga> <div class="wrap foot" data-astro-cid-5hce7sga> <p data-astro-cid-5hce7sga>
+© 2026 Jatin Kumar Malik
+<span class="sep" data-astro-cid-5hce7sga>·</span> <a href="/rss.xml" data-astro-cid-5hce7sga>RSS</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://github.com/jatinkrmalik/jatinkrmalik.com" data-astro-cid-5hce7sga>Source</a> <span class="sep" data-astro-cid-5hce7sga>·</span> <a href="https://j47.in" data-astro-cid-5hce7sga>j47.in</a> </p> </div> </footer> <script type="module">const c=document.querySelector(".theme-toggle");c?.addEventListener("click",()=>{const e=document.documentElement,t=(e.dataset.theme??(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))==="dark"?"light":"dark";e.dataset.theme=t;try{localStorage.setItem("theme",t)}catch{}});</script> </body> </html>  
