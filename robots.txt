@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jatinkrmalik.com/sitemap-index.xml
+Sitemap: https://jatinkrmalik.com/sitemap.xml
