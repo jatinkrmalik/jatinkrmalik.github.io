@@ -55,12 +55,86 @@
 <p>I replied “Sure, thanks. I will check threading. :)”</p>
 <h2 id="on-tv">On TV!</h2>
 <p>The TV appearance was WION’s <a href="https://youtu.be/SPi1i-oI0Q4?t=788">Tech It Out, episode 44, “The future of Transportation”</a>. My bit starts at 13:08. The episode went up on YouTube on 9 August, and yeah, I only got round to tweeting it about four weeks later. Better late than never, eh?</p>
+<p>Here’s the bit, so you don’t have to scrub through the whole episode:</p>
+<p><video controls preload="metadata" playsinline width="1920" height="1080" poster="/images/blog/face-recognition-on-a-raspberry-pi-at-shuttl/wion-tech-it-out-shuttl-safe-poster.jpg" title="WION Tech It Out, episode 44: Shuttl&#x27;s S.A.F.E. bus, with face-recognition boarding" src="/images/blog/face-recognition-on-a-raspberry-pi-at-shuttl/wion-tech-it-out-shuttl-safe.mp4"></video></p>
+<p><em>WION’s Tech It Out, episode 44, from 13:02. That’s me walking up to the bus and getting on, and a few seconds later the screen says “Welcome, Jatin Malik”. 😎</em></p>
 <p>About an hour after the TV tweet I posted the onboarding screen in action, with three fire emoji and a misspelt hashtag (#FaceRecogniton, I know, I know).</p>
-<p><img src="/images/blog/face-recognition-on-a-raspberry-pi-at-shuttl/onboarding-screen.jpg" alt="A screen mounted inside a vehicle with a webcam on top. The UI shows a Shuttl logo, the time 1:22 PM, a Riders Boarded counter at 0, a live camera view with my face inside a face-detection box, and a red banner reading &#x22;Please align your face in the box&#x22;. The people behind me in the camera view are blurred." width="498" height="280" loading="lazy" decoding="async"></p>
-<p><em>A frame from the GIF I just posted. That’s me in the box, and the people behind me are blurred. The moving version is <a href="https://x.com/jatinkrmalik/status/905322898105106432">on the tweet</a>.</em></p>
+<p><img src="/images/blog/face-recognition-on-a-raspberry-pi-at-shuttl/onboarding-screen.gif" alt="A GIF of the Shuttl onboarding screen inside the bus, with a webcam on top. The live camera view shows my face inside a face-detection box over a red banner reading &#x22;Please align your face in the box&#x22;, then the banner turns green with &#x22;Welcome, Jatin Malik&#x22;, the Riders Boarded counter goes from 0 to 1, and I walk off into the bus." width="800" height="450" loading="lazy" decoding="async"></p>
+<p><em>Face in the box, “Welcome, Jatin Malik”, one rider boarded. Pulled from the WION footage above, so it’s a lot sharper than the GIF on the tweet.</em></p>
 <p>The flow is: stand in front of the screen, get your face into the box, and as soon as your face is matched the system plays an audio greeting with your name. “Hello Jatin”, in my case. Never gets old. 🔥</p>
 <p>If you want more of my Raspberry Pi tinkering, check out my <a href="/blog/raspberry-pi-2-model-b-1gb-wiki-walkthrough-guide/">Raspberry Pi 2 walkthrough</a>, along with the <a href="/blog/network-attached-storage-nas-raspberry-pi-2/">NAS</a> and <a href="/blog/create-lamp-web-server-raspberry-pi-2/">LAMP server</a> projects I built on it.</p>
-<p>Hit me up on <a href="https://x.com/jatinkrmalik">twitter</a> if you have questions about any of this. Till then, keep hacking! 😎</p>     </div> <dialog class="lightbox" aria-label="Image viewer"> <figure> <img alt=""> <figcaption></figcaption> </figure> <button type="button" class="lb-btn lb-prev" aria-label="Previous image">‹</button> <button type="button" class="lb-btn lb-next" aria-label="Next image">›</button> <button type="button" class="lb-btn lb-close" aria-label="Close">×</button> <span class="lb-count mono"></span> </dialog> <script>
+<p>Hit me up on <a href="https://x.com/jatinkrmalik">twitter</a> if you have questions about any of this. Till then, keep hacking! 😎</p>  <figure class="tweets" data-tweets aria-roledescription="carousel" aria-label="Posts from X" data-astro-cid-pmca4lew> <div class="tweets-track" tabindex="0" aria-label="Posts from X, 2 posts. Use the arrow keys to move." data-astro-cid-pmca4lew> <div class="tweets-card" data-astro-cid-pmca4lew> <blockquote class="x-quote" data-dnt="true" data-conversation="none" data-astro-cid-pmca4lew>  <p data-astro-cid-pmca4lew>I was on TV demonstrating the face recognition tech we made. Isn&#39;t that neat? Used #Python + #OpenCV3 + #AzureAPI</p> <a href="https://twitter.com/jatinkrmalik/status/905305914424541189" data-astro-cid-pmca4lew>@jatinkrmalik, 6 September 2017</a> </blockquote> </div><div class="tweets-card" data-astro-cid-pmca4lew> <blockquote class="x-quote" data-dnt="true" data-conversation="none" data-astro-cid-pmca4lew>  <p data-astro-cid-pmca4lew>🔥🔥🔥 #FaceRecogniton</p> <a href="https://twitter.com/jatinkrmalik/status/905322898105106432" data-astro-cid-pmca4lew>@jatinkrmalik, 6 September 2017</a> </blockquote> </div> </div> <div class="tweets-bar" data-astro-cid-pmca4lew> <button type="button" class="tweets-btn" data-prev aria-label="Previous post" data-astro-cid-pmca4lew>‹</button> <span class="tweets-count mono" aria-live="polite" data-astro-cid-pmca4lew><span data-cur data-astro-cid-pmca4lew>1</span> / 2</span> <button type="button" class="tweets-btn" data-next aria-label="Next post" data-astro-cid-pmca4lew>›</button> </div> <figcaption data-astro-cid-pmca4lew>The two posts from X linked above, in order.</figcaption> </figure> <script>
+  (() => {
+    document.querySelectorAll("[data-tweets]").forEach(box => {
+      const slot = document.querySelector("[data-tweets-slot]");
+      if (slot && !slot.contains(box)) slot.replaceWith(box);
+      const track = box.querySelector(".tweets-track");
+      const cards = [...track.querySelectorAll(".tweets-card")];
+      const cur = box.querySelector("[data-cur]");
+      box.classList.add("js");
+      const dark = (document.documentElement.dataset.theme ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
+      if (dark) cards.forEach(c => c.querySelector("blockquote")?.setAttribute("data-theme", "dark"));
+      // Turn a card's plain quote into an embed, once, when it is about to be seen.
+      let ready = false;
+      const upgrade = i => {
+        const c = cards[i];
+        if (!ready || !c || c.dataset.done) return;
+        c.dataset.done = "1";
+        c.querySelector("blockquote")?.classList.add("twitter-tweet");
+        window.twttr.widgets.load(c);
+      };
+      const warm = () => { upgrade(target); upgrade(target + 1); };
+      let target = 0;
+      // Embeds differ a lot in height, so the track follows the height of the card on show.
+      const fit = () => (track.style.height = cards[target].offsetHeight + "px");
+      if ("ResizeObserver" in window) {
+        const ro = new ResizeObserver(fit);
+        cards.forEach(c => ro.observe(c));
+      }
+      const go = i => {
+        target = Math.max(0, Math.min(cards.length - 1, i));
+        cur.textContent = target + 1;
+        fit();
+        warm();
+        track.scrollTo({left: target * track.clientWidth, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+      };
+      let t;
+      track.addEventListener("scroll", () => {
+        clearTimeout(t);
+        t = setTimeout(() => {
+          target = Math.round(track.scrollLeft / track.clientWidth);
+          cur.textContent = target + 1;
+          fit();
+          warm();
+        }, 60);
+      }, {passive: true});
+      box.querySelector("[data-prev]").addEventListener("click", () => go(target - 1));
+      box.querySelector("[data-next]").addEventListener("click", () => go(target + 1));
+      track.addEventListener("keydown", e => {
+        if (e.key === "ArrowRight") { e.preventDefault(); go(target + 1); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); go(target - 1); }
+      });
+      // Load X's script only when the carousel is about to be seen.
+      const load = () => {
+        if (window.twttr?.widgets) { ready = true; warm(); return; }
+        const had = document.querySelector("script[data-x-widgets]");
+        if (had) { had.addEventListener("load", () => window.twttr.ready(() => { ready = true; warm(); })); return; }
+        const s = document.createElement("script");
+        s.src = "https://platform.twitter.com/widgets.js";
+        s.async = true;
+        s.dataset.xWidgets = "";
+        s.onload = () => window.twttr.ready(() => { ready = true; warm(); });
+        document.head.appendChild(s);
+      };
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(es => {
+          if (es.some(e => e.isIntersecting)) { load(); io.disconnect(); }
+        }, {rootMargin: "600px"});
+        io.observe(box);
+      } else load();
+    });
+  })();
+</script>    </div> <dialog class="lightbox" aria-label="Image viewer"> <figure> <img alt=""> <figcaption></figcaption> </figure> <button type="button" class="lb-btn lb-prev" aria-label="Previous image">‹</button> <button type="button" class="lb-btn lb-next" aria-label="Next image">›</button> <button type="button" class="lb-btn lb-close" aria-label="Close">×</button> <span class="lb-count mono"></span> </dialog> <script>
   (() => {
     const dlg = document.querySelector("dialog.lightbox");
     const prose = document.querySelector(".prose");
