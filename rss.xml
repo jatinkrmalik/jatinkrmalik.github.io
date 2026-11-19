@@ -10,7 +10,7 @@
 &lt;hr&gt;
 &lt;p&gt;A bunch of new folks joined my team recently, so I put together a short talk for them. Well, for them &lt;em&gt;and&lt;/em&gt; for everyone who has been around long enough to still ask “which repo was that in?” 🙃&lt;/p&gt;
 &lt;p&gt;The point wasn’t onboarding trivia. Nobody is expected to arrive knowing every tool, permission check, repository or historical decision. The point was a handful of habits that make working together easier, habits we can practise on each other. This post is that talk, minus the slides. The examples are made up, but I bet you’ve seen every one of them.&lt;/p&gt;
-&lt;h2 id=&quot;-fresh-eyes-are-useful&quot;&gt;👀 Fresh eyes are useful&lt;/h2&gt;
+&lt;h2 id=&quot;fresh-eyes-are-useful&quot;&gt;Fresh eyes are useful&lt;/h2&gt;
 &lt;p&gt;If setup feels confusing to a new joiner, that’s not a them problem. That’s feedback.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;If you’re new:&lt;/strong&gt; ask early. Show where you got stuck. Your question might save the next person an hour.&lt;/li&gt;
@@ -22,7 +22,7 @@
 &lt;p&gt;What would you send in the team channel? And what would a helpful reply look like?&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&quot;https://jatinkrmalik.com/images/blog/lift-each-other-up/fresh-eyes-day-3.svg&quot; alt=&quot;A hand-drawn setup doc that says &amp;#x22;just run it&amp;#x22;, an arrow to a terminal showing &amp;#x22;$ ./setup.sh&amp;#x22;, &amp;#x22;ERROR: exit 1&amp;#x22; and &amp;#x22;permission denied&amp;#x22; in red, and a confused stick figure with question marks above their head, labelled day 3.&quot; width=&quot;800&quot; height=&quot;360&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;-hello-with-the-useful-bit-attached&quot;&gt;💬 Hello, with the useful bit attached&lt;/h2&gt;
+&lt;h2 id=&quot;hello-with-the-useful-bit-attached&quot;&gt;Hello, with the useful bit attached&lt;/h2&gt;
 &lt;p&gt;I’ve &lt;a href=&quot;https://jatinkrmalik.com/blog/dont-ask-to-ask-just-ask/&quot;&gt;written about this before&lt;/a&gt;, and I’ll keep repeating it till the heat death of the universe. Compare:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;❌ “Hey, got a minute?”&lt;/p&gt;
@@ -38,7 +38,7 @@
 &lt;p&gt;&lt;img src=&quot;https://jatinkrmalik.com/images/blog/lift-each-other-up/help-request.svg&quot; alt=&quot;A hand-drawn help request card with four parts. Trying: Run the Jira tool locally. Tried: Completed setup and retried the same request. Seeing: A 403. Error, environment and request ID are in the thread. Need: A pointer to the right access check, or ten minutes pairing.&quot; width=&quot;800&quot; height=&quot;434&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/p&gt;
 &lt;p&gt;A partial investigation is enough. Say where you’re stuck. If you couldn’t find an error or a request ID, say that too. Asking for help shouldn’t turn into homework.&lt;/p&gt;
 &lt;p&gt;And if you’re the one replying: a 403 doesn’t prove any particular cause. Help find the failing check first. (Also, never paste credentials into a help request. Ever.)&lt;/p&gt;
-&lt;h2 id=&quot;-our-broken-windows-wear-todos&quot;&gt;🪟 Our broken windows wear TODOs&lt;/h2&gt;
+&lt;h2 id=&quot;our-broken-windows-wear-todos&quot;&gt;Our broken windows wear TODOs&lt;/h2&gt;
 &lt;p&gt;The &lt;a href=&quot;https://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/&quot;&gt;broken windows idea&lt;/a&gt; comes from Wilson and Kelling (1982). Its use in policing is controversial, so I’m only borrowing it as a metaphor: visible neglect sends a signal, and small bits of neglect start to look normal. In a codebase they look like this:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;The flaky test:&lt;/strong&gt; the third retry is now the test strategy.&lt;/li&gt;
@@ -50,7 +50,7 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&quot;https://jatinkrmalik.com/images/blog/lift-each-other-up/broken-windows.svg&quot; alt=&quot;A hand-drawn house labelled codebase with six cracked windows, each with a sticky note: flaky test, stale tool description, setup doc, &amp;#x22;temporary&amp;#x22; workaround with a tiny birthday cake showing 2, unowned TODO, and missing test.&quot; width=&quot;800&quot; height=&quot;470&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Make a small repair, or leave a clear owner and a follow-up. Keep it proportionate though: a small cleanup is helpful, a surprise rewrite in an unrelated PR is a nightmare to review. And a new joiner who points out a gap is already helping.&lt;/p&gt;
-&lt;h2 id=&quot;-visibility-needs-an-owner&quot;&gt;🚨 Visibility needs an owner&lt;/h2&gt;
+&lt;h2 id=&quot;visibility-needs-an-owner&quot;&gt;Visibility needs an owner&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Pause here:&lt;/strong&gt; Main is red. Six people have seen it.&lt;/p&gt;
 &lt;p&gt;Who owns the next move? What’s the first message you’d send?&lt;/p&gt;
@@ -64,7 +64,7 @@
 &lt;li&gt;&lt;strong&gt;You’re handing over:&lt;/strong&gt; “Here’s what I checked, and the next useful step.”&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Owning it can mean coordinating and asking for help. It doesn’t mean doing every task yourself, and being new doesn’t mean you’re expected to fix an unfamiliar failure alone.&lt;/p&gt;
-&lt;h2 id=&quot;-no-meat-proxy&quot;&gt;🤖 No meat proxy&lt;/h2&gt;
+&lt;h2 id=&quot;no-meat-proxy&quot;&gt;No meat proxy&lt;/h2&gt;
 &lt;p&gt;AI can help. You still own the answer.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;❌ “The AI says it’s probably auth.”&lt;/p&gt;
@@ -75,7 +75,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&quot;https://jatinkrmalik.com/images/blog/lift-each-other-up/meat-proxy.svg&quot; alt=&quot;Two hand-drawn flows from an AI robot to you to a teammate. Crossed out: the note &amp;#x22;probably auth&amp;#x22; is passed from the AI through you to the teammate unchanged. Ticked: you take &amp;#x22;probably auth&amp;#x22;, check the trace with a magnifying glass, and pass on &amp;#x22;verified: this check, not yet known: why&amp;#x22;.&quot; width=&quot;800&quot; height=&quot;420&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Be clear about what you verified and what you still don’t know. &lt;a href=&quot;https://nomeatproxy.com/&quot;&gt;No Meat Proxy&lt;/a&gt; puts it nicely: read, understand and verify AI output before you pass it on to people or submit it as work. Using AI is welcome, the responsibility just stays with you. For code, that means you can explain the change and the tests you ran.&lt;/p&gt;
-&lt;h2 id=&quot;️-a-pr-should-spare-us-a-treasure-hunt&quot;&gt;🗺️ A PR should spare us a treasure hunt&lt;/h2&gt;
+&lt;h2 id=&quot;a-pr-should-spare-us-a-treasure-hunt&quot;&gt;A PR should spare us a treasure hunt&lt;/h2&gt;
 &lt;p&gt;Give the reviewer a starting point:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;What changed:&lt;/strong&gt; “Handle an error case in tool execution.”&lt;/li&gt;
@@ -85,7 +85,7 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&quot;https://jatinkrmalik.com/images/blog/lift-each-other-up/pr-treasure-map.svg&quot; alt=&quot;A hand-drawn treasure map. A reviewer stick figure starts on a dotted path with four numbered stops: what changed, why it matters, what you checked, where you need eyes. The path ends at a red X marked LGTM!&quot; width=&quot;800&quot; height=&quot;400&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Link the issue, and flag the decision you want the reviewer to look at. If you couldn’t run a check, say so. And if you’re new, a perfectly good review request is “can you check my understanding of how this works today?”&lt;/p&gt;
-&lt;h2 id=&quot;-the-engineers-dilemma&quot;&gt;🎲 The engineer’s dilemma&lt;/h2&gt;
+&lt;h2 id=&quot;the-engineers-dilemma&quot;&gt;The engineer’s dilemma&lt;/h2&gt;
 &lt;p&gt;This one is loosely inspired by the prisoner’s dilemma. It’s an analogy, not a payoff model:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://jatinkrmalik.com/images/blog/lift-each-other-up/engineers-dilemma.svg&quot; alt=&quot;A hand-drawn 2 by 2 grid. If I help and they help: we share the work, useful reviews, shared context. If I help and they skip: I carry it, work depends on one person. If I skip and they help: they carry it, my shortcut becomes their interruption. If I skip and they skip: we both lose time, more guesswork, more rework.&quot; width=&quot;800&quot; height=&quot;440&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Skipping a review can save &lt;em&gt;me&lt;/em&gt; time today. If we all skip it, everyone inherits the risk. 🔥&lt;/p&gt;
@@ -100,7 +100,7 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&quot;https://jatinkrmalik.com/images/blog/lift-each-other-up/reciprocity-loop.svg&quot; alt=&quot;A hand-drawn loop of four boxes with arrows: help first, be clear, speak up kindly, reset quickly, then back to help first, around a heart labelled trust.&quot; width=&quot;800&quot; height=&quot;360&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Reciprocity, with room for mistakes. (And no, “mirror the other player” doesn’t mean retaliating against your colleagues. 😅)&lt;/p&gt;
-&lt;h2 id=&quot;-feedback-someone-can-use&quot;&gt;📝 Feedback someone can use&lt;/h2&gt;
+&lt;h2 id=&quot;feedback-someone-can-use&quot;&gt;Feedback someone can use&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;In a PR:&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“Could we add a test for a missing &lt;code&gt;cloudId&lt;/code&gt;? I think this path returns before we validate it.”&lt;/p&gt;
@@ -111,7 +111,7 @@
 &lt;p&gt;“That setup step was missing. I’ve added it to the doc. Thanks for spotting it.”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Make the answer reusable so it isn’t trapped in a private chat, and credit the person who asked as well as the person who answered. A question that improves the docs is a contribution.&lt;/p&gt;
-&lt;h2 id=&quot;️-one-thing-this-week&quot;&gt;⛰️ One thing this week&lt;/h2&gt;
+&lt;h2 id=&quot;one-thing-this-week&quot;&gt;One thing this week&lt;/h2&gt;
 &lt;p&gt;What can we make easier for the next teammate?&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://jatinkrmalik.com/images/blog/lift-each-other-up/four-habits.svg&quot; alt=&quot;Four hand-drawn steps rising left to right: ask with context, own the next step, verify what you share, leave a clearer path. A stick figure starts on the first step; at the top a flag and a cheering stick figure labelled next teammate.&quot; width=&quot;800&quot; height=&quot;380&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Pick one small repair this week: a setup step, a flaky test, a tool description, a missing explanation. And thank the person who helps you make it. 🙌&lt;/p&gt;
